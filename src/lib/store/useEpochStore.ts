@@ -8,6 +8,14 @@ import {
 } from "@/types/schema";
 import { getEntityById } from "@/lib/data/dataset";
 
+export type CameraActionType =
+  | "zoom_in"
+  | "zoom_out"
+  | "rotate_left"
+  | "rotate_right"
+  | "top_down"
+  | "reset";
+
 interface EpochStoreState {
   // Navigation & Landing
   isEntered: boolean;
@@ -21,6 +29,7 @@ interface EpochStoreState {
   explodedProgress: number; // 0.0 to 1.0
   targetCameraPos: [number, number, number] | null;
   targetLookAt: [number, number, number] | null;
+  cameraAction: { type: CameraActionType; timestamp: number } | null;
 
   // Modals & Panels
   isSearchOpen: boolean;
@@ -52,6 +61,7 @@ interface EpochStoreState {
     pos: [number, number, number],
     lookAt: [number, number, number]
   ) => void;
+  triggerCameraAction: (type: CameraActionType) => void;
 
   // Search & Filters
   setSearchOpen: (open: boolean) => void;
@@ -91,6 +101,7 @@ export const useEpochStore = create<EpochStoreState>((set, get) => ({
   explodedProgress: 0.0,
   targetCameraPos: null,
   targetLookAt: null,
+  cameraAction: null,
 
   isSearchOpen: false,
   isFilterOpen: false,
@@ -154,6 +165,10 @@ export const useEpochStore = create<EpochStoreState>((set, get) => ({
     lookAt: [number, number, number]
   ) => {
     set({ targetCameraPos: pos, targetLookAt: lookAt });
+  },
+
+  triggerCameraAction: (type: CameraActionType) => {
+    set({ cameraAction: { type, timestamp: Date.now() } });
   },
 
   setSearchOpen: (open: boolean) => {

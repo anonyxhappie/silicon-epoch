@@ -1241,5 +1241,383 @@
       "scale_factor": 1.55
     },
     "sources": ["src-deepseek-r1-2025"]
+  },
+  {
+    "id": "llama-3-3-70b",
+    "type": "model",
+    "name": "Llama 3.3 70B",
+    "aliases": ["Meta Llama 3.3", "Llama 3.3 70B Instruct"],
+    "creator": "org-meta",
+    "creator_name": "Meta AI",
+    "release_date": "2024-12-06",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open Frontier Dense LLM",
+    "model_family": "llama",
+    "architecture": {
+      "type": "Autoregressive Causal Transformer Decoder",
+      "subtype": "80-layer Dense Transformer with GQA",
+      "publicly_disclosed": true,
+      "notes": "70 billion dense parameters delivering prior 405B capability through synthetic data distillation and enhanced post-training."
+    },
+    "parameters": {
+      "total_billion": 70.0,
+      "active_billion": 70.0,
+      "notes": "70 billion dense active parameters."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU",
+        "score": 88.6,
+        "unit": "percent",
+        "setting": "5-shot CoT",
+        "source": "src-llama33-2024"
+      },
+      {
+        "benchmark_id": "human-eval",
+        "benchmark_name": "HumanEval",
+        "score": 88.4,
+        "unit": "percent",
+        "setting": "0-shot pass@1",
+        "source": "src-llama33-2024"
+      }
+    ],
+    "modalities": ["text", "code"],
+    "availability": "open_weights",
+    "license": "Llama 3.3 Community License",
+    "summary": "Delivers the industry-standard intelligence of Meta's flagship 405B model inside a lightweight 70B footprint, accessible on single-node GPU systems.",
+    "key_innovations": [
+      "Distillation of 405B reasoning and knowledge into 70B parameters",
+      "128k context window with low latency inference",
+      "Massive cost reduction for enterprise open-weights deployment"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.96,
+      "scale_factor": 1.45
+    },
+    "sources": ["src-llama33-2024"]
+  },
+  {
+    "id": "qwq-32b",
+    "type": "model",
+    "name": "QwQ-32B",
+    "aliases": ["Qwen QwQ-32B-Preview", "Alibaba QwQ"],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba Cloud / Qwen Team",
+    "release_date": "2024-11-27",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open Reasoning Model",
+    "model_family": "qwen",
+    "architecture": {
+      "type": "Test-Time Reasoning Transformer",
+      "subtype": "32B Dense Transformer with Extended Thinking",
+      "publicly_disclosed": true,
+      "notes": "Large-scale reinforcement learning for long-horizon mathematical and algorithmic chain-of-thought."
+    },
+    "parameters": {
+      "total_billion": 32.5,
+      "active_billion": 32.5,
+      "notes": "32.5 billion dense parameters."
+    },
+    "context_window": {
+      "value": 32768,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "aime-2024",
+        "benchmark_name": "AIME 2024",
+        "score": 76.5,
+        "unit": "percent",
+        "setting": "Pass@1",
+        "source": "src-qwq-2024"
+      },
+      {
+        "benchmark_id": "math-500",
+        "benchmark_name": "MATH-500",
+        "score": 90.6,
+        "unit": "percent",
+        "setting": "Pass@1",
+        "source": "src-qwq-2024"
+      }
+    ],
+    "modalities": ["text", "code"],
+    "availability": "open_weights",
+    "license": "Apache-2.0",
+    "summary": "Pioneered open-weights test-time compute reasoning, demonstrating that a 32B model can match early proprietary reasoning systems on math benchmarks.",
+    "key_innovations": [
+      "Open reasoning chain-of-thought generation in a 32B dense footprint",
+      "Competitive with closed reasoning models on MATH-500",
+      "Deep integration of recursive self-correction and reflection steps"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.94,
+      "scale_factor": 1.35
+    },
+    "sources": ["src-qwq-2024"]
+  },
+  {
+    "id": "nvidia-blackwell-b200",
+    "type": "hardware",
+    "name": "NVIDIA Blackwell GB200 NVL72",
+    "aliases": ["Blackwell B200", "GB200 NVL72 Rack"],
+    "creator": "org-nvidia",
+    "creator_name": "NVIDIA Corporation",
+    "release_date": "2025-01-10",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Compute Platform",
+    "architecture": {
+      "type": "Dual-Die 4NP Semiconductor with NVLink 5 Switch Spine",
+      "publicly_disclosed": true,
+      "notes": "208 billion transistors across dual reticle-limit dies connected by 10 TB/s NV-HBI chip-to-chip link. 192GB HBM3e per GPU (8 TB/s)."
+    },
+    "summary": "Massive 208-billion transistor dual-die AI accelerator system, connecting 72 Blackwell GPUs via NVLink 5 into a single giant 1.4 exaFLOPS inference engine.",
+    "key_innovations": [
+      "2nd Generation Transformer Engine supporting microscopic FP4 quantization",
+      "20 PFLOPS FP4 inference compute per dual-die GPU (30x faster inference vs H100)",
+      "Liquid-cooled NVLink spine interconnecting 72 GPUs with 130 TB/s bisection bandwidth"
+    ],
+    "visual": {
+      "entity_shape": "hardware_module",
+      "importance": 0.99,
+      "scale_factor": 1.6
+    },
+    "sources": ["src-blackwell-2024"]
+  },
+  {
+    "id": "openai-o3",
+    "type": "model",
+    "name": "OpenAI o3",
+    "aliases": ["o3 Frontier Reasoning", "OpenAI o3-mini / o3"],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2025-01-31",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Reasoning System",
+    "model_family": "o-series",
+    "architecture": {
+      "type": "Advanced Test-Time Compute Scaling Architecture",
+      "publicly_disclosed": false,
+      "notes": "Second-generation reasoning architecture allocating dynamic search and verification trees."
+    },
+    "parameters": {
+      "total_billion": null,
+      "active_billion": null,
+      "notes": "Not publicly disclosed by OpenAI."
+    },
+    "context_window": {
+      "value": 200000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "arc-agi",
+        "benchmark_name": "ARC-AGI Benchmark",
+        "score": 87.5,
+        "unit": "percent",
+        "setting": "High compute test-time search",
+        "source": "src-openai-o3-2025"
+      },
+      {
+        "benchmark_id": "aime-2024",
+        "benchmark_name": "AIME 2024 (Math Olympiad)",
+        "score": 96.7,
+        "unit": "percent",
+        "setting": "Consensus pass@1",
+        "source": "src-openai-o3-2025"
+      },
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench Verified",
+        "score": 71.7,
+        "unit": "percent",
+        "setting": "Autonomous software engineering",
+        "source": "src-openai-o3-2025"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 1.10,
+        "output": 4.40,
+        "effective_date": "2025-01-31",
+        "source": "src-openai-o3-2025"
+      }
+    ],
+    "modalities": ["text", "code", "image"],
+    "availability": "api",
+    "summary": "State-of-the-art frontier reasoning model breaking the 87% barrier on ARC-AGI novel reasoning tasks and scoring 96.7% on the American Invitational Mathematics Examination.",
+    "key_innovations": [
+      "Record ARC-AGI reasoning score (87.5%) bridging novel generalization gap",
+      "SWE-bench Verified pass rate exceeding 71% for end-to-end software patch generation",
+      "Multimodal test-time thinking across diagrams, code, and formal verification"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1.0,
+      "scale_factor": 1.6
+    },
+    "sources": ["src-openai-o3-2025"]
+  },
+  {
+    "id": "gemini-2-pro",
+    "type": "model",
+    "name": "Gemini 2.0 Pro",
+    "aliases": ["Google Gemini 2.0 Pro / Flash", "Gemini 2.0 Flash Thinking"],
+    "creator": "org-deepmind",
+    "creator_name": "Google DeepMind",
+    "release_date": "2025-02-05",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Multimodal Agentic Model",
+    "model_family": "gemini",
+    "architecture": {
+      "type": "Native Multimodal Sparsely-Gated Transformer",
+      "publicly_disclosed": false,
+      "notes": "Native audio, video, text, and code processing with integrated real-time streaming pipelines and 2M token context."
+    },
+    "parameters": {
+      "total_billion": null,
+      "active_billion": null,
+      "notes": "Not publicly disclosed by Google."
+    },
+    "context_window": {
+      "value": 2000000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU-Pro",
+        "score": 75.8,
+        "unit": "percent",
+        "setting": "5-shot CoT",
+        "source": "src-gemini2-2025"
+      },
+      {
+        "benchmark_id": "human-eval",
+        "benchmark_name": "HumanEval",
+        "score": 93.4,
+        "unit": "percent",
+        "setting": "0-shot pass@1",
+        "source": "src-gemini2-2025"
+      }
+    ],
+    "modalities": ["text", "image", "audio", "video", "code"],
+    "availability": "api",
+    "summary": "Google's flagship agentic multimodal model offering 2,000,000 token context window, native sub-second live audio-video streaming, and autonomous multi-tool grounding.",
+    "key_innovations": [
+      "Native bidirectional audio and live video streaming with low latency",
+      "Industry-standard 2 Million token context window with full fidelity recall",
+      "Deep grounding with Google Search, code execution sandbox, and external APIs"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.98,
+      "scale_factor": 1.55
+    },
+    "sources": ["src-gemini2-2025"]
+  },
+  {
+    "id": "claude-3-7-sonnet",
+    "type": "model",
+    "name": "Claude 3.7 Sonnet",
+    "aliases": ["Anthropic Claude 3.7", "Claude 3.7 Hybrid Reasoning"],
+    "creator": "org-anthropic",
+    "creator_name": "Anthropic",
+    "release_date": "2025-02-24",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Hybrid Reasoning Frontier",
+    "model_family": "claude",
+    "architecture": {
+      "type": "Hybrid Instant & Extended Thinking Multimodal Transformer",
+      "publicly_disclosed": false,
+      "notes": "Allows dynamic user-controlled reasoning token budgets while maintaining native low-latency agentic execution."
+    },
+    "parameters": {
+      "total_billion": null,
+      "active_billion": null,
+      "notes": "Not publicly disclosed by Anthropic."
+    },
+    "context_window": {
+      "value": 200000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench Verified",
+        "score": 70.3,
+        "unit": "percent",
+        "setting": "Extended thinking agent pass@1",
+        "source": "src-claude37-2025"
+      },
+      {
+        "benchmark_id": "tau-bench",
+        "benchmark_name": "TAU-bench (Telecom)",
+        "score": 81.2,
+        "unit": "percent",
+        "setting": "Autonomous API tool orchestration",
+        "source": "src-claude37-2025"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 3.0,
+        "output": 15.0,
+        "effective_date": "2025-02-24",
+        "source": "src-claude37-2025"
+      }
+    ],
+    "modalities": ["text", "image", "code"],
+    "availability": "api",
+    "summary": "The first hybrid frontier model combining standard low-latency generation with continuous extended thinking capabilities, dominating autonomous software engineering benchmarks.",
+    "key_innovations": [
+      "Dynamic thinking budget control adjusting reasoning depth per request",
+      "State-of-the-art 70.3% pass rate on SWE-bench Verified coding tasks",
+      "Seamless integration of internal reasoning tokens with real-time tool chaining"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1.0,
+      "scale_factor": 1.6
+    },
+    "sources": ["src-claude37-2025"]
+  },
+  {
+    "id": "nvidia-rubin",
+    "type": "hardware",
+    "name": "NVIDIA Vera Rubin Architecture",
+    "aliases": ["NVIDIA Rubin R100", "Rubin Ultra"],
+    "creator": "org-nvidia",
+    "creator_name": "NVIDIA Corporation",
+    "release_date": "2026-03-18",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Next-Gen AI Hardware",
+    "architecture": {
+      "type": "3nm Semiconductor Platform with HBM4 & Optical Interconnect",
+      "publicly_disclosed": true,
+      "notes": "3nm TSMC manufacturing with 288GB HBM4 memory, Vera CPU integration, and NVLink 6 (3.6 TB/s per GPU)."
+    },
+    "summary": "Next-generation 3nm accelerated compute architecture introducing 6th Generation Tensor Cores, HBM4 ultra-high-speed memory stacking, and co-packaged optical networking.",
+    "key_innovations": [
+      "HBM4 3D memory architecture delivering up to 288GB per GPU at >12 TB/s",
+      "Co-packaged optical NVLink 6 interconnects eliminating copper cable attenuation",
+      "Vera CPU integrated on-package for zero-overhead host-to-device kernel launches"
+    ],
+    "visual": {
+      "entity_shape": "hardware_module",
+      "importance": 0.99,
+      "scale_factor": 1.65
+    },
+    "sources": ["src-rubin-2026"]
   }
 ]

@@ -11,6 +11,7 @@ import { EntityInspector } from "@/components/entity/EntityInspector";
 import { CompareDock } from "@/components/compare/CompareDock";
 import { CompareModal } from "@/components/compare/CompareModal";
 import { MobileFallbackView } from "@/components/mobile/MobileFallbackView";
+import { CameraControlsWidget } from "@/components/ui/CameraControlsWidget";
 import { useEpochStore } from "@/lib/store/useEpochStore";
 
 // Dynamically import 3D Canvas with SSR disabled to ensure WebGL context initializes safely
@@ -55,6 +56,7 @@ function SiliconEpochContent() {
       {viewMode === "3d" ? (
         <div className="w-full h-full">
           <SiliconEpochCanvas />
+          <CameraControlsWidget />
           <TimelineScrubber />
         </div>
       ) : (
