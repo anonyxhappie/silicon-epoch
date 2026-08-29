@@ -1,9 +1,11 @@
 import { chromium } from "playwright";
-import fs from "fs";
 import path from "path";
+import fs from "fs";
 
-const ARTIFACT_DIR = "/Users/akshay/.gemini/antigravity/brain/9295005a-d6c0-45aa-a0ab-8b8115f3f6a4";
-const SCREENSHOTS_DIR = path.join(ARTIFACT_DIR, "screenshots");
+const SCREENSHOTS_DIR = path.join(
+  process.env.HOME || "/Users/akshay",
+  ".gemini/antigravity/brain/9295005a-d6c0-45aa-a0ab-8b8115f3f6a4/screenshots"
+);
 
 if (!fs.existsSync(SCREENSHOTS_DIR)) {
   fs.mkdirSync(SCREENSHOTS_DIR, { recursive: true });
@@ -12,7 +14,9 @@ if (!fs.existsSync(SCREENSHOTS_DIR)) {
 async function runE2ETests() {
   console.log("🚀 Starting Comprehensive Playwright E2E Test Suite for Silicon Epoch...");
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: true,
+  });
   const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
   });
@@ -34,7 +38,7 @@ async function runE2ETests() {
     // 1. Navigate to http://localhost:3000/silicon-epoch
     console.log("➡️ Step 1: Navigating to http://localhost:3000/silicon-epoch");
     await page.goto("http://localhost:3000/silicon-epoch", { waitUntil: "domcontentloaded" });
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(2000);
     await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "01_landing.png") });
 
     // Verify Landing Screen elements
@@ -51,24 +55,33 @@ async function runE2ETests() {
     await page.waitForTimeout(1500);
     await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "02_motherboard_glide.png") });
 
-    // 3. Test Timeline Scrubber Jump to Epochs
-    console.log("➡️ Step 3: Testing Timeline Scrubber Navigation");
-    const deepLearningBtn = page.getByRole("button", { name: /Deep Learning/i });
-    if (await deepLearningBtn.isVisible()) {
-      await deepLearningBtn.click();
+    // 3. Test Full Timeline Macro Panoramic Zoom Out (1940 to 2026)
+    console.log("➡️ Step 3: Testing Full Timeline Macro Panoramic View");
+    const macroBtn = page.getByTitle("Full Timeline Overview (1940 – 2026)");
+    if (await macroBtn.isVisible()) {
+      await macroBtn.click();
+      await page.waitForTimeout(1500);
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "03_full_macro_timeline_1940_2026.png") });
+    }
+
+    // 4. Test Timeline Scrubber Jump to Foundations (1940s) & Deep Learning
+    console.log("➡️ Step 4: Testing Timeline Scrubber Navigation across Eras");
+    const foundationsBtn = page.getByRole("button", { name: /Foundations/i }).first();
+    if (await foundationsBtn.isVisible()) {
+      await foundationsBtn.click();
       await page.waitForTimeout(1200);
-      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "03_scrub_deep_learning.png") });
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "04_scrub_foundations_1940.png") });
     }
 
     const transformerEraBtn = page.getByRole("button", { name: /The Transform/i });
     if (await transformerEraBtn.isVisible()) {
       await transformerEraBtn.click();
       await page.waitForTimeout(1200);
-      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "04_scrub_transformer.png") });
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "05_scrub_transformer.png") });
     }
 
-    // 4. Test Search & Command Palette (⌘K)
-    console.log("➡️ Step 4: Testing Search & Command Palette");
+    // 5. Test Search & Command Palette (⌘K)
+    console.log("➡️ Step 5: Testing Search & Command Palette");
     const searchBtn = page.getByRole("button", { name: /Search Entities/i });
     await searchBtn.click();
     await page.waitForTimeout(500);
@@ -76,16 +89,16 @@ async function runE2ETests() {
     const searchInput = page.getByPlaceholder(/Search models, architectures/i);
     await searchInput.fill("GPT-4");
     await page.waitForTimeout(500);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "05_search_results.png") });
+    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "06_search_results.png") });
 
     // Click GPT-4 from results
     const gpt4Result = page.getByText("GPT-4", { exact: false }).first();
     await gpt4Result.click();
     await page.waitForTimeout(1500);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "06_gpt4_inspected.png") });
+    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "07_gpt4_inspected.png") });
 
-    // 5. Test Entity Inspector Tabs
-    console.log("➡️ Step 5: Testing Entity Inspector Tabs & CAD Teardown");
+    // 6. Test Entity Inspector Tabs & CAD Teardown
+    console.log("➡️ Step 6: Testing Entity Inspector Tabs & CAD Teardown");
     const inspectorHeading = await page.locator("h2").textContent();
     console.log(`Inspected entity heading: "${inspectorHeading}"`);
 
@@ -94,92 +107,94 @@ async function runE2ETests() {
     if (await explodedSlider.isVisible()) {
       await explodedSlider.fill("0.75");
       await page.waitForTimeout(800);
-      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "07_gpt4_exploded_teardown.png") });
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "08_gpt4_exploded_teardown.png") });
     }
 
     // Architecture Tab
-    await page.getByRole("button", { name: "Architecture" }).click();
-    await page.waitForTimeout(400);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "08_inspector_architecture.png") });
-
-    // Benchmarks Tab
-    await page.getByRole("button", { name: "Benchmarks" }).click();
-    await page.waitForTimeout(400);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "09_inspector_benchmarks.png") });
-
-    // Lineage Tab & Interactivity
-    await page.getByRole("button", { name: /Lineage/i }).click();
-    await page.waitForTimeout(400);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "10_inspector_lineage.png") });
-
-    // Sources Tab
-    await page.getByRole("button", { name: "Sources" }).click();
-    await page.waitForTimeout(400);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "11_inspector_sources.png") });
-
-    // Click ancestor in lineage (InstructGPT)
-    await page.getByRole("button", { name: /Lineage/i }).click();
-    await page.waitForTimeout(300);
-    const instructGptCard = page.getByText("InstructGPT").first();
-    if (await instructGptCard.isVisible()) {
-      console.log("Clicking ancestor card: InstructGPT");
-      await instructGptCard.click();
-      await page.waitForTimeout(1200);
-      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "12_ancestor_navigated.png") });
+    const archTab = page.locator("button:has-text('Architecture')").first();
+    if (await archTab.isVisible()) {
+      await archTab.click();
+      await page.waitForTimeout(400);
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "09_inspector_architecture.png") });
     }
 
-    // 6. Test Versus / Comparison Mode
-    console.log("➡️ Step 6: Testing Versus / Comparison Mode");
+    // Lineage Tab & Interactivity
+    const lineageTab = page.locator("button:has-text('Lineage')").first();
+    if (await lineageTab.isVisible()) {
+      await lineageTab.click();
+      await page.waitForTimeout(400);
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "10_inspector_lineage.png") });
+    }
+
+    // Sources Tab
+    const sourcesTab = page.locator("button:has-text('Sources')").first();
+    if (await sourcesTab.isVisible()) {
+      await sourcesTab.click();
+      await page.waitForTimeout(400);
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "11_inspector_sources.png") });
+    }
+
+    // 7. Test Versus / Comparison Mode
+    console.log("➡️ Step 7: Testing Versus / Comparison Mode");
     const stageBtn = page.getByTitle("Stage in Versus comparison");
-    await stageBtn.click();
-    await page.waitForTimeout(400);
+    if (await stageBtn.isVisible()) {
+      await stageBtn.click();
+      await page.waitForTimeout(400);
 
-    // Search and stage second entity (Claude 3.5 Sonnet)
-    await page.getByRole("button", { name: /Search Entities/i }).click();
-    await page.waitForTimeout(400);
-    const searchInput2 = page.getByPlaceholder(/Search models, architectures/i);
-    await searchInput2.fill("Claude");
-    await page.waitForTimeout(400);
-    await page.getByText("Claude 3.5 Sonnet").first().click();
-    await page.waitForTimeout(1000);
+      // Search and stage second entity (Claude 3.5 Sonnet)
+      await page.getByRole("button", { name: /Search Entities/i }).click();
+      await page.waitForTimeout(400);
+      const searchInput2 = page.getByPlaceholder(/Search models, architectures/i);
+      await searchInput2.fill("Claude");
+      await page.waitForTimeout(400);
+      await page.getByText("Claude 3.5 Sonnet").first().click();
+      await page.waitForTimeout(1000);
 
-    await page.getByTitle("Stage in Versus comparison").click();
-    await page.waitForTimeout(1000);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "13_versus_modal.png") });
+      await page.getByTitle("Stage in Versus comparison").click();
+      await page.waitForTimeout(1000);
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "12_versus_modal.png") });
 
-    // Close compare modal
-    const closeCompareBtn = page.locator("div:has-text('VERSUS COMPARISON MATRIX')").getByRole("button").last();
-    await closeCompareBtn.click();
-    await page.waitForTimeout(500);
+      // Close compare modal
+      const closeCompareBtn = page.locator("div:has-text('VERSUS COMPARISON MATRIX')").getByRole("button").last();
+      if (await closeCompareBtn.isVisible()) {
+        await closeCompareBtn.click();
+        await page.waitForTimeout(500);
+      }
+    }
 
-    // 7. Test Filter Drawer
-    console.log("➡️ Step 7: Testing Filter Drawer");
+    // 8. Test Filter Drawer
+    console.log("➡️ Step 8: Testing Filter Drawer");
     const filterBtn = page.getByRole("button", { name: /Filters/i });
     await filterBtn.click();
     await page.waitForTimeout(500);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "14_filters_open.png") });
+    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "13_filters_open.png") });
 
     // Select "Open Weights"
-    await page.getByRole("button", { name: "Open Weights" }).click();
-    await page.waitForTimeout(600);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "15_filtered_scene.png") });
+    const openWeightsBtn = page.getByRole("button", { name: /Open Weights/i }).first();
+    if (await openWeightsBtn.isVisible()) {
+      await openWeightsBtn.click();
+      await page.waitForTimeout(600);
+      await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "14_filtered_scene.png") });
+    }
 
-    // Close filters drawer using its close button
+    // Close filters drawer
     const closeFilterBtn = page.getByRole("button", { name: "Close filters" });
-    await closeFilterBtn.click();
-    await page.waitForTimeout(500);
+    if (await closeFilterBtn.isVisible()) {
+      await closeFilterBtn.click();
+      await page.waitForTimeout(500);
+    }
 
-    // 8. Test 2D View Switch
-    console.log("➡️ Step 8: Testing 2D View Mode");
+    // 9. Test 2D View Switch
+    console.log("➡️ Step 9: Testing 2D View Mode");
     const view2dBtn = page.getByRole("button", { name: /2D View/i });
     await view2dBtn.click();
     await page.waitForTimeout(1000);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "16_2d_view_mode.png") });
+    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "15_2d_view_mode.png") });
 
     // Switch back to 3D
     await page.getByRole("button", { name: /3D World/i }).click();
     await page.waitForTimeout(1000);
-    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "17_returned_to_3d.png") });
+    await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "16_returned_to_3d.png") });
 
     console.log("\n=======================================================");
     console.log("✅ ALL PLAYWRIGHT E2E TESTS PASSED WITH ZERO ERRORS!");

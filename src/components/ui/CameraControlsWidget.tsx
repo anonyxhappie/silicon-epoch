@@ -7,7 +7,7 @@ import {
   RotateCcw,
   RotateCw,
   Compass,
-  Rotate3D,
+  Globe,
   Home,
 } from "lucide-react";
 import { useEpochStore } from "@/lib/store/useEpochStore";
@@ -40,6 +40,26 @@ export function CameraControlsWidget() {
 
       <div className="w-4 h-px bg-slate-800 my-0.5" />
 
+      {/* Full Timeline Panoramic Overview (1940 - 2026) */}
+      <button
+        onClick={() => triggerCameraAction("macro_overview")}
+        className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-cyan-400 transition-colors"
+        title="Full Timeline Overview (1940 – 2026)"
+      >
+        <Globe className="w-4 h-4" />
+      </button>
+
+      {/* Top-down View */}
+      <button
+        onClick={() => triggerCameraAction("top_down")}
+        className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-cyan-400 transition-colors"
+        title="Top-Down View"
+      >
+        <Compass className="w-4 h-4" />
+      </button>
+
+      <div className="w-4 h-px bg-slate-800 my-0.5" />
+
       {/* Rotate Orbit Left */}
       <button
         onClick={() => triggerCameraAction("rotate_left")}
@@ -60,20 +80,11 @@ export function CameraControlsWidget() {
 
       <div className="w-4 h-px bg-slate-800 my-0.5" />
 
-      {/* Top-down Ortho View */}
-      <button
-        onClick={() => triggerCameraAction("top_down")}
-        className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-cyan-400 transition-colors"
-        title="Top-Down View"
-      >
-        <Compass className="w-4 h-4" />
-      </button>
-
       {/* Reset / Recenter View */}
       <button
         onClick={() => triggerCameraAction("reset")}
         className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-cyan-400 transition-colors"
-        title="Reset Isometric Perspective"
+        title="Recenter Perspective"
       >
         <Home className="w-4 h-4" />
       </button>

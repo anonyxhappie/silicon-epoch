@@ -7,7 +7,10 @@ import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 import { PlacedEntity } from "@/types/schema";
 import { useEpochStore } from "@/lib/store/useEpochStore";
-import { xToTimelineYear } from "@/lib/layout/timelineLayout";
+import {
+  progressToTimelineX,
+  xToTimelineYear,
+} from "@/lib/layout/timelineLayout";
 import { EPOCHS } from "@/lib/data/dataset";
 
 interface CameraControllerProps {
@@ -22,6 +25,7 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
   const cameraMode = useEpochStore((s) => s.cameraMode);
   const selectedEntityId = useEpochStore((s) => s.selectedEntityId);
   const timelineProgress = useEpochStore((s) => s.timelineProgress);
+  const activeEpochId = useEpochStore((s) => s.activeEpochId);
   const isReducedMotion = useEpochStore((s) => s.isReducedMotion);
   const cameraAction = useEpochStore((s) => s.cameraAction);
   const setTimelineProgress = useEpochStore((s) => s.setTimelineProgress);
@@ -80,57 +84,57 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
         triggerTransition(newCam, newLook);
       }
     } else if (!selectedEntityId && prevSelectedId.current !== null) {
-      // Deselected: return to timeline glide position without forcing angle
+      // Deselected: return to timeline glide position
       prevSelectedId.current = null;
-      const currentX = -130 + timelineProgress * 285;
+      const targetX = progressToTimelineX(timelineProgress);
       if (controlsRef.current) {
         const currentTarget = controlsRef.current.target;
         const currentCam = camera.position;
-        const deltaX = currentX - currentTarget.x;
+        const deltaX = targetX - currentTarget.x;
 
         const newCam = new THREE.Vector3(
           currentCam.x + deltaX,
-          Math.max(currentCam.y, 18),
+          Math.max(currentCam.y, 22),
           currentCam.z
         );
-        const newLook = new THREE.Vector3(currentX, 0, 0);
+        const newLook = new THREE.Vector3(targetX, 0, 0);
         triggerTransition(newCam, newLook);
       }
     }
   }, [selectedEntityId, selectedEntity, isEntered, timelineProgress, triggerTransition, camera]);
 
-  // 3. Timeline scrubbing (glides smoothly along X while preserving user's custom zoom/angle)
+  // 3. Timeline scrubbing (glides directly and smoothly along X)
   useEffect(() => {
     if (!isEntered || selectedEntityId) return;
 
-    if (Math.abs(timelineProgress - prevTimelineProgress.current) > 0.001) {
-      const prevX = -130 + prevTimelineProgress.current * 285;
-      const nextX = -130 + timelineProgress * 285;
-      const deltaX = nextX - prevX;
+    if (Math.abs(timelineProgress - prevTimelineProgress.current) > 0.0005) {
       prevTimelineProgress.current = timelineProgress;
+      const targetX = progressToTimelineX(timelineProgress);
 
-      // Translate camera and target by deltaX
       if (controlsRef.current) {
         const currentTarget = controlsRef.current.target;
-        targetLookAt.current.set(currentTarget.x + deltaX, currentTarget.y, currentTarget.z);
+        const currentCam = camera.position;
+        const camOffsetX = currentCam.x - currentTarget.x;
+
+        targetLookAt.current.set(targetX, 0, 0);
         targetCamPos.current.set(
-          camera.position.x + deltaX,
-          camera.position.y,
-          camera.position.z
+          targetX + (camOffsetX || -5),
+          Math.max(currentCam.y, 22),
+          currentCam.z || 30
         );
         isTransitioning.current = true;
       }
 
       // Update active epoch
-      const currentYear = xToTimelineYear(nextX);
+      const currentYear = xToTimelineYear(targetX);
       const activeEpoch = EPOCHS.find(
         (ep) => currentYear >= ep.start_year && currentYear <= ep.end_year
       );
-      if (activeEpoch) {
+      if (activeEpoch && activeEpoch.id !== activeEpochId) {
         setActiveEpoch(activeEpoch.id);
       }
     }
-  }, [timelineProgress, isEntered, selectedEntityId, setActiveEpoch, camera]);
+  }, [timelineProgress, isEntered, selectedEntityId, setActiveEpoch, activeEpochId, camera]);
 
   // 4. Keyboard timeline glide
   useEffect(() => {
@@ -145,9 +149,9 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
       }
 
       if (e.key === "ArrowRight" || e.key === "KeyD") {
-        setTimelineProgress(Math.min(1.0, timelineProgress + 0.025));
+        setTimelineProgress(Math.min(1.0, timelineProgress + 0.02));
       } else if (e.key === "ArrowLeft" || e.key === "KeyA") {
-        setTimelineProgress(Math.max(0.0, timelineProgress - 0.025));
+        setTimelineProgress(Math.max(0.0, timelineProgress - 0.02));
       }
     };
 
@@ -157,7 +161,7 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
     };
   }, [isEntered, timelineProgress, setTimelineProgress]);
 
-  // 5. Camera Control Widget Actions (Zoom, Rotate, Top-down, Reset)
+  // 5. Camera Control Widget Actions (Zoom, Rotate, Top-down, Macro Panoramic, Reset)
   useEffect(() => {
     if (!cameraAction || cameraAction.timestamp === lastActionTimestamp.current) {
       return;
@@ -173,12 +177,17 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
 
     if (type === "zoom_in") {
       camOffset.multiplyScalar(0.7);
-      if (camOffset.length() < 3) camOffset.setLength(3);
+      if (camOffset.length() < 2) camOffset.setLength(2);
       triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
     } else if (type === "zoom_out") {
-      camOffset.multiplyScalar(1.4);
-      if (camOffset.length() > 90) camOffset.setLength(90);
+      camOffset.multiplyScalar(1.45);
+      if (camOffset.length() > 550) camOffset.setLength(550);
       triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
+    } else if (type === "macro_overview") {
+      // Complete panoramic overview of entire 1940 to 2026 motherboard
+      const macroCam = new THREE.Vector3(20, 195, 135);
+      const macroLook = new THREE.Vector3(20, 0, 0);
+      triggerTransition(macroCam, macroLook);
     } else if (type === "rotate_left") {
       camOffset.applyAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 6);
       triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
@@ -186,7 +195,7 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
       camOffset.applyAxisAngle(new THREE.Vector3(0, 1, 0), -Math.PI / 6);
       triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
     } else if (type === "top_down") {
-      const topPos = new THREE.Vector3(lookTarget.x, 50, lookTarget.z + 0.01);
+      const topPos = new THREE.Vector3(lookTarget.x, Math.max(camera.position.y, 65), lookTarget.z + 0.01);
       triggerTransition(topPos, lookTarget);
     } else if (type === "reset") {
       if (selectedEntity) {
@@ -201,9 +210,9 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
         const newLook = new THREE.Vector3(x, y + 2.0 * scale, z);
         triggerTransition(newCam, newLook);
       } else {
-        const currentX = -130 + timelineProgress * 285;
-        const defaultCam = new THREE.Vector3(currentX - 5, 25, 32);
-        const defaultLook = new THREE.Vector3(currentX + 8, 0, 5);
+        const targetX = progressToTimelineX(timelineProgress);
+        const defaultCam = new THREE.Vector3(targetX - 5, 25, 32);
+        const defaultLook = new THREE.Vector3(targetX + 8, 0, 5);
         triggerTransition(defaultCam, defaultLook);
       }
     }
@@ -213,7 +222,7 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
   useFrame((_, delta) => {
     if (!isTransitioning.current) return;
 
-    const damping = isReducedMotion ? 40 : 8;
+    const damping = isReducedMotion ? 40 : 10;
     const controls = controlsRef.current;
 
     // Smooth damp camera position
@@ -276,8 +285,8 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
       enableDamping
       dampingFactor={0.08}
       maxPolarAngle={Math.PI / 2 - 0.02} // Prevent going below motherboard
-      minDistance={1.5}
-      maxDistance={95}
+      minDistance={1.2}
+      maxDistance={600} // Expanded to allow zooming all the way out to full 1940-2026 timeline
       onStart={() => {
         // User interacted! Immediately cease any automatic animation so user has 100% control
         isTransitioning.current = false;

@@ -14,6 +14,7 @@ export type CameraActionType =
   | "rotate_left"
   | "rotate_right"
   | "top_down"
+  | "macro_overview"
   | "reset";
 
 interface EpochStoreState {

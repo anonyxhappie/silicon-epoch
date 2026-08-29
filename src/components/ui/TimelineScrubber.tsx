@@ -1,10 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Play, Pause, RotateCcw } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { EPOCHS } from "@/lib/data/dataset";
 import { useEpochStore } from "@/lib/store/useEpochStore";
-import { xToTimelineYear } from "@/lib/layout/timelineLayout";
+import {
+  progressToTimelineX,
+  timelineXToProgress,
+  dateToTimelineX,
+  xToTimelineYear,
+} from "@/lib/layout/timelineLayout";
 
 export function TimelineScrubber() {
   const timelineProgress = useEpochStore((s) => s.timelineProgress);
@@ -12,6 +17,7 @@ export function TimelineScrubber() {
   const activeEpochId = useEpochStore((s) => s.activeEpochId);
   const setActiveEpoch = useEpochStore((s) => s.setActiveEpoch);
   const selectedEntityId = useEpochStore((s) => s.selectedEntityId);
+  const selectEntity = useEpochStore((s) => s.selectEntity);
 
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -19,8 +25,8 @@ export function TimelineScrubber() {
   useEffect(() => {
     if (!isPlaying) return;
     const interval = setInterval(() => {
-      setTimelineProgress(timelineProgress >= 1 ? 0 : timelineProgress + 0.005);
-    }, 50);
+      setTimelineProgress(timelineProgress >= 1 ? 0 : timelineProgress + 0.003);
+    }, 40);
     return () => clearInterval(interval);
   }, [isPlaying, timelineProgress, setTimelineProgress]);
 
@@ -32,32 +38,51 @@ export function TimelineScrubber() {
   }, [selectedEntityId]);
 
   // Current year calculation
-  const currentX = -130 + timelineProgress * 285;
+  const currentX = progressToTimelineX(timelineProgress);
   const currentYear = Math.round(xToTimelineYear(currentX));
 
-  const handleEpochClick = (epochId: string, idx: number) => {
-    setActiveEpoch(epochId);
-    const progress = idx / (EPOCHS.length - 1);
+  const handleEpochClick = (epoch: (typeof EPOCHS)[0]) => {
+    if (selectedEntityId) selectEntity(null);
+    setActiveEpoch(epoch.id);
+    const startX = dateToTimelineX(`${epoch.start_year}-01-01`);
+    const progress = timelineXToProgress(startX);
     setTimelineProgress(progress);
   };
 
   const handlePrevEpoch = () => {
+    if (selectedEntityId) selectEntity(null);
     const currentIdx = EPOCHS.findIndex((e) => e.id === activeEpochId);
     if (currentIdx > 0) {
-      handleEpochClick(EPOCHS[currentIdx - 1].id, currentIdx - 1);
+      handleEpochClick(EPOCHS[currentIdx - 1]);
     }
   };
 
   const handleNextEpoch = () => {
+    if (selectedEntityId) selectEntity(null);
     const currentIdx = EPOCHS.findIndex((e) => e.id === activeEpochId);
     if (currentIdx < EPOCHS.length - 1) {
-      handleEpochClick(EPOCHS[currentIdx + 1].id, currentIdx + 1);
+      handleEpochClick(EPOCHS[currentIdx + 1]);
     }
+  };
+
+  const handleSliderChange = (newVal: number) => {
+    if (selectedEntityId) selectEntity(null);
+    setTimelineProgress(newVal);
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.stopPropagation();
+    if (selectedEntityId) selectEntity(null);
+    const delta = e.deltaY > 0 ? 0.015 : -0.015;
+    setTimelineProgress(Math.max(0, Math.min(1, timelineProgress + delta)));
   };
 
   return (
     <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-40 w-11/12 max-w-4xl pointer-events-none select-none">
-      <div className="p-3.5 rounded-xl bg-slate-950/85 border border-slate-800/90 shadow-2xl backdrop-blur-lg flex flex-col space-y-3 pointer-events-auto">
+      <div
+        onWheel={handleWheel}
+        className="p-3.5 rounded-xl bg-slate-950/85 border border-slate-800/90 shadow-2xl backdrop-blur-lg flex flex-col space-y-3 pointer-events-auto"
+      >
         {/* Top Controls & Current Year Readout */}
         <div className="flex items-center justify-between text-xs font-mono">
           <div className="flex items-center space-x-2">
@@ -109,19 +134,19 @@ export function TimelineScrubber() {
             max="1"
             step="0.001"
             value={timelineProgress}
-            onChange={(e) => setTimelineProgress(parseFloat(e.target.value))}
+            onChange={(e) => handleSliderChange(parseFloat(e.target.value))}
             className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 z-10"
           />
         </div>
 
         {/* Epoch Markers */}
         <div className="grid grid-cols-6 gap-1 pt-1">
-          {EPOCHS.map((epoch, idx) => {
+          {EPOCHS.map((epoch) => {
             const isActive = activeEpochId === epoch.id;
             return (
               <button
                 key={epoch.id}
-                onClick={() => handleEpochClick(epoch.id, idx)}
+                onClick={() => handleEpochClick(epoch)}
                 className={`text-left p-1 rounded border transition-all text-[10px] font-mono truncate ${
                   isActive
                     ? "bg-slate-800/90 border-cyan-500/80 text-cyan-300"

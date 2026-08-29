@@ -23,9 +23,17 @@ const TIMELINE_KNOTS: TimelineKnot[] = [
   { year: 2026.75, x: 180 },
 ];
 
-/**
- * Converts an ISO date or Year string into a 3D X coordinate.
- */
+export const TIMELINE_MIN_X = -140;
+export const TIMELINE_MAX_X = 180;
+export const TIMELINE_TOTAL_SPAN = TIMELINE_MAX_X - TIMELINE_MIN_X; // 320 units
+
+export function progressToTimelineX(progress: number): number {
+  return TIMELINE_MIN_X + Math.max(0, Math.min(1, progress)) * TIMELINE_TOTAL_SPAN;
+}
+
+export function timelineXToProgress(x: number): number {
+  return Math.max(0, Math.min(1, (x - TIMELINE_MIN_X) / TIMELINE_TOTAL_SPAN));
+}
 export function dateToTimelineX(dateStr: string): number {
   let decimalYear = 2020;
   if (dateStr.includes("-")) {
