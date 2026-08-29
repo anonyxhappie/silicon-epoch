@@ -1,0 +1,1245 @@
+[
+  {
+    "id": "turing-computing-machinery",
+    "type": "paper",
+    "name": "Computing Machinery and Intelligence",
+    "aliases": ["The Turing Test", "Turing 1950"],
+    "creator": "org-manchester",
+    "creator_name": "Alan Turing",
+    "release_date": "1950-10-01",
+    "epoch_id": "epoch-foundations",
+    "category": "Theoretical Foundation",
+    "architecture": {
+      "type": "Turing Machine / Universal Computer",
+      "publicly_disclosed": true,
+      "notes": "Philosophical and mathematical foundation of artificial intelligence and machine learning."
+    },
+    "summary": "Alan Turing introduces the Imitation Game (Turing Test) and proposes that machines could learn from experience akin to human children.",
+    "key_innovations": [
+      "The Imitation Game / Operational definition of machine intelligence",
+      "Concept of 'child-machine' trained via reward/punishment",
+      "Prediction of digital computer chess and language mastery"
+    ],
+    "visual": {
+      "entity_shape": "paper_wafer",
+      "importance": 0.95,
+      "scale_factor": 1.2
+    },
+    "sources": ["src-turing-1950"]
+  },
+  {
+    "id": "perceptron-1958",
+    "type": "hardware",
+    "name": "Mark I Perceptron",
+    "aliases": ["Frank Rosenblatt Perceptron"],
+    "creator": "org-cornell",
+    "creator_name": "Frank Rosenblatt / Cornell Aero Lab",
+    "release_date": "1958-11-01",
+    "epoch_id": "epoch-foundations",
+    "category": "Hardware & Architecture",
+    "architecture": {
+      "type": "Single-layer Neural Network",
+      "publicly_disclosed": true,
+      "notes": "Custom analog hardware implementation with 400 photocells connected to potentiometers driven by electric motors."
+    },
+    "parameters": {
+      "total_billion": 0.000000512,
+      "active_billion": 0.000000512,
+      "notes": "512 variable potentiometers adjusted by motorized servo rheostats."
+    },
+    "summary": "The first physical neural network machine capable of learning linear classification boundaries from visual stimuli.",
+    "key_innovations": [
+      "Perceptron learning algorithm with provable convergence",
+      "Motorized analog weight adjustment",
+      "Optical 20x20 cadmium sulfide sensor matrix"
+    ],
+    "known_limitations": [
+      "Cannot compute non-linearly separable functions like XOR (Minsky & Papert 1969)"
+    ],
+    "visual": {
+      "entity_shape": "hardware_module",
+      "importance": 0.85,
+      "scale_factor": 1.1
+    },
+    "sources": ["src-rosenblatt-1958"]
+  },
+  {
+    "id": "backprop-1986",
+    "type": "algorithm",
+    "name": "Backpropagation for Multi-Layer Networks",
+    "aliases": ["Rumelhart, Hinton & Williams 1986"],
+    "creator": "org-ucsd",
+    "creator_name": "Rumelhart, Hinton & Williams",
+    "release_date": "1986-10-09",
+    "epoch_id": "epoch-symbolic-revival",
+    "category": "Optimization & Training",
+    "architecture": {
+      "type": "Reverse-mode Automatic Differentiation",
+      "publicly_disclosed": true,
+      "notes": "Gradient descent through hidden representations using the chain rule."
+    },
+    "summary": "Demonstrated that generalized delta rule backpropagation enables hidden neural units to learn non-linear internal representations.",
+    "key_innovations": [
+      "Hidden representation discovery in multi-layer perceptrons",
+      "Systematic solution to Minsky's XOR limitation",
+      "Foundation for all modern gradient-based neural learning"
+    ],
+    "visual": {
+      "entity_shape": "algorithm_package",
+      "importance": 0.95,
+      "scale_factor": 1.3
+    },
+    "sources": ["src-rumelhart-1986"]
+  },
+  {
+    "id": "lstm-1997",
+    "type": "architecture",
+    "name": "Long Short-Term Memory (LSTM)",
+    "aliases": ["Hochreiter & Schmidhuber 1997"],
+    "creator": "org-idsia",
+    "creator_name": "Sepp Hochreiter & Jürgen Schmidhuber",
+    "release_date": "1997-11-15",
+    "epoch_id": "epoch-symbolic-revival",
+    "category": "Sequence Architecture",
+    "architecture": {
+      "type": "Gated Recurrent Neural Network",
+      "publicly_disclosed": true,
+      "notes": "Constant Error Carousel (CEC) with input and output gates (forget gate added 1999)."
+    },
+    "summary": "Breakthrough recurrent architecture that resolved vanishing and exploding gradients, enabling networks to bridge 1,000+ time steps.",
+    "key_innovations": [
+      "Constant Error Carousel maintaining linear error flow",
+      "Multiplicative gating mechanism",
+      "Foundation for machine translation and speech from 2000 to 2017"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.9,
+      "scale_factor": 1.15
+    },
+    "sources": ["src-hochreiter-1997"]
+  },
+  {
+    "id": "lenet-5",
+    "type": "model",
+    "name": "LeNet-5",
+    "aliases": ["LeCun ConvNet 1998"],
+    "creator": "org-att",
+    "creator_name": "Yann LeCun / AT&T Bell Labs",
+    "release_date": "1998-11-01",
+    "epoch_id": "epoch-symbolic-revival",
+    "category": "Vision ConvNet",
+    "architecture": {
+      "type": "Convolutional Neural Network",
+      "subtype": "7-layer ConvNet",
+      "publicly_disclosed": true,
+      "notes": "2 convolutional layers, 2 average pooling layers, 2 fully connected layers, 1 output layer."
+    },
+    "parameters": {
+      "total_billion": 0.00006,
+      "active_billion": 0.00006,
+      "notes": "60,000 trainable parameters."
+    },
+    "modalities": ["image"],
+    "availability": "research_only",
+    "summary": "Landmark convolutional neural network deployed by US banks to read over 10% of all checks written in the United States in the late 1990s.",
+    "key_innovations": [
+      "Shift, scale, and distortion invariance via shared convolution kernels",
+      "Sub-sampling / pooling hierarchy",
+      "End-to-end gradient-based document recognition"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.88,
+      "scale_factor": 1.1
+    },
+    "sources": ["src-lecun-1998"]
+  },
+  {
+    "id": "nvidia-cuda",
+    "type": "hardware",
+    "name": "NVIDIA CUDA Architecture",
+    "aliases": ["CUDA Compute Unified Device Architecture"],
+    "creator": "org-nvidia",
+    "creator_name": "NVIDIA Corporation",
+    "release_date": "2006-11-01",
+    "epoch_id": "epoch-deep-learning-boom",
+    "category": "Compute Platform",
+    "architecture": {
+      "type": "SIMT (Single Instruction Multiple Threads) GPGPU",
+      "publicly_disclosed": true,
+      "notes": "Programmable parallel thread arrays accessible through standard C/C++ APIs."
+    },
+    "summary": "Unified GPU computing platform that transitioned graphics cards into universal massively parallel matrix processors.",
+    "key_innovations": [
+      "Hardware SIMT thread scheduling",
+      "Massive memory bandwidth exceeding CPUs by 10x",
+      "The underlying compute substrate for the deep learning revolution"
+    ],
+    "visual": {
+      "entity_shape": "hardware_module",
+      "importance": 0.95,
+      "scale_factor": 1.35
+    },
+    "sources": ["src-cuda-2006"]
+  },
+  {
+    "id": "alexnet",
+    "type": "model",
+    "name": "AlexNet",
+    "aliases": ["Krizhevsky, Sutskever & Hinton 2012"],
+    "creator": "org-utoronto",
+    "creator_name": "Alex Krizhevsky & Ilya Sutskever",
+    "release_date": "2012-12-03",
+    "epoch_id": "epoch-deep-learning-boom",
+    "category": "Vision ConvNet",
+    "architecture": {
+      "type": "Deep Convolutional Neural Network",
+      "subtype": "8-layer dual-GPU CNN",
+      "publicly_disclosed": true,
+      "notes": "Trained across two NVIDIA GeForce GTX 580 (3GB) GPUs."
+    },
+    "parameters": {
+      "total_billion": 0.062,
+      "active_billion": 0.062,
+      "notes": "62.3 million parameters."
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "imagenet-top5",
+        "benchmark_name": "ImageNet Top-5 Error",
+        "score": 15.3,
+        "unit": "percent_error",
+        "setting": "ILSVRC 2012",
+        "source": "src-alexnet-2012"
+      }
+    ],
+    "modalities": ["image"],
+    "availability": "open_weights",
+    "summary": "The catalyst for the modern deep learning revolution. Smashed prior computer vision records on ImageNet 2012 by a staggering 10.8 percentage point margin.",
+    "key_innovations": [
+      "Non-saturating ReLU activations (6x faster convergence than tanh)",
+      "Dropout regularization (0.5 rate) preventing overfitting",
+      "Custom CUDA cross-GPU parallel kernels"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.96,
+      "scale_factor": 1.4
+    },
+    "sources": ["src-alexnet-2012"]
+  },
+  {
+    "id": "word2vec",
+    "type": "algorithm",
+    "name": "Word2Vec",
+    "aliases": ["Mikolov 2013", "Skip-gram / CBOW"],
+    "creator": "org-google",
+    "creator_name": "Tomas Mikolov et al. / Google",
+    "release_date": "2013-01-16",
+    "epoch_id": "epoch-deep-learning-boom",
+    "category": "Representation Learning",
+    "architecture": {
+      "type": "Continuous Vector Space Embedding",
+      "publicly_disclosed": true,
+      "notes": "Continuous Bag-of-Words and Skip-gram architectures with negative sampling."
+    },
+    "summary": "Pioneered dense semantic vector embeddings where arithmetic operations capture semantic relationships (King - Man + Woman = Queen).",
+    "key_innovations": [
+      "Distributed representation of words in low-dimensional continuous vector space",
+      "Hierarchical softmax & negative sampling for O(1) training scaling",
+      "Geometric semantic compositionality"
+    ],
+    "visual": {
+      "entity_shape": "algorithm_package",
+      "importance": 0.88,
+      "scale_factor": 1.15
+    },
+    "sources": ["src-word2vec-2013"]
+  },
+  {
+    "id": "gan-2014",
+    "type": "architecture",
+    "name": "Generative Adversarial Networks (GAN)",
+    "aliases": ["Goodfellow GAN 2014"],
+    "creator": "org-umontreal",
+    "creator_name": "Ian Goodfellow et al. / Univ. of Montreal",
+    "release_date": "2014-06-10",
+    "epoch_id": "epoch-deep-learning-boom",
+    "category": "Generative Architecture",
+    "architecture": {
+      "type": "Minimax Adversarial Game",
+      "publicly_disclosed": true,
+      "notes": "Simultaneous game between generator network G(z) and discriminator network D(x)."
+    },
+    "summary": "Introduced adversarial zero-sum training framework that revolutionized neural image synthesis without Markov chains or intractable likelihood calculations.",
+    "key_innovations": [
+      "Adversarial zero-sum training framework",
+      "Implicit probability distribution modeling",
+      "Sparked deep generative visual modeling from 2014 to 2021"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.9,
+      "scale_factor": 1.2
+    },
+    "sources": ["src-goodfellow-2014"]
+  },
+  {
+    "id": "resnet-2015",
+    "type": "architecture",
+    "name": "Deep Residual Networks (ResNet)",
+    "aliases": ["He et al. ResNet-152"],
+    "creator": "org-msr",
+    "creator_name": "Kaiming He et al. / Microsoft Research",
+    "release_date": "2015-12-10",
+    "epoch_id": "epoch-deep-learning-boom",
+    "category": "Deep Architecture",
+    "architecture": {
+      "type": "Residual Highway ConvNet",
+      "subtype": "152 layers",
+      "publicly_disclosed": true,
+      "notes": "Identity shortcut mapping F(x) + x allowing unhindered gradient propagation."
+    },
+    "parameters": {
+      "total_billion": 0.060,
+      "active_billion": 0.060,
+      "notes": "60.2 million parameters in ResNet-152."
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "imagenet-top5",
+        "benchmark_name": "ImageNet Top-5 Error",
+        "score": 3.57,
+        "unit": "percent_error",
+        "setting": "ILSVRC 2015 (Surpassed Human 5.1%)",
+        "source": "src-resnet-2015"
+      }
+    ],
+    "modalities": ["image"],
+    "availability": "open_weights",
+    "summary": "Solved the degradation problem in extremely deep networks using identity skip connections, surpassing human classification performance on ImageNet.",
+    "key_innovations": [
+      "Identity residual shortcut connections",
+      "First successful optimization of 152+ layer deep networks",
+      "Surpassed human baseline accuracy (5.1%) with 3.57% top-5 error"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.94,
+      "scale_factor": 1.3
+    },
+    "sources": ["src-resnet-2015"]
+  },
+  {
+    "id": "alphago-2016",
+    "type": "model",
+    "name": "AlphaGo",
+    "aliases": ["AlphaGo Lee", "DeepMind AlphaGo"],
+    "creator": "org-deepmind",
+    "creator_name": "Google DeepMind",
+    "release_date": "2016-01-27",
+    "epoch_id": "epoch-deep-learning-boom",
+    "category": "Reinforcement Learning",
+    "architecture": {
+      "type": "Policy & Value Networks + MCTS",
+      "publicly_disclosed": true,
+      "notes": "12-layer deep convolutional policy network + value evaluation network coupled to Monte Carlo Tree Search."
+    },
+    "summary": "First computer program to defeat a human 9-dan professional world champion (Lee Sedol, 4-1) in the ancient board game of Go.",
+    "key_innovations": [
+      "Deep policy and value network integration with asynchronous MCTS",
+      "Supervised pretraining on 30M moves + self-play reinforcement learning",
+      "Discovered creative intuitive plays such as Move 37"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.95,
+      "scale_factor": 1.35
+    },
+    "sources": ["src-alphago-2016"]
+  },
+  {
+    "id": "google-tpu-v1",
+    "type": "hardware",
+    "name": "Google TPU v1",
+    "aliases": ["Tensor Processing Unit v1"],
+    "creator": "org-google",
+    "creator_name": "Google",
+    "release_date": "2016-05-18",
+    "epoch_id": "epoch-deep-learning-boom",
+    "category": "Custom AI Accelerator",
+    "architecture": {
+      "type": "28nm Systolic Array Matrix Multiplier Unit (MXU)",
+      "publicly_disclosed": true,
+      "notes": "256x256 8-bit matrix multiply unit operating at 700MHz, delivering 92 TOPS."
+    },
+    "summary": "Google's custom 28nm ASIC designed specifically for neural network inference, powering Google Search, Photos, and AlphaGo.",
+    "key_innovations": [
+      "Systolic array architecture streaming 65,536 8-bit operations per cycle",
+      "Deterministic execution without branch predictors or cache hierarchies",
+      "15x-30x speedup per watt compared to contemporary CPUs and GPUs"
+    ],
+    "visual": {
+      "entity_shape": "hardware_module",
+      "importance": 0.9,
+      "scale_factor": 1.25
+    },
+    "sources": ["src-tpu-v1-2016"]
+  },
+  {
+    "id": "transformer-attention",
+    "type": "architecture",
+    "name": "Transformer (Attention Is All You Need)",
+    "aliases": ["Vaswani et al. 2017", "Original Transformer"],
+    "creator": "org-google",
+    "creator_name": "Ashish Vaswani et al. / Google Brain",
+    "release_date": "2017-06-12",
+    "epoch_id": "epoch-transformer-era",
+    "category": "Foundation Architecture",
+    "architecture": {
+      "type": "Encoder-Decoder Multi-Head Self-Attention",
+      "publicly_disclosed": true,
+      "notes": "Scaled dot-product attention: Attention(Q,K,V) = softmax(QK^T / sqrt(d_k))V."
+    },
+    "parameters": {
+      "total_billion": 0.065,
+      "active_billion": 0.065,
+      "notes": "65M parameters in base, 213M in big model."
+    },
+    "summary": "The single most influential architecture in modern AI. Eliminated recurrence entirely in favor of parallelized multi-head self-attention mechanisms.",
+    "key_innovations": [
+      "Multi-Head Scaled Dot-Product Self-Attention",
+      "Full sequence parallelization during training (O(1) sequential operations vs O(n) in RNNs)",
+      "Sinusoidal positional encodings",
+      "Foundation for all modern LLMs, Vision Transformers, and Multimodal systems"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 1.0,
+      "scale_factor": 1.6
+    },
+    "sources": ["src-vaswani-2017"]
+  },
+  {
+    "id": "bert",
+    "type": "model",
+    "name": "BERT",
+    "aliases": ["BERT-Large", "Devlin et al. 2018"],
+    "creator": "org-google",
+    "creator_name": "Jacob Devlin et al. / Google AI",
+    "release_date": "2018-10-11",
+    "epoch_id": "epoch-transformer-era",
+    "category": "Bidirectional Encoder",
+    "model_family": "bert",
+    "architecture": {
+      "type": "Bidirectional Transformer Encoder",
+      "subtype": "24-layer Transformer Encoder",
+      "publicly_disclosed": true,
+      "notes": "24 layers, 1024 hidden dimension, 16 attention heads."
+    },
+    "parameters": {
+      "total_billion": 0.340,
+      "active_billion": 0.340,
+      "notes": "340 million parameters (BERT-Large)."
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "glue",
+        "benchmark_name": "GLUE Benchmark Average",
+        "score": 80.5,
+        "unit": "score",
+        "setting": "BERT-Large test score",
+        "source": "src-bert-2018"
+      },
+      {
+        "benchmark_id": "squad-v1",
+        "benchmark_name": "SQuAD v1.1 F1",
+        "score": 93.2,
+        "unit": "percent",
+        "setting": "Fine-tuned",
+        "source": "src-bert-2018"
+      }
+    ],
+    "modalities": ["text"],
+    "availability": "open_weights",
+    "license": "Apache-2.0",
+    "summary": "Established the paradigm of self-supervised pre-training on unlabeled text followed by lightweight fine-tuning across NLP benchmarks.",
+    "key_innovations": [
+      "Masked Language Modeling (MLM) objective",
+      "Deep bidirectional context encoding",
+      "Standardized fine-tuning paradigm across NLP"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.94,
+      "scale_factor": 1.3
+    },
+    "sources": ["src-bert-2018"]
+  },
+  {
+    "id": "gpt-2",
+    "type": "model",
+    "name": "GPT-2",
+    "aliases": ["Radford et al. 2019", "GPT-2 1.5B"],
+    "creator": "org-openai",
+    "creator_name": "Alec Radford et al. / OpenAI",
+    "release_date": "2019-02-14",
+    "epoch_id": "epoch-transformer-era",
+    "category": "Autoregressive Decoder",
+    "model_family": "gpt",
+    "architecture": {
+      "type": "Autoregressive Causal Transformer Decoder",
+      "subtype": "48-layer Decoder",
+      "publicly_disclosed": true,
+      "notes": "48 layers, 1600 hidden dimension, modified layer normalization at pre-activation."
+    },
+    "parameters": {
+      "total_billion": 1.5,
+      "active_billion": 1.5,
+      "notes": "1.5 billion parameters."
+    },
+    "context_window": {
+      "value": 1024,
+      "unit": "tokens"
+    },
+    "modalities": ["text"],
+    "availability": "open_weights",
+    "license": "MIT",
+    "summary": "Proved that language models trained on massive internet text without explicit supervision act as zero-shot multitask learners.",
+    "key_innovations": [
+      "Zero-shot transfer across diverse NLP tasks",
+      "WebText dataset curation (8 million curated web pages)",
+      "Coherent long-form synthetic text generation"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.25
+    },
+    "sources": ["src-gpt2-2019"]
+  },
+  {
+    "id": "gpt-3",
+    "type": "model",
+    "name": "GPT-3",
+    "aliases": ["Brown et al. 2020", "GPT-3 175B", "Davinci"],
+    "creator": "org-openai",
+    "creator_name": "Tom Brown et al. / OpenAI",
+    "release_date": "2020-05-28",
+    "epoch_id": "epoch-transformer-era",
+    "category": "Dense LLM",
+    "model_family": "gpt",
+    "architecture": {
+      "type": "Autoregressive Causal Transformer Decoder",
+      "subtype": "96-layer Dense Decoder",
+      "publicly_disclosed": true,
+      "notes": "96 layers, 12,288 hidden dimension, 96 attention heads, alternating dense and locally banded sparse attention."
+    },
+    "parameters": {
+      "total_billion": 175.0,
+      "active_billion": 175.0,
+      "notes": "175 billion dense parameters."
+    },
+    "context_window": {
+      "value": 2048,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "superglue",
+        "benchmark_name": "SuperGLUE Few-Shot",
+        "score": 71.8,
+        "unit": "score",
+        "setting": "Few-shot (32 examples)",
+        "source": "src-gpt3-2020"
+      },
+      {
+        "benchmark_id": "lambada",
+        "benchmark_name": "LAMBADA Accuracy",
+        "score": 76.2,
+        "unit": "percent",
+        "setting": "Zero-shot",
+        "source": "src-gpt3-2020"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 20.0,
+        "output": 20.0,
+        "effective_date": "2020-06-11",
+        "source": "src-gpt3-2020"
+      }
+    ],
+    "modalities": ["text"],
+    "availability": "api",
+    "summary": "Demonstrated that scaling autoregressive language models to 175B parameters produces strong in-context few-shot learning capabilities across diverse cognitive domains.",
+    "key_innovations": [
+      "In-context few-shot prompting without gradient updates",
+      "Empirical validation of neural scaling laws",
+      "Sparked the commercial Generative AI boom via API access"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.97,
+      "scale_factor": 1.45
+    },
+    "sources": ["src-gpt3-2020"]
+  },
+  {
+    "id": "alphafold-2",
+    "type": "model",
+    "name": "AlphaFold 2",
+    "aliases": ["Jumper et al. 2021", "CASP14 Winner"],
+    "creator": "org-deepmind",
+    "creator_name": "John Jumper et al. / Google DeepMind",
+    "release_date": "2020-11-30",
+    "epoch_id": "epoch-transformer-era",
+    "category": "AI for Science",
+    "architecture": {
+      "type": "Evoformer & Invariant Point Attention (IPA)",
+      "publicly_disclosed": true,
+      "notes": "Pair representations interacting with Multiple Sequence Alignments (MSA) via equivariant 3D geometry transformations."
+    },
+    "parameters": {
+      "total_billion": 0.093,
+      "active_billion": 0.093,
+      "notes": "93 million parameters."
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "casp14-gdt",
+        "benchmark_name": "CASP14 Median GDT_TS",
+        "score": 92.4,
+        "unit": "score",
+        "setting": "Competitive blinded evaluation",
+        "source": "src-alphafold2-2020"
+      }
+    ],
+    "availability": "open_source",
+    "license": "Apache-2.0",
+    "summary": "Solved the 50-year-old biological grand challenge of predicting 3D protein structures directly from primary amino acid sequences with atomic accuracy.",
+    "key_innovations": [
+      "Evoformer architecture processing sequence evolution and residue pairs simultaneously",
+      "Invariant Point Attention (IPA) operating directly in 3D rigid body space",
+      "Predicted structures for over 200 million cataloged proteins"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.98,
+      "scale_factor": 1.4
+    },
+    "sources": ["src-alphafold2-2020"]
+  },
+  {
+    "id": "clip-2021",
+    "type": "model",
+    "name": "CLIP",
+    "aliases": ["Contrastive Language-Image Pretraining"],
+    "creator": "org-openai",
+    "creator_name": "Alec Radford et al. / OpenAI",
+    "release_date": "2021-02-26",
+    "epoch_id": "epoch-transformer-era",
+    "category": "Multimodal Alignment",
+    "architecture": {
+      "type": "Dual-Encoder Contrastive Transformer (ViT + Text Transformer)",
+      "publicly_disclosed": true,
+      "notes": "InfoNCE contrastive symmetric cross-entropy loss between image and text embeddings."
+    },
+    "parameters": {
+      "total_billion": 0.428,
+      "active_billion": 0.428,
+      "notes": "ViT-L/14 configuration."
+    },
+    "modalities": ["text", "image"],
+    "availability": "open_weights",
+    "license": "MIT",
+    "summary": "Trained dual visual and text encoders on 400M internet image-caption pairs using contrastive loss, enabling robust zero-shot visual classification.",
+    "key_innovations": [
+      "Scalable multimodal contrastive pretraining",
+      "Zero-shot visual classification matching supervised ResNet-50",
+      "The semantic text-guidance conditioning backbone for Stable Diffusion and DALL-E 2"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.93,
+      "scale_factor": 1.25
+    },
+    "sources": ["src-clip-2021"]
+  },
+  {
+    "id": "instructgpt",
+    "type": "model",
+    "name": "InstructGPT",
+    "aliases": ["Ouyang et al. 2022", "RLHF Pioneer"],
+    "creator": "org-openai",
+    "creator_name": "Long Ouyang et al. / OpenAI",
+    "release_date": "2022-03-04",
+    "epoch_id": "epoch-foundation-models",
+    "category": "Alignment & RLHF",
+    "model_family": "gpt",
+    "architecture": {
+      "type": "Decoder Transformer with PPO RLHF Alignment",
+      "publicly_disclosed": true,
+      "notes": "3-stage pipeline: Supervised Fine-Tuning (SFT), Reward Model training, PPO Reinforcement Learning."
+    },
+    "parameters": {
+      "total_billion": 175.0,
+      "active_billion": 175.0,
+      "notes": "Also evaluated at 1.3B and 6B parameter scales."
+    },
+    "modalities": ["text"],
+    "availability": "api",
+    "summary": "Pioneered the application of Reinforcement Learning from Human Feedback (RLHF) to align language models with human user instructions, forming the direct engine of ChatGPT.",
+    "key_innovations": [
+      "3-stage RLHF alignment recipe (SFT → Reward Model → PPO)",
+      "1.3B parameter InstructGPT preferred by human raters over 175B raw GPT-3",
+      "Dramatic reduction in toxic hallucinations and evasive outputs"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.96,
+      "scale_factor": 1.35
+    },
+    "sources": ["src-instructgpt-2022"]
+  },
+  {
+    "id": "stable-diffusion",
+    "type": "model",
+    "name": "Stable Diffusion (v1.4 / v1.5)",
+    "aliases": ["Rombach et al. 2022", "CompVis / Runway / Stability"],
+    "creator": "org-stability",
+    "creator_name": "Robin Rombach et al. / Stability AI & LMU",
+    "release_date": "2022-08-10",
+    "epoch_id": "epoch-foundation-models",
+    "category": "Latent Diffusion Model",
+    "architecture": {
+      "type": "Latent Diffusion Model (LDM)",
+      "subtype": "UNet with Cross-Attention + VAE + CLIP Text Encoder",
+      "publicly_disclosed": true,
+      "notes": "860M parameter UNet operating in 4x downsampled latent space of a pretrained VAE."
+    },
+    "parameters": {
+      "total_billion": 1.0,
+      "active_billion": 1.0,
+      "notes": "Approx 1.0 billion total across UNet, Text Encoder, and VAE."
+    },
+    "modalities": ["text", "image"],
+    "availability": "open_weights",
+    "license": "CreativeML OpenRAIL-M",
+    "summary": "Democratized generative image synthesis by operating in a compressed latent space, allowing photorealistic 512x512 image generation on consumer 8GB GPUs.",
+    "key_innovations": [
+      "Latent space diffusion reducing compute requirements by orders of magnitude",
+      "Open weights release triggering an explosion of fine-tunes (ControlNet, LoRA)",
+      "Cross-attention conditioning on CLIP text tokens"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.94,
+      "scale_factor": 1.3
+    },
+    "sources": ["src-stablediffusion-2022"]
+  },
+  {
+    "id": "nvidia-h100",
+    "type": "hardware",
+    "name": "NVIDIA H100 Tensor Core GPU",
+    "aliases": ["Hopper H100 SXM5 / PCIe"],
+    "creator": "org-nvidia",
+    "creator_name": "NVIDIA Corporation",
+    "release_date": "2022-03-22",
+    "epoch_id": "epoch-foundation-models",
+    "category": "Compute Hardware",
+    "architecture": {
+      "type": "TSMC 4N Hopper Architecture with Transformer Engine",
+      "publicly_disclosed": true,
+      "notes": "80 billion transistors, 80GB HBM3 memory at 3.35 TB/s, NVLink 4 (900 GB/s)."
+    },
+    "summary": "The definitive compute workhorse of the modern LLM boom. Introduced hardware Transformer Engines with FP8 precision to accelerate attention training by up to 6x.",
+    "key_innovations": [
+      "Transformer Engine dynamically managing FP8 and FP16 precision",
+      "4th Generation Tensor Cores delivering 4,000 TFLOPS FP8",
+      "DPX instructions accelerating dynamic programming algorithms"
+    ],
+    "visual": {
+      "entity_shape": "hardware_module",
+      "importance": 0.97,
+      "scale_factor": 1.45
+    },
+    "sources": ["src-h100-2022"]
+  },
+  {
+    "id": "llama-1",
+    "type": "model",
+    "name": "LLaMA (1)",
+    "aliases": ["Touvron et al. 2023", "Meta LLaMA 7B-65B"],
+    "creator": "org-meta",
+    "creator_name": "Hugo Touvron et al. / Meta AI",
+    "release_date": "2023-02-27",
+    "epoch_id": "epoch-foundation-models",
+    "category": "Open Foundation Model",
+    "model_family": "llama",
+    "architecture": {
+      "type": "Pre-layerNorm Causal Transformer",
+      "subtype": "SwiGLU + RoPE (Rotary Positional Embeddings)",
+      "publicly_disclosed": true,
+      "notes": "RMSNorm, SwiGLU activations, Rotary Positional Embeddings (RoPE)."
+    },
+    "parameters": {
+      "total_billion": 65.0,
+      "active_billion": 65.0,
+      "notes": "Available in 7B, 13B, 33B, and 65B configurations."
+    },
+    "context_window": {
+      "value": 2048,
+      "unit": "tokens"
+    },
+    "modalities": ["text"],
+    "availability": "research_only",
+    "license": "Non-commercial Research License",
+    "summary": "Proved that smaller models trained beyond Chinchilla optimal compute points on public data can match proprietary giants, sparking the open-source LLM movement.",
+    "key_innovations": [
+      "Trained on 1.4 Trillion tokens of strictly public datasets",
+      "Adoption of RoPE, RMSNorm, and SwiGLU as modern architectural standards",
+      "Catalyzed local open-source inference ecosystems (llama.cpp, Ollama)"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.95,
+      "scale_factor": 1.35
+    },
+    "sources": ["src-llama1-2023"]
+  },
+  {
+    "id": "gpt-4",
+    "type": "model",
+    "name": "GPT-4",
+    "aliases": ["OpenAI GPT-4", "GPT-4 (Original 0314)"],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2023-03-14",
+    "epoch_id": "epoch-foundation-models",
+    "category": "Multimodal Frontier Model",
+    "model_family": "gpt-4",
+    "architecture": {
+      "type": "Multimodal Autoregressive Transformer",
+      "subtype": "Mixture-of-Experts (Speculated)",
+      "publicly_disclosed": false,
+      "notes": "Detailed architecture, total parameters, and compute breakdown were not publicly disclosed in the technical report."
+    },
+    "parameters": {
+      "total_billion": null,
+      "active_billion": null,
+      "notes": "Not publicly disclosed by OpenAI. Industry estimates suggest 16-expert MoE ~1.8T total parameters."
+    },
+    "context_window": {
+      "value": 32768,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU (Massive Multitask Language Understanding)",
+        "score": 86.4,
+        "unit": "percent",
+        "setting": "5-shot",
+        "source": "src-gpt4-2023"
+      },
+      {
+        "benchmark_id": "human-eval",
+        "benchmark_name": "HumanEval (Python Code)",
+        "score": 67.0,
+        "unit": "percent",
+        "setting": "0-shot pass@1",
+        "source": "src-gpt4-2023"
+      },
+      {
+        "benchmark_id": "uniform-bar",
+        "benchmark_name": "Uniform Bar Exam",
+        "score": 90.0,
+        "unit": "percentile",
+        "setting": "Simulated official exam",
+        "source": "src-gpt4-2023"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 30.0,
+        "output": 60.0,
+        "effective_date": "2023-03-14",
+        "source": "src-gpt4-2023"
+      }
+    ],
+    "modalities": ["text", "image"],
+    "availability": "api",
+    "summary": "The landmark frontier model that defined the generative AI era, demonstrating human-level performance across standardized professional tests and vision-language tasks.",
+    "key_innovations": [
+      "Multimodal input capability accepting interleaved text and visual diagrams",
+      "Predictable scaling: loss accurately predicted 10,000x ahead on small compute runs",
+      "Top 10th percentile performance on the Uniform Bar Exam and USABO Biology Olympiad"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1.0,
+      "scale_factor": 1.6
+    },
+    "sources": ["src-gpt4-2023"]
+  },
+  {
+    "id": "claude-3-5-sonnet",
+    "type": "model",
+    "name": "Claude 3.5 Sonnet",
+    "aliases": ["Anthropic Claude 3.5 Sonnet", "Sonnet 3.5"],
+    "creator": "org-anthropic",
+    "creator_name": "Anthropic",
+    "release_date": "2024-06-20",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Agentic Model",
+    "model_family": "claude",
+    "architecture": {
+      "type": "Autoregressive Multimodal Transformer",
+      "publicly_disclosed": false,
+      "notes": "Architectural internals not publicly disclosed."
+    },
+    "parameters": {
+      "total_billion": null,
+      "active_billion": null,
+      "notes": "Not publicly disclosed by Anthropic."
+    },
+    "context_window": {
+      "value": 200000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU",
+        "score": 88.7,
+        "unit": "percent",
+        "setting": "5-shot CoT",
+        "source": "src-claude35-2024"
+      },
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench Verified",
+        "score": 49.0,
+        "unit": "percent",
+        "setting": "Agentic tool use pass@1",
+        "source": "src-claude35-2024"
+      },
+      {
+        "benchmark_id": "human-eval",
+        "benchmark_name": "HumanEval",
+        "score": 92.0,
+        "unit": "percent",
+        "setting": "0-shot pass@1",
+        "source": "src-claude35-2024"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 3.0,
+        "output": 15.0,
+        "effective_date": "2024-06-20",
+        "source": "src-claude35-2024"
+      }
+    ],
+    "modalities": ["text", "image"],
+    "availability": "api",
+    "summary": "Frontier intelligence model renowned for state-of-the-art coding, complex visual reasoning, and autonomous multi-step computer use capabilities.",
+    "key_innovations": [
+      "Industry-leading SWE-bench software engineering pass rates",
+      "Computer Use API enabling direct interaction with desktop GUI environments",
+      "200,000 token context window with near-perfect needle-in-a-haystack retrieval"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.98,
+      "scale_factor": 1.5
+    },
+    "sources": ["src-claude35-2024"]
+  },
+  {
+    "id": "llama-3-405b",
+    "type": "model",
+    "name": "Llama 3.1 405B",
+    "aliases": ["Meta Llama 3.1 405B", "Llama 3 Herd"],
+    "creator": "org-meta",
+    "creator_name": "Meta AI",
+    "release_date": "2024-07-23",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open Frontier LLM",
+    "model_family": "llama",
+    "architecture": {
+      "type": "Standard Dense Autoregressive Transformer",
+      "subtype": "126-layer Dense Decoder with GQA",
+      "publicly_disclosed": true,
+      "notes": "126 layers, 16,384 hidden dimension, 128 attention heads with 8 Grouped-Query Attention (GQA) key-value heads."
+    },
+    "parameters": {
+      "total_billion": 405.0,
+      "active_billion": 405.0,
+      "notes": "405 billion dense active parameters."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU",
+        "score": 88.6,
+        "unit": "percent",
+        "setting": "5-shot CoT",
+        "source": "src-llama3-2024"
+      },
+      {
+        "benchmark_id": "gsm8k",
+        "benchmark_name": "GSM8K (Grade School Math)",
+        "score": 96.8,
+        "unit": "percent",
+        "setting": "8-shot CoT",
+        "source": "src-llama3-2024"
+      },
+      {
+        "benchmark_id": "human-eval",
+        "benchmark_name": "HumanEval",
+        "score": 89.0,
+        "unit": "percent",
+        "setting": "0-shot pass@1",
+        "source": "src-llama3-2024"
+      }
+    ],
+    "modalities": ["text", "code"],
+    "availability": "open_weights",
+    "license": "Llama 3.1 Community License",
+    "summary": "The largest and most capable openly licensed foundation model ever trained, competitive with top closed models on 15.6T tokens across 16,000 H100 GPUs.",
+    "key_innovations": [
+      "First open-weights model matching proprietary frontier systems (GPT-4o, Claude 3.5)",
+      "Synthetic data generation and distillation teacher for smaller open models",
+      "128k context window supported via iterative RoPE base frequency scaling"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.98,
+      "scale_factor": 1.55
+    },
+    "sources": ["src-llama3-2024"]
+  },
+  {
+    "id": "openai-o1",
+    "type": "model",
+    "name": "OpenAI o1",
+    "aliases": ["Strawberry", "OpenAI o1-preview / o1"],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2024-09-12",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Inference Reasoning Model",
+    "model_family": "o-series",
+    "architecture": {
+      "type": "Inference-Time Test-Compute Scaling Transformer",
+      "publicly_disclosed": false,
+      "notes": "Trained with large-scale reinforcement learning to produce internal chains of thought before generating output tokens."
+    },
+    "parameters": {
+      "total_billion": null,
+      "active_billion": null,
+      "notes": "Not publicly disclosed by OpenAI."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "aime-2024",
+        "benchmark_name": "AIME 2024 (Math Olympiad)",
+        "score": 83.3,
+        "unit": "percent",
+        "setting": "Single consensus attempt",
+        "source": "src-openai-o1-2024"
+      },
+      {
+        "benchmark_id": "codeforces",
+        "benchmark_name": "Codeforces Competitive Rating",
+        "score": 1807,
+        "unit": "elo",
+        "setting": "93rd percentile competitive programmer",
+        "source": "src-openai-o1-2024"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 15.0,
+        "output": 60.0,
+        "effective_date": "2024-09-12",
+        "source": "src-openai-o1-2024"
+      }
+    ],
+    "modalities": ["text", "image"],
+    "availability": "api",
+    "summary": "Pioneered the test-time compute paradigm, spending dynamic compute thinking through complex problems before answering, achieving PhD-level performance in physics, chemistry, and mathematics.",
+    "key_innovations": [
+      "Test-time compute scaling laws: performance improves monotonically with reasoning time",
+      "Autonomous error correction and backtrack search during chain-of-thought",
+      "Surpassed human IMO gold medalist qualifiers on competitive math problems"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.99,
+      "scale_factor": 1.55
+    },
+    "sources": ["src-openai-o1-2024"]
+  },
+  {
+    "id": "deepseek-v3",
+    "type": "model",
+    "name": "DeepSeek-V3",
+    "aliases": ["DeepSeek 671B MoE"],
+    "creator": "org-deepseek",
+    "creator_name": "DeepSeek AI",
+    "release_date": "2024-12-27",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "High-Efficiency MoE",
+    "model_family": "deepseek",
+    "architecture": {
+      "type": "Mixture-of-Experts with Multi-Head Latent Attention (MLA)",
+      "subtype": "256 routed experts + 1 shared expert",
+      "publicly_disclosed": true,
+      "notes": "671B total parameters, 37B activated per token (8 routed + 1 shared), Multi-Head Latent Attention (MLA) for KV cache compression."
+    },
+    "parameters": {
+      "total_billion": 671.0,
+      "active_billion": 37.0,
+      "notes": "671 billion total parameters with 37 billion active per token."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU",
+        "score": 88.5,
+        "unit": "percent",
+        "setting": "5-shot CoT",
+        "source": "src-deepseek-v3-2024"
+      },
+      {
+        "benchmark_id": "human-eval",
+        "benchmark_name": "HumanEval",
+        "score": 82.6,
+        "unit": "percent",
+        "setting": "0-shot pass@1",
+        "source": "src-deepseek-v3-2024"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 0.14,
+        "output": 0.28,
+        "effective_date": "2024-12-27",
+        "source": "src-deepseek-v3-2024"
+      }
+    ],
+    "modalities": ["text", "code"],
+    "availability": "open_weights",
+    "license": "MIT",
+    "summary": "Achieved frontier-tier performance while drastically lowering training and serving costs via Multi-Head Latent Attention (MLA) and auxiliary-loss-free load balancing.",
+    "key_innovations": [
+      "Multi-Head Latent Attention (MLA) compressing KV cache by 93%",
+      "Auxiliary-loss-free load balancing strategy for MoE routing",
+      "DualPipe algorithm overlapping compute and cross-node communication",
+      "Total training cost of only $5.9M on 2,048 H800 GPUs"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.97,
+      "scale_factor": 1.5
+    },
+    "sources": ["src-deepseek-v3-2024"]
+  },
+  {
+    "id": "deepseek-r1",
+    "type": "model",
+    "name": "DeepSeek-R1",
+    "aliases": ["DeepSeek-R1 671B Reasoning"],
+    "creator": "org-deepseek",
+    "creator_name": "DeepSeek AI",
+    "release_date": "2025-01-20",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open Reasoning Model",
+    "model_family": "deepseek",
+    "architecture": {
+      "type": "Pure RL Reasoning MoE Architecture",
+      "subtype": "DeepSeek-V3 Base + GRPO (Group Relative Policy Optimization)",
+      "publicly_disclosed": true,
+      "notes": "Large-scale reinforcement learning using GRPO directly on base model without supervised cold-start."
+    },
+    "parameters": {
+      "total_billion": 671.0,
+      "active_billion": 37.0,
+      "notes": "671 billion total parameters with 37 billion active per token."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "aime-2024",
+        "benchmark_name": "AIME 2024 (Math Olympiad)",
+        "score": 79.8,
+        "unit": "percent",
+        "setting": "Pass@1 consensus",
+        "source": "src-deepseek-r1-2025"
+      },
+      {
+        "benchmark_id": "math-500",
+        "benchmark_name": "MATH-500",
+        "score": 97.3,
+        "unit": "percent",
+        "setting": "Pass@1",
+        "source": "src-deepseek-r1-2025"
+      }
+    ],
+    "pricing": [
+      {
+        "currency": "USD",
+        "unit": "1M_tokens",
+        "input": 0.55,
+        "output": 2.19,
+        "effective_date": "2025-01-20",
+        "source": "src-deepseek-r1-2025"
+      }
+    ],
+    "modalities": ["text", "code"],
+    "availability": "open_weights",
+    "license": "MIT",
+    "summary": "Demonstrated that reasoning capabilities and reflection patterns emerge purely through large-scale reinforcement learning, matching closed reasoning models under fully open MIT licensing.",
+    "key_innovations": [
+      "Group Relative Policy Optimization (GRPO) removing critic model overhead",
+      "Discovery of 'Aha moment' self-reflection and re-evaluation behaviors purely via RL",
+      "Distilled dense models (1.5B to 70B) transferring frontier reasoning to local devices"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.99,
+      "scale_factor": 1.55
+    },
+    "sources": ["src-deepseek-r1-2025"]
+  }
+]
