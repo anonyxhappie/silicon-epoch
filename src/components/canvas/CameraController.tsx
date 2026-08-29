@@ -66,9 +66,9 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
   // Compute camera target based on state
   useEffect(() => {
     if (!isEntered) {
-      // Landing Overview
-      targetCamPos.current.set(10, 50, 45);
-      targetLookAt.current.set(10, 0, 0);
+      // Landing Overview framed over latest frontier models
+      targetCamPos.current.set(130, 42, 35);
+      targetLookAt.current.set(135, 0, 5);
       return;
     }
 

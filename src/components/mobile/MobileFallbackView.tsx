@@ -7,7 +7,7 @@ import { Entity } from "@/types/schema";
 import { useEpochStore } from "@/lib/store/useEpochStore";
 
 export function MobileFallbackView() {
-  const [selectedEpoch, setSelectedEpoch] = useState<string>("epoch-foundation-models");
+  const [selectedEpoch, setSelectedEpoch] = useState<string>("epoch-agentic-frontier");
   const selectEntity = useEpochStore((s) => s.selectEntity);
   const setSearchOpen = useEpochStore((s) => s.setSearchOpen);
   const setFilterOpen = useEpochStore((s) => s.setFilterOpen);

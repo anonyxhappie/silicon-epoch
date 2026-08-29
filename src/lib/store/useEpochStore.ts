@@ -92,8 +92,8 @@ const initialFilters: FilterState = {
 
 export const useEpochStore = create<EpochStoreState>((set, get) => ({
   isEntered: false,
-  activeEpochId: "epoch-foundations",
-  timelineProgress: 0.1,
+  activeEpochId: "epoch-agentic-frontier",
+  timelineProgress: 1.0,
 
   selectedEntityId: null,
   hoveredEntityId: null,
