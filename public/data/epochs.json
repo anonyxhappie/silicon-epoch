@@ -1,0 +1,74 @@
+[
+  {
+    "id": "epoch-foundations",
+    "name": "Foundations & Cybernetics",
+    "title": "The Foundations",
+    "subtitle": "1940 – 1969",
+    "start_year": 1940,
+    "end_year": 1969,
+    "description": "The mathematical birth of machine cognition. Turing's computational universality, cybernetics, and the first artificial neural abstractions.",
+    "theme_color": "#00F0FF",
+    "order": 1,
+    "focus_milestone": "turing-computing-machinery"
+  },
+  {
+    "id": "epoch-symbolic-revival",
+    "name": "Symbolic Logic & Connectionist Awakening",
+    "title": "Connectionist Awakening",
+    "subtitle": "1970 – 2005",
+    "start_year": 1970,
+    "end_year": 2005,
+    "description": "Backpropagation emerges from the first AI winter. Recurrent networks, LSTMs, and convolutional networks establish foundational algorithmic architectures.",
+    "theme_color": "#38BDF8",
+    "order": 2,
+    "focus_milestone": "backprop-1986"
+  },
+  {
+    "id": "epoch-deep-learning-boom",
+    "name": "The Deep Learning Boom",
+    "title": "Deep Learning Boom",
+    "subtitle": "2006 – 2016",
+    "start_year": 2006,
+    "end_year": 2016,
+    "description": "Massive parallel GPU compute meets large annotated datasets. AlexNet ignites the visual revolution; GANs and AlphaGo reshape representation learning.",
+    "theme_color": "#10B981",
+    "order": 3,
+    "focus_milestone": "alexnet"
+  },
+  {
+    "id": "epoch-transformer-era",
+    "name": "The Transformer Revolution",
+    "title": "The Transformer Era",
+    "subtitle": "2017 – 2021",
+    "start_year": 2017,
+    "end_year": 2021,
+    "description": "Self-attention replaces recurrence. BERT, GPT, and T5 unlock pretraining at scale, creating unified self-supervised representations across languages.",
+    "theme_color": "#F59E0B",
+    "order": 4,
+    "focus_milestone": "transformer-attention"
+  },
+  {
+    "id": "epoch-foundation-models",
+    "name": "Foundation Models & LLM Explosion",
+    "title": "Foundation Models",
+    "subtitle": "2022 – 2023",
+    "start_year": 2022,
+    "end_year": 2023,
+    "description": "Scaling laws, RLHF, and emergent reasoning. ChatGPT, GPT-4, Claude, and LLaMA democratize generative AI across the global computing stack.",
+    "theme_color": "#EC4899",
+    "order": 5,
+    "focus_milestone": "gpt-4"
+  },
+  {
+    "id": "epoch-agentic-frontier",
+    "name": "Reasoning & Agentic Frontier",
+    "title": "Agentic & Reasoning",
+    "subtitle": "2024 – Present",
+    "start_year": 2024,
+    "end_year": 2026,
+    "description": "Inference-time search, test-time compute scaling, native multimodality, open frontier MoE architectures, and autonomous agent loops.",
+    "theme_color": "#8B5CF6",
+    "order": 6,
+    "focus_milestone": "openai-o1"
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "rel-turing-rosenblatt",
+    "source": "turing-computing-machinery",
+    "target": "perceptron-1958",
+    "type": "influenced",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-turing-1950", "src-rosenblatt-1958"],
+    "description": "Turing's child-machine concept and computational learning hypotheses influenced Rosenblatt's design of physical learning networks."
+  },
+  {
+    "id": "rel-perceptron-backprop",
+    "source": "perceptron-1958",
+    "target": "backprop-1986",
+    "type": "predecessor_of",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-rumelhart-1986"],
+    "description": "Backpropagation generalized the single-layer perceptron delta rule to multi-layer non-linear hidden representations."
+  },
+  {
+    "id": "rel-backprop-lenet",
+    "source": "backprop-1986",
+    "target": "lenet-5",
+    "type": "used_in",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-lecun-1998"],
+    "description": "LeNet-5 utilized backpropagation with stochastic gradient descent across 2D spatial convolution kernels."
+  },
+  {
+    "id": "rel-backprop-lstm",
+    "source": "backprop-1986",
+    "target": "lstm-1997",
+    "type": "influenced",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-hochreiter-1997"],
+    "description": "LSTM was specifically engineered to solve the vanishing gradient failure of backpropagation through time."
+  },
+  {
+    "id": "rel-cuda-alexnet",
+    "source": "nvidia-cuda",
+    "target": "alexnet",
+    "type": "accelerated_by",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-alexnet-2012", "src-cuda-2006"],
+    "description": "AlexNet was hand-optimized in custom CUDA C code to run 2D convolutions in parallel across two GTX 580 GPUs."
+  },
+  {
+    "id": "rel-lenet-alexnet",
+    "source": "lenet-5",
+    "target": "alexnet",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-alexnet-2012"],
+    "description": "AlexNet scaled the fundamental convolutional hierarchy pioneered in LeNet to 8 deep layers and ImageNet scale."
+  },
+  {
+    "id": "rel-alexnet-word2vec",
+    "source": "alexnet",
+    "target": "word2vec",
+    "type": "influenced",
+    "directional": true,
+    "confidence": "medium",
+    "sources": ["src-word2vec-2013"],
+    "description": "The deep learning revival ignited by AlexNet inspired continuous distributed representation research in NLP."
+  },
+  {
+    "id": "rel-alexnet-gan",
+    "source": "alexnet",
+    "target": "gan-2014",
+    "type": "influenced",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-goodfellow-2014"],
+    "description": "Deep discriminative networks provided the core adversary architecture for training generative generator networks."
+  },
+  {
+    "id": "rel-alexnet-resnet",
+    "source": "alexnet",
+    "target": "resnet-2015",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-resnet-2015"],
+    "description": "ResNet solved the optimization degradation barrier that limited earlier CNNs to under 20 layers, pushing depth to 152+ layers."
+  },
+  {
+    "id": "rel-resnet-alphago",
+    "source": "resnet-2015",
+    "target": "alphago-2016",
+    "type": "used_in",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-alphago-2016"],
+    "description": "Deep convolutional residual architectures powered AlphaGo's policy and value networks for Go board evaluation."
+  },
+  {
+    "id": "rel-tpu-alphago",
+    "source": "google-tpu-v1",
+    "target": "alphago-2016",
+    "type": "accelerated_by",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-tpu-v1-2016"],
+    "description": "AlphaGo used clusters of Google TPU v1 chips in real-time during the match against Lee Sedol."
+  },
+  {
+    "id": "rel-lstm-transformer",
+    "source": "lstm-1997",
+    "target": "transformer-attention",
+    "type": "predecessor_of",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-vaswani-2017"],
+    "description": "The Transformer was designed to surpass LSTM recurrent bottlenecks by computing direct pairwise self-attention in O(1) sequential steps."
+  },
+  {
+    "id": "rel-transformer-bert",
+    "source": "transformer-attention",
+    "target": "bert",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-bert-2018"],
+    "description": "BERT utilizes a deep bidirectional stack of Transformer encoder blocks."
+  },
+  {
+    "id": "rel-transformer-gpt2",
+    "source": "transformer-attention",
+    "target": "gpt-2",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-gpt2-2019"],
+    "description": "GPT-2 scales the autoregressive causal Transformer decoder architecture."
+  },
+  {
+    "id": "rel-gpt2-gpt3",
+    "source": "gpt-2",
+    "target": "gpt-3",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-gpt3-2020"],
+    "description": "GPT-3 scaled the causal transformer from 1.5B parameters to 175B parameters, unlocking in-context few-shot learning."
+  },
+  {
+    "id": "rel-transformer-alphafold",
+    "source": "transformer-attention",
+    "target": "alphafold-2",
+    "type": "influenced",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-alphafold2-2020"],
+    "description": "AlphaFold 2 adapted self-attention into the Evoformer architecture to exchange information across biological sequences and residue pairs."
+  },
+  {
+    "id": "rel-transformer-clip",
+    "source": "transformer-attention",
+    "target": "clip-2021",
+    "type": "used_in",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-clip-2021"],
+    "description": "CLIP utilizes Vision Transformers (ViT) and text Transformer encoders for multimodal joint embedding."
+  },
+  {
+    "id": "rel-clip-stablediffusion",
+    "source": "clip-2021",
+    "target": "stable-diffusion",
+    "type": "used_in",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-stablediffusion-2022"],
+    "description": "Stable Diffusion uses pretrained frozen CLIP text encoders to guide latent space diffusion via cross-attention."
+  },
+  {
+    "id": "rel-gpt3-instructgpt",
+    "source": "gpt-3",
+    "target": "instructgpt",
+    "type": "predecessor_of",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-instructgpt-2022"],
+    "description": "InstructGPT fine-tuned GPT-3 base checkpoints with Reinforcement Learning from Human Feedback."
+  },
+  {
+    "id": "rel-h100-gpt4",
+    "source": "nvidia-h100",
+    "target": "gpt-4",
+    "type": "accelerated_by",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-gpt4-2023", "src-h100-2022"],
+    "description": "Massive clusters of NVIDIA Hopper and Ampere GPUs provided the compute infrastructure for training and serving GPT-4."
+  },
+  {
+    "id": "rel-instructgpt-gpt4",
+    "source": "instructgpt",
+    "target": "gpt-4",
+    "type": "influenced",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-gpt4-2023"],
+    "description": "GPT-4 incorporated advanced RLHF and rule-based reward models developed during InstructGPT experiments."
+  },
+  {
+    "id": "rel-transformer-llama",
+    "source": "transformer-attention",
+    "target": "llama-1",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-llama1-2023"],
+    "description": "LLaMA is an autoregressive decoder Transformer incorporating SwiGLU, RMSNorm, and Rotary Positional Embeddings."
+  },
+  {
+    "id": "rel-llama1-llama3",
+    "source": "llama-1",
+    "target": "llama-3-405b",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-llama3-2024"],
+    "description": "Llama 3.1 405B represents the frontier culmination of the Llama open architecture series."
+  },
+  {
+    "id": "rel-gpt4-claude35",
+    "source": "gpt-4",
+    "target": "claude-3-5-sonnet",
+    "type": "related_to",
+    "directional": false,
+    "confidence": "high",
+    "sources": ["src-claude35-2024"],
+    "description": "Contemporary frontier multimodal models competing across coding, vision, and tool-use intelligence."
+  },
+  {
+    "id": "rel-gpt4-o1",
+    "source": "gpt-4",
+    "target": "openai-o1",
+    "type": "predecessor_of",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-openai-o1-2024"],
+    "description": "OpenAI o1 builds on pre-trained foundation models with large-scale RL for test-time reasoning compute."
+  },
+  {
+    "id": "rel-transformer-deepseekv3",
+    "source": "transformer-attention",
+    "target": "deepseek-v3",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-deepseek-v3-2024"],
+    "description": "DeepSeek-V3 expands the transformer with Multi-Head Latent Attention (MLA) and 256-expert Mixture-of-Experts routing."
+  },
+  {
+    "id": "rel-deepseekv3-deepseekr1",
+    "source": "deepseek-v3",
+    "target": "deepseek-r1",
+    "type": "trained_on",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-deepseek-r1-2025"],
+    "description": "DeepSeek-R1 was trained directly on the DeepSeek-V3 base architecture using pure reinforcement learning (GRPO)."
+  },
+  {
+    "id": "rel-o1-deepseekr1",
+    "source": "openai-o1",
+    "target": "deepseek-r1",
+    "type": "related_to",
+    "directional": false,
+    "confidence": "high",
+    "sources": ["src-deepseek-r1-2025", "src-openai-o1-2024"],
+    "description": "Frontier reasoning paradigms utilizing reinforcement-learning-driven test-time compute scaling."
+  }
+]

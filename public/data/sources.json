@@ -1,0 +1,292 @@
+[
+  {
+    "id": "src-turing-1950",
+    "type": "research_paper",
+    "title": "Computing Machinery and Intelligence",
+    "url": "https://doi.org/10.1093/mind/LIX.236.433",
+    "publisher": "Mind / Oxford University Press",
+    "published_date": "1950-10-01",
+    "authority": "primary",
+    "notes": "Introduced the imitation game (Turing Test) and proposed machine learning via child-machine analogies."
+  },
+  {
+    "id": "src-rosenblatt-1958",
+    "type": "research_paper",
+    "title": "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain",
+    "url": "https://doi.org/10.1037/h0042519",
+    "publisher": "Psychological Review",
+    "published_date": "1958-11-01",
+    "authority": "primary",
+    "notes": "First hardware implementation of a single-layer neural network perceptron at Cornell Aeronautical Laboratory."
+  },
+  {
+    "id": "src-rumelhart-1986",
+    "type": "research_paper",
+    "title": "Learning representations by back-propagating errors",
+    "url": "https://doi.org/10.1038/323533a0",
+    "publisher": "Nature",
+    "published_date": "1986-10-09",
+    "authority": "primary",
+    "notes": "Demonstrated that backpropagation can generate useful internal representations in multi-layer neural networks."
+  },
+  {
+    "id": "src-hochreiter-1997",
+    "type": "research_paper",
+    "title": "Long Short-Term Memory",
+    "url": "https://doi.org/10.1162/neco.1997.9.8.1735",
+    "publisher": "Neural Computation / MIT Press",
+    "published_date": "1997-11-15",
+    "authority": "primary",
+    "notes": "Introduced constant error carousels and multiplicative gates to solve vanishing/exploding gradients in RNNs."
+  },
+  {
+    "id": "src-lecun-1998",
+    "type": "research_paper",
+    "title": "Gradient-Based Learning Applied to Document Recognition (LeNet-5)",
+    "url": "https://doi.org/10.1109/5.726791",
+    "publisher": "Proceedings of the IEEE",
+    "published_date": "1998-11-01",
+    "authority": "primary",
+    "notes": "Established modern ConvNet architecture (convolutions, subsampling, fully connected layers) for OCR."
+  },
+  {
+    "id": "src-cuda-2006",
+    "type": "official_announcement",
+    "title": "NVIDIA CUDA Compute Architecture Launch",
+    "url": "https://www.nvidia.com",
+    "publisher": "NVIDIA Corporation",
+    "published_date": "2006-11-01",
+    "authority": "official",
+    "notes": "Opened massively parallel GPU threads to general-purpose scientific computing via C/C++ abstractions."
+  },
+  {
+    "id": "src-alexnet-2012",
+    "type": "research_paper",
+    "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+    "url": "https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks",
+    "publisher": "NeurIPS 2012",
+    "published_date": "2012-12-03",
+    "authority": "primary",
+    "notes": "Won ImageNet 2012 with 15.3% top-5 error, proving GPU acceleration and ReLU activations on deep architectures."
+  },
+  {
+    "id": "src-word2vec-2013",
+    "type": "research_paper",
+    "title": "Efficient Estimation of Word Representations in Vector Space",
+    "url": "https://arxiv.org/abs/1301.3781",
+    "publisher": "arXiv / ICLR 2013",
+    "published_date": "2013-01-16",
+    "authority": "primary",
+    "notes": "Introduced continuous Bag-of-Words (CBOW) and Skip-gram algorithms for continuous dense semantic embeddings."
+  },
+  {
+    "id": "src-goodfellow-2014",
+    "type": "research_paper",
+    "title": "Generative Adversarial Nets",
+    "url": "https://arxiv.org/abs/1406.2661",
+    "publisher": "NeurIPS 2014",
+    "published_date": "2014-06-10",
+    "authority": "primary",
+    "notes": "Introduced minimax game between generator and discriminator for generative density estimation without explicit likelihoods."
+  },
+  {
+    "id": "src-resnet-2015",
+    "type": "research_paper",
+    "title": "Deep Residual Learning for Image Recognition",
+    "url": "https://arxiv.org/abs/1512.03385",
+    "publisher": "CVPR 2016",
+    "published_date": "2015-12-10",
+    "authority": "primary",
+    "notes": "Introduced identity shortcut connections allowing stable optimization of 152+ layer deep networks."
+  },
+  {
+    "id": "src-alphago-2016",
+    "type": "research_paper",
+    "title": "Mastering the game of Go with deep neural networks and tree search",
+    "url": "https://doi.org/10.1038/nature16961",
+    "publisher": "Nature",
+    "published_date": "2016-01-27",
+    "authority": "primary",
+    "notes": "Combined deep policy/value networks with Monte Carlo Tree Search to defeat 18-time world champion Lee Sedol."
+  },
+  {
+    "id": "src-tpu-v1-2016",
+    "type": "technical_report",
+    "title": "In-Datacenter Performance Analysis of a Tensor Processing Unit",
+    "url": "https://arxiv.org/abs/1704.04760",
+    "publisher": "ISCA 2017 / Google",
+    "published_date": "2017-04-15",
+    "authority": "primary",
+    "notes": "Google disclosed custom 28nm ASIC ASIC matrix multiplier delivering 15x-30x speedup over contemporary CPUs/GPUs."
+  },
+  {
+    "id": "src-vaswani-2017",
+    "type": "research_paper",
+    "title": "Attention Is All You Need",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "publisher": "NeurIPS 2017",
+    "published_date": "2017-06-12",
+    "authority": "primary",
+    "notes": "Replaced recurrent and convolutional sequence transduction with Multi-Head Scaled Dot-Product Self-Attention."
+  },
+  {
+    "id": "src-bert-2018",
+    "type": "research_paper",
+    "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "url": "https://arxiv.org/abs/1810.04805",
+    "publisher": "NAACL 2019 / Google",
+    "published_date": "2018-10-11",
+    "authority": "primary",
+    "notes": "Introduced Masked Language Modeling (MLM) and Next Sentence Prediction on bidirectional Transformer encoders."
+  },
+  {
+    "id": "src-gpt1-2018",
+    "type": "technical_report",
+    "title": "Improving Language Understanding by Generative Pre-Training",
+    "url": "https://openai.com/research/language-unsupervised",
+    "publisher": "OpenAI",
+    "published_date": "2018-06-11",
+    "authority": "primary",
+    "notes": "First autoregressive generative pre-trained decoder transformer adapted to downstream tasks via supervised fine-tuning."
+  },
+  {
+    "id": "src-gpt2-2019",
+    "type": "technical_report",
+    "title": "Language Models are Unsupervised Multitask Learners",
+    "url": "https://openai.com/research/better-language-models",
+    "publisher": "OpenAI",
+    "published_date": "2019-02-14",
+    "authority": "primary",
+    "notes": "Demonstrated zero-shot task execution without parameter updates on a 1.5B parameter causal transformer."
+  },
+  {
+    "id": "src-gpt3-2020",
+    "type": "research_paper",
+    "title": "Language Models are Few-Shot Learners",
+    "url": "https://arxiv.org/abs/2005.14165",
+    "publisher": "NeurIPS 2020 / OpenAI",
+    "published_date": "2020-05-28",
+    "authority": "primary",
+    "notes": "Demonstrated in-context few-shot learning capabilities scaling to 175B parameters."
+  },
+  {
+    "id": "src-alphafold2-2020",
+    "type": "research_paper",
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "url": "https://doi.org/10.1038/s41586-021-03819-2",
+    "publisher": "Nature / DeepMind",
+    "published_date": "2021-07-15",
+    "authority": "primary",
+    "notes": "Solved 50-year protein folding challenge using Evoformer attention and invariant point attention structure modules."
+  },
+  {
+    "id": "src-clip-2021",
+    "type": "research_paper",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "url": "https://arxiv.org/abs/2103.00020",
+    "publisher": "ICML 2021 / OpenAI",
+    "published_date": "2021-02-26",
+    "authority": "primary",
+    "notes": "Contrastive pre-training linking 400M image-text pairs into shared multimodal embedding space."
+  },
+  {
+    "id": "src-instructgpt-2022",
+    "type": "research_paper",
+    "title": "Training language models to follow instructions with human feedback",
+    "url": "https://arxiv.org/abs/2203.02155",
+    "publisher": "NeurIPS 2022 / OpenAI",
+    "published_date": "2022-03-04",
+    "authority": "primary",
+    "notes": "Reinforcement Learning from Human Feedback (PPO) aligning generative completion to helpful, honest, harmless intent."
+  },
+  {
+    "id": "src-stablediffusion-2022",
+    "type": "research_paper",
+    "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+    "url": "https://arxiv.org/abs/2112.10752",
+    "publisher": "CVPR 2022 / Stability AI & LMU",
+    "published_date": "2022-08-10",
+    "authority": "primary",
+    "notes": "Cross-attention guided latent space diffusion enabling consumer GPU high-resolution text-to-image synthesis."
+  },
+  {
+    "id": "src-h100-2022",
+    "type": "official_announcement",
+    "title": "NVIDIA Hopper H100 GPU Architecture Whitepaper",
+    "url": "https://www.nvidia.com",
+    "publisher": "NVIDIA Corporation",
+    "published_date": "2022-03-22",
+    "authority": "official",
+    "notes": "4nm TSMC chip with 80B transistors, Transformer Engine with FP8 precision, delivering 4x speedup over A100."
+  },
+  {
+    "id": "src-llama1-2023",
+    "type": "research_paper",
+    "title": "LLaMA: Open and Efficient Foundation Language Models",
+    "url": "https://arxiv.org/abs/2302.13971",
+    "publisher": "Meta AI",
+    "published_date": "2023-02-27",
+    "authority": "primary",
+    "notes": "Proved that training smaller models (7B-65B) on more tokens (1.4T) outperforms overparameterized models under fixed compute."
+  },
+  {
+    "id": "src-gpt4-2023",
+    "type": "technical_report",
+    "title": "GPT-4 Technical Report",
+    "url": "https://arxiv.org/abs/2303.08774",
+    "publisher": "OpenAI",
+    "published_date": "2023-03-14",
+    "authority": "primary",
+    "notes": "Large multimodal model achieving human-level performance on academic examinations. Exact parameter count not publicly disclosed."
+  },
+  {
+    "id": "src-claude35-2024",
+    "type": "official_announcement",
+    "title": "Claude 3.5 Sonnet Model Card & Announcement",
+    "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+    "publisher": "Anthropic",
+    "published_date": "2024-06-20",
+    "authority": "official",
+    "notes": "Frontier intelligence model outperforming prior Claude 3 Opus at 2x speed. Exact parameters undisclosed."
+  },
+  {
+    "id": "src-llama3-2024",
+    "type": "technical_report",
+    "title": "The Llama 3 Herd of Models",
+    "url": "https://arxiv.org/abs/2407.21783",
+    "publisher": "Meta AI",
+    "published_date": "2024-07-23",
+    "authority": "primary",
+    "notes": "Flagship 405B dense model trained on 15.6T tokens with 16k context on 16,000 H100 cluster."
+  },
+  {
+    "id": "src-openai-o1-2024",
+    "type": "official_announcement",
+    "title": "Learning to Reason with LLMs (OpenAI o1)",
+    "url": "https://openai.com/index/learning-to-reason-with-llms/",
+    "publisher": "OpenAI",
+    "published_date": "2024-09-12",
+    "authority": "official",
+    "notes": "Inference-time chain-of-thought reinforcement learning allocating dynamic search compute before response generation."
+  },
+  {
+    "id": "src-deepseek-v3-2024",
+    "type": "technical_report",
+    "title": "DeepSeek-V3 Technical Report",
+    "url": "https://arxiv.org/abs/2412.19437",
+    "publisher": "DeepSeek-AI",
+    "published_date": "2024-12-27",
+    "authority": "primary",
+    "notes": "671B parameter Mixture-of-Experts (37B active) with Multi-head Latent Attention (MLA) trained for $5.9M on 2,048 H800 GPUs."
+  },
+  {
+    "id": "src-deepseek-r1-2025",
+    "type": "research_paper",
+    "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+    "url": "https://arxiv.org/abs/2501.12948",
+    "publisher": "DeepSeek-AI",
+    "published_date": "2025-01-20",
+    "authority": "primary",
+    "notes": "Demonstrated self-evolution of chain-of-thought reasoning using pure large-scale RL without supervised cold-start."
+  }
+]
