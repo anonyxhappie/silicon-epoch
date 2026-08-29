@@ -288,5 +288,75 @@
     "published_date": "2025-01-20",
     "authority": "primary",
     "notes": "Demonstrated self-evolution of chain-of-thought reasoning using pure large-scale RL without supervised cold-start."
+  },
+  {
+    "id": "src-openai-o3-2025",
+    "type": "official_announcement",
+    "title": "OpenAI o3 & Frontier Test-Time Reasoning",
+    "url": "https://openai.com",
+    "publisher": "OpenAI",
+    "published_date": "2025-01-31",
+    "authority": "official",
+    "notes": "Frontier test-time compute model achieving 87.5% on ARC-AGI and 71.7% on SWE-bench Verified."
+  },
+  {
+    "id": "src-claude37-2025",
+    "type": "official_announcement",
+    "title": "Claude 3.7 Sonnet: Hybrid Reasoning & Agentic Execution",
+    "url": "https://www.anthropic.com",
+    "publisher": "Anthropic",
+    "published_date": "2025-02-24",
+    "authority": "official",
+    "notes": "First hybrid frontier reasoning model seamlessly combining standard latency responses with extended thinking time."
+  },
+  {
+    "id": "src-gemini2-2025",
+    "type": "technical_report",
+    "title": "Gemini 2.0: Multimodal Agentic Intelligence",
+    "url": "https://deepmind.google/technologies/gemini/",
+    "publisher": "Google DeepMind",
+    "published_date": "2025-02-05",
+    "authority": "primary",
+    "notes": "Multimodal agentic architecture featuring 2M token context, native real-time audio/video streaming, and tool execution."
+  },
+  {
+    "id": "src-llama33-2024",
+    "type": "technical_report",
+    "title": "Llama 3.3 70B Model Card",
+    "url": "https://ai.meta.com/blog/llama-3-3/",
+    "publisher": "Meta AI",
+    "published_date": "2024-12-06",
+    "authority": "primary",
+    "notes": "70B dense model matching prior 405B capabilities through synthetic distillation and improved training data."
+  },
+  {
+    "id": "src-qwq-2024",
+    "type": "technical_report",
+    "title": "QwQ: Reflecting on the Bounds of Open Reasoning Models",
+    "url": "https://qwenlm.github.io/blog/qwq-32b-preview/",
+    "publisher": "Alibaba Cloud / Qwen Team",
+    "published_date": "2024-11-27",
+    "authority": "primary",
+    "notes": "32B open reasoning model competitive with o1-preview across competitive programming and mathematics."
+  },
+  {
+    "id": "src-blackwell-2024",
+    "type": "official_announcement",
+    "title": "NVIDIA Blackwell Architecture Technical Whitepaper",
+    "url": "https://www.nvidia.com",
+    "publisher": "NVIDIA Corporation",
+    "published_date": "2024-03-18",
+    "authority": "official",
+    "notes": "Dual-die 208B transistor GPU delivering 20 PFLOPS FP4 with NVLink 5 (1.8 TB/s) and 5th Gen Tensor Cores."
+  },
+  {
+    "id": "src-rubin-2026",
+    "type": "official_announcement",
+    "title": "NVIDIA Vera Rubin Architecture Roadmap",
+    "url": "https://www.nvidia.com",
+    "publisher": "NVIDIA Corporation",
+    "published_date": "2026-03-18",
+    "authority": "official",
+    "notes": "Next-generation 3nm semiconductor platform with HBM4 288GB memory and optical NVLink 6 interconnects."
   }
 ]

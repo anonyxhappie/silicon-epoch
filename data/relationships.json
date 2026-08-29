@@ -278,5 +278,105 @@
     "confidence": "high",
     "sources": ["src-deepseek-r1-2025", "src-openai-o1-2024"],
     "description": "Frontier reasoning paradigms utilizing reinforcement-learning-driven test-time compute scaling."
+  },
+  {
+    "id": "rel-o1-o3",
+    "source": "openai-o1",
+    "target": "openai-o3",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-openai-o3-2025"],
+    "description": "OpenAI o3 represents the next generation of test-time compute scaling, breaking previous records on ARC-AGI and SWE-bench."
+  },
+  {
+    "id": "rel-claude35-claude37",
+    "source": "claude-3-5-sonnet",
+    "target": "claude-3-7-sonnet",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-claude37-2025"],
+    "description": "Claude 3.7 Sonnet introduces hybrid thinking architectures to Claude 3.5 Sonnet's agentic and computer-use foundation."
+  },
+  {
+    "id": "rel-transformer-gemini2",
+    "source": "transformer-attention",
+    "target": "gemini-2-pro",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-gemini2-2025"],
+    "description": "Gemini 2.0 scales native multimodal transformers to 2,000,000 token context and streaming realtime interaction."
+  },
+  {
+    "id": "rel-llama3-llama33",
+    "source": "llama-3-405b",
+    "target": "llama-3-3-70b",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-llama33-2024"],
+    "description": "Llama 3.3 compresses the capability of Llama 3.1 405B into an efficient 70B dense model."
+  },
+  {
+    "id": "rel-deepseekr1-qwq",
+    "source": "deepseek-r1",
+    "target": "qwq-32b",
+    "type": "related_to",
+    "directional": false,
+    "confidence": "high",
+    "sources": ["src-qwq-2024", "src-deepseek-r1-2025"],
+    "description": "Contemporary open-weights models demonstrating reinforcement learning reasoning in open research communities."
+  },
+  {
+    "id": "rel-h100-blackwell",
+    "source": "nvidia-h100",
+    "target": "nvidia-blackwell-b200",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-blackwell-2024"],
+    "description": "Blackwell succeeds Hopper with dual-die packaging, NVLink 5 rack spine, and 2nd generation Transformer Engine."
+  },
+  {
+    "id": "rel-blackwell-rubin",
+    "source": "nvidia-blackwell-b200",
+    "target": "nvidia-rubin",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-rubin-2026"],
+    "description": "Rubin transitions NVIDIA accelerated computing to 3nm process, HBM4 memory, and optical NVLink networking."
+  },
+  {
+    "id": "rel-blackwell-o3",
+    "source": "nvidia-blackwell-b200",
+    "target": "openai-o3",
+    "type": "accelerated_by",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-blackwell-2024", "src-openai-o3-2025"],
+    "description": "Massive Blackwell GPU clusters provide high-throughput FP4 inference compute for deep test-time search."
+  },
+  {
+    "id": "rel-blackwell-claude37",
+    "source": "nvidia-blackwell-b200",
+    "target": "claude-3-7-sonnet",
+    "type": "accelerated_by",
+    "directional": true,
+    "confidence": "high",
+    "sources": ["src-blackwell-2024", "src-claude37-2025"],
+    "description": "Advanced Blackwell and Hopper compute infrastructure powers large-scale training and low-latency inference."
+  },
+  {
+    "id": "rel-o3-claude37",
+    "source": "openai-o3",
+    "target": "claude-3-7-sonnet",
+    "type": "related_to",
+    "directional": false,
+    "confidence": "high",
+    "sources": ["src-openai-o3-2025", "src-claude37-2025"],
+    "description": "Frontier hybrid reasoning and agentic systems defining the 2025-2026 AI state of the art."
   }
 ]
