@@ -75,15 +75,28 @@ export function MobileFallbackView() {
           >
             <div className="flex items-start justify-between">
               <div>
-                <div className="flex items-center space-x-2">
-                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-cyan-400 font-mono text-[10px] uppercase">
-                    {entity.type}
+                <div className="flex flex-wrap items-center gap-1.5 mb-1">
+                  {entity.tier && (
+                    <span
+                      className={`px-2 py-0.5 rounded font-mono text-[9px] uppercase font-bold tracking-wider border ${
+                        entity.tier === "tier_s"
+                          ? "bg-amber-500/15 border-amber-500/50 text-amber-300"
+                          : entity.tier === "tier_a"
+                          ? "bg-emerald-500/15 border-emerald-500/50 text-emerald-300"
+                          : "bg-purple-500/15 border-purple-500/50 text-purple-300"
+                      }`}
+                    >
+                      {entity.tier.replace("_", " ").toUpperCase()}
+                    </span>
+                  )}
+                  <span className="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-cyan-400 font-mono text-[9px] uppercase font-semibold">
+                    {entity.availability ? entity.availability.replace("_", " ") : entity.type}
                   </span>
-                  <span className="text-xs font-mono text-slate-400">
+                  <span className="text-[11px] font-mono text-slate-400">
                     {entity.release_date}
                   </span>
                 </div>
-                <h3 className="text-base font-bold font-mono text-slate-100 mt-1">
+                <h3 className="text-base font-bold font-mono text-slate-100 mt-0.5">
                   {entity.name}
                 </h3>
               </div>

@@ -8,16 +8,19 @@ interface TimelineKnot {
 }
 
 const TIMELINE_KNOTS: TimelineKnot[] = [
-  { year: 1940, x: -130 },
-  { year: 1960, x: -95 },
-  { year: 1980, x: -65 },
-  { year: 2000, x: -35 },
-  { year: 2012, x: 0 },
-  { year: 2017, x: 35 },
-  { year: 2020, x: 65 },
-  { year: 2022, x: 95 },
-  { year: 2024, x: 125 },
-  { year: 2026, x: 155 },
+  { year: 1940, x: -140 },
+  { year: 1960, x: -105 },
+  { year: 1980, x: -75 },
+  { year: 2000, x: -45 },
+  { year: 2012, x: -15 },
+  { year: 2017, x: 20 },
+  { year: 2020, x: 50 },
+  { year: 2022, x: 80 },
+  { year: 2024, x: 110 },
+  { year: 2025, x: 135 },
+  { year: 2026.0, x: 145 },
+  { year: 2026.5, x: 162 },
+  { year: 2026.75, x: 180 },
 ];
 
 /**
@@ -72,35 +75,51 @@ export function xToTimelineYear(x: number): number {
       return k1.year + alpha * (k2.year - k1.year);
     }
   }
-  return 2024;
+  return 2026;
 }
 
 export const LANE_CONFIG = {
-  foundations: { z: -16, lane: -2, laneName: "Foundations & Papers" },
-  architectures: { z: -7.5, lane: -1, laneName: "Architectures & Algorithms" },
-  models: { z: 7.5, lane: 1, laneName: "Frontier Models & Systems" },
-  hardware: { z: 16, lane: 2, laneName: "Hardware & Accelerators" },
-  applications: { z: 22, lane: 3, laneName: "Applications & Science" },
+  foundations: { z: -17, lane: -2, laneName: "Foundations & Papers" },
+  architectures: { z: -8, lane: -1, laneName: "Architectures & Efficient LLMs" },
+  models: { z: 8, lane: 1, laneName: "Frontier Flagships & Agents" },
+  hardware: { z: 17, lane: 2, laneName: "Hardware & Compute Systems" },
+  multimodal_media: { z: 23, lane: 3, laneName: "Vision, Audio & Realtime" },
 };
 
 /**
- * Maps entity category and type to a structured secondary Z lane.
+ * Maps entity category, type, and modalities to a balanced secondary Z lane.
  */
 export function getEntityLane(
   type: EntityType,
-  category: string
+  category: string,
+  modalities: string[] = []
 ): { z: number; lane: number; laneName: string } {
-  if (type === "hardware") {
+  if (type === "hardware" || category.includes("Hardware") || category.includes("Compute")) {
     return LANE_CONFIG.hardware;
   }
   if (type === "paper" || category.includes("Theoretical")) {
     return LANE_CONFIG.foundations;
   }
-  if (type === "architecture" || type === "algorithm") {
+  if (
+    category.includes("Speed") ||
+    category.includes("Edge") ||
+    category.includes("Efficient") ||
+    type === "algorithm" ||
+    type === "architecture"
+  ) {
     return LANE_CONFIG.architectures;
   }
-  if (category.includes("Science") || type === "product") {
-    return LANE_CONFIG.applications;
+  if (
+    category.includes("Image") ||
+    category.includes("Video") ||
+    category.includes("Audio") ||
+    category.includes("Speech") ||
+    category.includes("Realtime") ||
+    category.includes("Synthesis") ||
+    modalities.includes("audio") ||
+    modalities.includes("video")
+  ) {
+    return LANE_CONFIG.multimodal_media;
   }
   return LANE_CONFIG.models;
 }
@@ -115,16 +134,16 @@ export function getPlacedEntities(entities: Entity[]): PlacedEntity[] {
 
   for (const entity of entities) {
     const baseX = dateToTimelineX(entity.release_date);
-    const lane = getEntityLane(entity.type, entity.category);
+    const lane = getEntityLane(entity.type, entity.category, entity.modalities);
     const scale = calculateVisualScale(entity);
-    const radius = scale * 3.0;
+    const radius = scale * 2.8;
 
     let posX = baseX;
     let posZ = lane.z;
 
-    // Check collision against previously placed entities in same general proximity
+    // Collision avoidance loop
     let attempts = 0;
-    while (attempts < 20) {
+    while (attempts < 30) {
       // Ensure posZ never enters the central timeline spine corridor [-4.5, 4.5]
       if (Math.abs(posZ) < 4.5) {
         posZ = posZ >= 0 ? 6.5 : -6.5;
@@ -143,9 +162,9 @@ export function getPlacedEntities(entities: Entity[]): PlacedEntity[] {
 
       // Nudge cleanly in Z or X alternatively
       if (attempts % 2 === 0) {
-        posZ += (attempts % 4 === 0 ? 1 : -1) * 4.5;
+        posZ += (attempts % 4 === 0 ? 1 : -1) * 3.8;
       } else {
-        posX += (attempts % 4 === 1 ? 1 : -1) * 5.5;
+        posX += (attempts % 4 === 1 ? 1 : -1) * 4.2;
       }
       attempts++;
     }

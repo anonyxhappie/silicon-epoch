@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, RotateCcw, Filter, Check } from "lucide-react";
+import { X, RotateCcw, Filter, Check, Sparkles } from "lucide-react";
 import { useEpochStore } from "@/lib/store/useEpochStore";
 import { EPOCHS } from "@/lib/data/dataset";
 import { AvailabilityType, EntityType } from "@/types/schema";
@@ -15,14 +15,14 @@ const ENTITY_TYPES: { id: EntityType; label: string }[] = [
   { id: "paper", label: "Foundational Papers" },
 ];
 
-const AVAILABILITY_OPTIONS: { id: AvailabilityType; label: string }[] = [
-  { id: "open_weights", label: "Open Weights" },
-  { id: "api", label: "Commercial API" },
-  { id: "open_source", label: "Open Source Code" },
-  { id: "research_only", label: "Research Only" },
+const AVAILABILITY_OPTIONS: { id: AvailabilityType; label: string; tag: string }[] = [
+  { id: "open_source", label: "Open Source", tag: "MIT / Apache-2.0" },
+  { id: "open_weights", label: "Open Weights", tag: "Downloadable Weights" },
+  { id: "closed_api", label: "Closed API", tag: "Cloud Inference Only" },
+  { id: "research_preview", label: "Research Preview", tag: "Gated / Experimental" },
 ];
 
-const MODALITY_OPTIONS = ["text", "image", "code"];
+const MODALITY_OPTIONS = ["text", "image", "video", "audio", "code"];
 
 export function FilterDrawer() {
   const isFilterOpen = useEpochStore((s) => s.isFilterOpen);
@@ -75,7 +75,7 @@ export function FilterDrawer() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setFilterOpen(false)}
-            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs pointer-events-auto"
+            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-xs pointer-events-auto"
           />
           <motion.div
             initial={{ x: "100%", opacity: 0 }}
@@ -120,7 +120,37 @@ export function FilterDrawer() {
 
             {/* Filter Body */}
             <div className="flex-1 overflow-y-auto p-5 space-y-6 text-xs font-mono">
-              {/* 1. Epochs */}
+              {/* 1. Availability & Openness (Strict 4-Tier Taxonomy) */}
+              <div>
+                <div className="text-slate-400 uppercase tracking-wider mb-2.5 font-semibold flex items-center space-x-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Openness & Licensing</span>
+                </div>
+                <div className="space-y-1.5">
+                  {AVAILABILITY_OPTIONS.map((opt) => {
+                    const isSelected = filters.availability.includes(opt.id);
+                    return (
+                      <button
+                        key={opt.id}
+                        onClick={() => toggleAvailability(opt.id)}
+                        className={`w-full flex items-center justify-between p-2.5 rounded-lg border text-left transition-all ${
+                          isSelected
+                            ? "bg-slate-900 border-cyan-500/80 text-cyan-300 shadow-sm"
+                            : "bg-slate-900/40 hover:bg-slate-900/80 border-slate-800 text-slate-300"
+                        }`}
+                      >
+                        <div>
+                          <div className="font-semibold text-slate-200">{opt.label}</div>
+                          <div className="text-[10px] text-slate-400 mt-0.5">{opt.tag}</div>
+                        </div>
+                        {isSelected && <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* 2. Epochs */}
               <div>
                 <div className="text-slate-400 uppercase tracking-wider mb-2.5 font-semibold">
                   Epochs & Eras
@@ -152,7 +182,7 @@ export function FilterDrawer() {
                 </div>
               </div>
 
-              {/* 2. Entity Types */}
+              {/* 3. Entity Types */}
               <div>
                 <div className="text-slate-400 uppercase tracking-wider mb-2.5 font-semibold">
                   Entity Category
@@ -171,32 +201,6 @@ export function FilterDrawer() {
                         }`}
                       >
                         <span>{type.label}</span>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-cyan-400" />}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* 3. Availability */}
-              <div>
-                <div className="text-slate-400 uppercase tracking-wider mb-2.5 font-semibold">
-                  Availability & Openness
-                </div>
-                <div className="grid grid-cols-1 gap-1.5">
-                  {AVAILABILITY_OPTIONS.map((opt) => {
-                    const isSelected = filters.availability.includes(opt.id);
-                    return (
-                      <button
-                        key={opt.id}
-                        onClick={() => toggleAvailability(opt.id)}
-                        className={`flex items-center justify-between p-2 rounded-lg border text-left transition-all ${
-                          isSelected
-                            ? "bg-slate-900 border-cyan-500/80 text-cyan-300"
-                            : "bg-slate-900/40 hover:bg-slate-900/80 border-slate-800 text-slate-300"
-                        }`}
-                      >
-                        <span>{opt.label}</span>
                         {isSelected && <Check className="w-3.5 h-3.5 text-cyan-400" />}
                       </button>
                     );

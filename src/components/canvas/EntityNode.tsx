@@ -27,10 +27,12 @@ export function EntityNode({ entity }: EntityNodeProps) {
   const isSelected = selectedEntityId === entity.id;
   const isHovered = hoveredEntityId === entity.id;
 
+  const tier = entity.tier || (entity.visual?.importance >= 0.95 ? "tier_s" : "tier_a");
+
   // Smooth hover elevation lift
   const currentYOffset = useRef(0);
   useFrame((_, delta) => {
-    const targetY = isHovered ? 0.35 : 0;
+    const targetY = isHovered ? 0.45 : isSelected ? 0.2 : 0;
     currentYOffset.current = THREE.MathUtils.damp(
       currentYOffset.current,
       targetY,
@@ -42,14 +44,14 @@ export function EntityNode({ entity }: EntityNodeProps) {
     }
   });
 
-  // Epoch theme color for badge
-  const epochColor = useMemo(() => {
-    if (entity.epoch_id === "epoch-agentic-frontier") return "#8B5CF6";
+  // Theme & Openness accent colors
+  const tierColor = useMemo(() => {
+    if (tier === "tier_s") return "#F59E0B"; // Gold for Tier S Frontier
+    if (entity.availability === "open_source" || entity.availability === "open_weights") return "#10B981"; // Emerald for Open Weights
+    if (entity.epoch_id === "epoch-agentic-frontier") return "#8B5CF6"; // Purple for Agentic Frontier
     if (entity.epoch_id === "epoch-foundation-models") return "#EC4899";
-    if (entity.epoch_id === "epoch-transformer-era") return "#F59E0B";
-    if (entity.epoch_id === "epoch-deep-learning-boom") return "#10B981";
     return "#00F0FF";
-  }, [entity.epoch_id]);
+  }, [tier, entity.availability, entity.epoch_id]);
 
   // Filter Match Calculation
   const isDimmed = useMemo(() => {
@@ -107,6 +109,9 @@ export function EntityNode({ entity }: EntityNodeProps) {
     document.body.style.cursor = "auto";
   };
 
+  // Whether floating badge should show
+  const showBadge = !isSelected && (tier === "tier_s" || tier === "tier_a" || isHovered);
+
   return (
     <group
       ref={groupRef}
@@ -135,11 +140,19 @@ export function EntityNode({ entity }: EntityNodeProps) {
           />
         </bufferGeometry>
         <lineBasicMaterial
-          color={isHovered || isSelected ? epochColor : "#1E2A3C"}
+          color={isHovered || isSelected ? tierColor : tier === "tier_s" ? "#94621A" : "#1E2A3C"}
           transparent
-          opacity={isHovered || isSelected ? 0.95 : 0.3}
+          opacity={isHovered || isSelected ? 0.95 : tier === "tier_s" ? 0.65 : 0.25}
         />
       </line>
+
+      {/* Tier S Beacon Ring */}
+      {tier === "tier_s" && !isSelected && (
+        <mesh position={[0, 0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <ringGeometry args={[entity.visualScale * 1.5, entity.visualScale * 1.55, 32]} />
+          <meshBasicMaterial color="#F59E0B" transparent opacity={isDimmed ? 0.2 : 0.65} />
+        </mesh>
+      )}
 
       {/* If this specific entity is selected and in inspection mode, render exploded view */}
       {isSelected ? (
@@ -174,12 +187,12 @@ export function EntityNode({ entity }: EntityNodeProps) {
         />
       )}
 
-      {/* Persistent Floating 3D HUD Badge (High-Legibility Billboard) */}
-      {!isSelected && (
+      {/* Floating 3D HUD Badge (High-Legibility Billboard) */}
+      {showBadge && (
         <Billboard
           position={[
             0,
-            entity.visualScale * 1.5 + (isHovered ? 1.6 : 1.2),
+            entity.visualScale * 1.6 + (isHovered ? 1.6 : 1.2),
             0,
           ]}
         >
@@ -188,34 +201,34 @@ export function EntityNode({ entity }: EntityNodeProps) {
             <mesh position={[0, 0, -0.02]}>
               <planeGeometry
                 args={[
-                  Math.max(entity.name.length * 0.18 + 0.8, 2.2),
-                  isHovered ? 0.85 : 0.55,
+                  Math.max(entity.name.length * 0.19 + 0.9, 2.2),
+                  isHovered ? 0.85 : tier === "tier_s" ? 0.65 : 0.52,
                 ]}
               />
               <meshBasicMaterial
                 color="#060A12"
                 transparent
-                opacity={isHovered ? 0.95 : isDimmed ? 0.4 : 0.8}
+                opacity={isHovered ? 0.95 : isDimmed ? 0.35 : tier === "tier_s" ? 0.9 : 0.75}
               />
             </mesh>
 
             {/* Glowing Accent Indicator Dot */}
             <mesh
               position={[
-                -(Math.max(entity.name.length * 0.18 + 0.8, 2.2) / 2) + 0.25,
+                -(Math.max(entity.name.length * 0.19 + 0.9, 2.2) / 2) + 0.25,
                 isHovered ? 0.15 : 0,
                 0,
               ]}
             >
-              <circleGeometry args={[0.08, 16]} />
-              <meshBasicMaterial color={epochColor} />
+              <circleGeometry args={[tier === "tier_s" ? 0.1 : 0.07, 16]} />
+              <meshBasicMaterial color={tierColor} />
             </mesh>
 
             {/* Entity Name */}
             <Text
               position={[0.1, isHovered ? 0.15 : 0, 0]}
-              fontSize={0.28}
-              color={isDimmed ? "#64748B" : isHovered ? "#FFFFFF" : "#E2E8F0"}
+              fontSize={tier === "tier_s" ? 0.3 : 0.25}
+              color={isDimmed ? "#64748B" : isHovered ? "#FFFFFF" : tier === "tier_s" ? "#F8FAFC" : "#CBD5E1"}
               anchorX="center"
               anchorY="middle"
             >
@@ -227,7 +240,7 @@ export function EntityNode({ entity }: EntityNodeProps) {
               <Text
                 position={[0, -0.2, 0]}
                 fontSize={0.17}
-                color={epochColor}
+                color={tierColor}
                 anchorX="center"
                 anchorY="middle"
               >

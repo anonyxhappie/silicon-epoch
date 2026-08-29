@@ -33,12 +33,13 @@ export type RelationshipType =
   | "related_to";
 
 export type AvailabilityType =
-  | "api"
-  | "open_weights"
   | "open_source"
-  | "proprietary"
-  | "research_only"
+  | "open_weights"
+  | "closed_api"
+  | "research_preview"
   | "hardware_device";
+
+export type VisualTier = "tier_s" | "tier_a" | "tier_b" | "tier_c";
 
 export interface BenchmarkScore {
   benchmark_id: string;
@@ -85,6 +86,7 @@ export interface VisualSpec {
     | "dataset_memory"
     | "abstract_die";
   importance: number; // 0.1 to 1.0
+  tier?: VisualTier;
   scale_factor?: number;
   elevation?: number;
   custom_color?: string;
@@ -101,6 +103,7 @@ export interface Entity {
   epoch_id: string;
   category: string;
   model_family?: string;
+  tier?: VisualTier;
   architecture?: ArchitectureSpec;
   parameters?: ParametersSpec;
   context_window?: ContextWindowSpec;

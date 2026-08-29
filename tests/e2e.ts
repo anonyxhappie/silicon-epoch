@@ -31,9 +31,9 @@ async function runE2ETests() {
   });
 
   try {
-    // 1. Navigate to http://localhost:3000
-    console.log("➡️ Step 1: Navigating to http://localhost:3000");
-    await page.goto("http://localhost:3000", { waitUntil: "domcontentloaded" });
+    // 1. Navigate to http://localhost:3000/silicon-epoch
+    console.log("➡️ Step 1: Navigating to http://localhost:3000/silicon-epoch");
+    await page.goto("http://localhost:3000/silicon-epoch", { waitUntil: "domcontentloaded" });
     await page.waitForTimeout(1500);
     await page.screenshot({ path: path.join(SCREENSHOTS_DIR, "01_landing.png") });
 

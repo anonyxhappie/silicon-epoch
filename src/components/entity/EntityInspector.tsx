@@ -59,12 +59,25 @@ export function EntityInspector() {
         <div className="p-5 border-b border-slate-800/80">
           <div className="flex items-start justify-between">
             <div>
-              <div className="flex items-center space-x-2">
+              <div className="flex flex-wrap items-center gap-1.5 mb-1">
+                {entity.tier && (
+                  <span
+                    className={`px-2 py-0.5 rounded font-mono text-[10px] uppercase font-bold tracking-wider border ${
+                      entity.tier === "tier_s"
+                        ? "bg-amber-500/15 border-amber-500/50 text-amber-300"
+                        : entity.tier === "tier_a"
+                        ? "bg-emerald-500/15 border-emerald-500/50 text-emerald-300"
+                        : "bg-purple-500/15 border-purple-500/50 text-purple-300"
+                    }`}
+                  >
+                    {entity.tier.replace("_", " ").toUpperCase()}
+                  </span>
+                )}
                 <span className="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-[10px] uppercase font-semibold">
-                  {entity.type}
+                  {entity.availability ? entity.availability.replace("_", " ") : entity.type}
                 </span>
                 <span className="text-xs font-mono text-slate-400">
-                  {entity.release_date.split("-")[0]}
+                  {entity.release_date}
                 </span>
               </div>
               <h2 className="text-xl font-bold font-mono text-slate-100 mt-1">
