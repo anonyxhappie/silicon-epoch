@@ -26,13 +26,15 @@ export function EntityNode({ entity }: EntityNodeProps) {
   const groupRef = useRef<THREE.Group>(null);
   const isSelected = selectedEntityId === entity.id;
   const isHovered = hoveredEntityId === entity.id;
+  const isAnotherSelected = Boolean(selectedEntityId && selectedEntityId !== entity.id);
+  const isGhosted = isAnotherSelected;
 
   const tier = entity.tier || (entity.visual?.importance >= 0.95 ? "tier_s" : "tier_a");
 
   // Smooth hover elevation lift
   const currentYOffset = useRef(0);
   useFrame((_, delta) => {
-    const targetY = isHovered ? 0.45 : isSelected ? 0.2 : 0;
+    const targetY = isHovered && !isGhosted ? 0.45 : isSelected ? 0.2 : 0;
     currentYOffset.current = THREE.MathUtils.damp(
       currentYOffset.current,
       targetY,
@@ -100,8 +102,10 @@ export function EntityNode({ entity }: EntityNodeProps) {
 
   const handlePointerOver = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
-    hoverEntity(entity.id);
-    document.body.style.cursor = "pointer";
+    if (!isGhosted) {
+      hoverEntity(entity.id);
+      document.body.style.cursor = "pointer";
+    }
   };
 
   const handlePointerOut = () => {
@@ -109,8 +113,9 @@ export function EntityNode({ entity }: EntityNodeProps) {
     document.body.style.cursor = "auto";
   };
 
-  // Whether floating badge should show
-  const showBadge = !isSelected && (tier === "tier_s" || tier === "tier_a" || isHovered);
+  // Whether floating billboard badge should show:
+  // When an entity is selected, NEVER show badges on other nodes to avoid clutter!
+  const showBadge = !selectedEntityId && (tier === "tier_s" || tier === "tier_a" || isHovered);
 
   return (
     <group
@@ -120,34 +125,36 @@ export function EntityNode({ entity }: EntityNodeProps) {
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
     >
-      {/* Orthogonal PCB Bus Trace Connecting Node to Central Timeline Spine */}
-      <line>
-        <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            count={2}
-            array={
-              new Float32Array([
-                0,
-                0.04 - entity.position[1],
-                0,
-                0,
-                0.04 - entity.position[1],
-                -entity.position[2],
-              ])
-            }
-            itemSize={3}
+      {/* Orthogonal PCB Bus Trace (Hidden if another node is selected) */}
+      {!isGhosted && (
+        <line>
+          <bufferGeometry>
+            <bufferAttribute
+              attach="attributes-position"
+              count={2}
+              array={
+                new Float32Array([
+                  0,
+                  0.04 - entity.position[1],
+                  0,
+                  0,
+                  0.04 - entity.position[1],
+                  -entity.position[2],
+                ])
+              }
+              itemSize={3}
+            />
+          </bufferGeometry>
+          <lineBasicMaterial
+            color={isHovered || isSelected ? tierColor : tier === "tier_s" ? "#94621A" : "#1E2A3C"}
+            transparent
+            opacity={isHovered || isSelected ? 0.95 : tier === "tier_s" ? 0.65 : 0.25}
           />
-        </bufferGeometry>
-        <lineBasicMaterial
-          color={isHovered || isSelected ? tierColor : tier === "tier_s" ? "#94621A" : "#1E2A3C"}
-          transparent
-          opacity={isHovered || isSelected ? 0.95 : tier === "tier_s" ? 0.65 : 0.25}
-        />
-      </line>
+        </line>
+      )}
 
-      {/* Tier S Beacon Ring */}
-      {tier === "tier_s" && !isSelected && (
+      {/* Tier S Beacon Ring (Visible in overview) */}
+      {tier === "tier_s" && !isSelected && !isGhosted && (
         <mesh position={[0, 0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <ringGeometry args={[entity.visualScale * 1.5, entity.visualScale * 1.55, 32]} />
           <meshBasicMaterial color="#F59E0B" transparent opacity={isDimmed ? 0.2 : 0.65} />
@@ -168,6 +175,7 @@ export function EntityNode({ entity }: EntityNodeProps) {
           isHovered={isHovered}
           isSelected={isSelected}
           isDimmed={isDimmed}
+          isGhosted={isGhosted}
         />
       ) : entity.type === "paper" || entity.visual.entity_shape === "paper_wafer" ? (
         <PaperWafer
@@ -176,6 +184,7 @@ export function EntityNode({ entity }: EntityNodeProps) {
           isHovered={isHovered}
           isSelected={isSelected}
           isDimmed={isDimmed}
+          isGhosted={isGhosted}
         />
       ) : (
         <ModelChip
@@ -184,6 +193,7 @@ export function EntityNode({ entity }: EntityNodeProps) {
           isHovered={isHovered}
           isSelected={isSelected}
           isDimmed={isDimmed}
+          isGhosted={isGhosted}
         />
       )}
 

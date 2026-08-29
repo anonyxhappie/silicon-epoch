@@ -10,6 +10,7 @@ interface PaperWaferProps {
   isHovered: boolean;
   isSelected: boolean;
   isDimmed: boolean;
+  isGhosted?: boolean;
 }
 
 export function PaperWafer({
@@ -18,6 +19,7 @@ export function PaperWafer({
   isHovered,
   isSelected,
   isDimmed,
+  isGhosted = false,
 }: PaperWaferProps) {
   const glowColor = useMemo(() => {
     if (entity.epoch_id === "epoch-foundations") return "#00F0FF";
@@ -26,6 +28,23 @@ export function PaperWafer({
   }, [entity.epoch_id]);
 
   const radius = 1.5 * visualScale;
+
+  if (isGhosted) {
+    return (
+      <group>
+        <mesh position={[0, 0.1, 0]} rotation={[0, Math.PI / 8, 0]}>
+          <cylinderGeometry args={[radius, radius * 1.04, 0.18 * visualScale, 8]} />
+          <meshStandardMaterial
+            color="#05080E"
+            transparent
+            opacity={0.15}
+            roughness={0.9}
+            metalness={0.1}
+          />
+        </mesh>
+      </group>
+    );
+  }
 
   return (
     <group>

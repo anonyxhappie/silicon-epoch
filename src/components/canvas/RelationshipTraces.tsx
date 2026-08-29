@@ -19,8 +19,6 @@ export function RelationshipTraces({
   const selectedEntityId = useEpochStore((s) => s.selectedEntityId);
   const hoveredEntityId = useEpochStore((s) => s.hoveredEntityId);
 
-  const pulsesRef = useRef<THREE.Group>(null);
-
   // Map for fast position lookups
   const posMap = useMemo(() => {
     const map = new Map<string, [number, number, number]>();
@@ -74,7 +72,12 @@ export function RelationshipTraces({
           (rel.source === hoveredEntityId || rel.target === hoveredEntityId);
 
         const isHighlighted = isConnectedToSelected || isConnectedToHovered;
-        const hasSelection = Boolean(selectedEntityId || hoveredEntityId);
+        const hasSelection = Boolean(selectedEntityId);
+
+        // If a model is selected, hide unrelated traces completely
+        if (hasSelection && !isConnectedToSelected) {
+          return null;
+        }
 
         let color = "#1E2A3C"; // Default dim trace
         if (isHighlighted) {
@@ -83,12 +86,12 @@ export function RelationshipTraces({
           else if (rel.type === "trained_on" || rel.type === "used_in")
             color = "#8B5CF6";
           else color = "#00F0FF"; // Successor / Derived
-        } else if (!hasSelection) {
+        } else {
           color = "#334155";
         }
 
-        const opacity = isHighlighted ? 1.0 : hasSelection ? 0.08 : 0.45;
-        const lineWidth = isHighlighted ? 3.0 : 1.2;
+        const opacity = isHighlighted ? 1.0 : 0.45;
+        const lineWidth = isHighlighted ? 3.5 : 1.2;
 
         return (
           <group key={rel.id || idx}>

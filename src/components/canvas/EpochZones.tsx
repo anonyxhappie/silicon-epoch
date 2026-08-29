@@ -9,6 +9,9 @@ import { useEpochStore } from "@/lib/store/useEpochStore";
 export function EpochZones() {
   const epochBounds = getEpochBounds(EPOCHS);
   const activeEpochId = useEpochStore((s) => s.activeEpochId);
+  const selectedEntityId = useEpochStore((s) => s.selectedEntityId);
+
+  const hasSelection = Boolean(selectedEntityId);
 
   return (
     <group position={[0, 0.04, 0]}>
@@ -23,8 +26,10 @@ export function EpochZones() {
               <meshStandardMaterial
                 color={epoch.theme_color}
                 emissive={epoch.theme_color}
-                emissiveIntensity={isActive ? 0.8 : 0.25}
+                emissiveIntensity={hasSelection ? 0.08 : isActive ? 0.8 : 0.25}
                 roughness={0.3}
+                transparent
+                opacity={hasSelection ? 0.2 : 1.0}
               />
             </mesh>
 
@@ -33,7 +38,7 @@ export function EpochZones() {
               position={[epoch.centerX, 0.06, -23]}
               rotation={[-Math.PI / 2, 0, 0]}
               fontSize={1.7}
-              color={isActive ? "#FFFFFF" : "#4E6B8C"}
+              color={hasSelection ? "#1E293B" : isActive ? "#FFFFFF" : "#4E6B8C"}
               anchorX="center"
               anchorY="middle"
               letterSpacing={0.15}
@@ -46,7 +51,7 @@ export function EpochZones() {
               position={[epoch.centerX, 0.06, -20.5]}
               rotation={[-Math.PI / 2, 0, 0]}
               fontSize={0.85}
-              color={epoch.theme_color}
+              color={hasSelection ? "#0F172A" : epoch.theme_color}
               anchorX="center"
               anchorY="middle"
               letterSpacing={0.08}
@@ -60,7 +65,7 @@ export function EpochZones() {
               <meshStandardMaterial
                 color={epoch.theme_color}
                 transparent
-                opacity={0.3}
+                opacity={hasSelection ? 0.05 : 0.3}
               />
             </mesh>
           </group>

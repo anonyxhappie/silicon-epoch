@@ -10,6 +10,7 @@ interface ModelChipProps {
   isHovered: boolean;
   isSelected: boolean;
   isDimmed: boolean;
+  isGhosted?: boolean;
 }
 
 export function ModelChip({
@@ -18,9 +19,11 @@ export function ModelChip({
   isHovered,
   isSelected,
   isDimmed,
+  isGhosted = false,
 }: ModelChipProps) {
   // Generate BGA ball pin positions for the underside
   const pinPositions = useMemo(() => {
+    if (isGhosted) return [];
     const positions: [number, number, number][] = [];
     const count = 4;
     const spacing = (visualScale * 1.6) / count;
@@ -33,7 +36,7 @@ export function ModelChip({
       }
     }
     return positions;
-  }, [visualScale]);
+  }, [visualScale, isGhosted]);
 
   const glowColor = useMemo(() => {
     if (entity.epoch_id === "epoch-agentic-frontier") return "#8B5CF6";
@@ -45,6 +48,24 @@ export function ModelChip({
 
   const baseSize = 2.4 * visualScale;
   const height = 0.35 * visualScale;
+
+  if (isGhosted) {
+    // Highly dimmed, non-distracting minimalist silhouette when another entity is inspected
+    return (
+      <group>
+        <mesh position={[0, height / 2, 0]}>
+          <boxGeometry args={[baseSize, height, baseSize]} />
+          <meshStandardMaterial
+            color="#060A10"
+            transparent
+            opacity={0.15}
+            roughness={0.9}
+            metalness={0.1}
+          />
+        </mesh>
+      </group>
+    );
+  }
 
   return (
     <group>

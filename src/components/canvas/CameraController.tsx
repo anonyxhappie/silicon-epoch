@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { OrbitControls } from "@react-three/drei";
@@ -29,20 +29,114 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
 
   const selectedEntity = placedEntities.find((e) => e.id === selectedEntityId);
 
-  // Target positions for smooth lerp
-  const targetCamPos = useRef(new THREE.Vector3(10, 45, 40));
-  const targetLookAt = useRef(new THREE.Vector3(0, 0, 0));
-  const currentLookAt = useRef(new THREE.Vector3(0, 0, 0));
+  // Target vectors for programmatic animations
+  const targetCamPos = useRef(new THREE.Vector3(130, 42, 35));
+  const targetLookAt = useRef(new THREE.Vector3(135, 0, 5));
 
-  const isUserInteracting = useRef(false);
-  const lastActionTimestamp = useRef(0);
+  // Flag indicating whether camera is currently programmatically transitioning
+  const isTransitioning = useRef(false);
+  const prevSelectedId = useRef<string | null>(null);
+  const prevTimelineProgress = useRef<number>(timelineProgress);
+  const lastActionTimestamp = useRef<number>(0);
 
-  // Handle keyboard timeline gliding
+  // Helper to trigger a smooth transition
+  const triggerTransition = useCallback(
+    (camPos: THREE.Vector3, lookAtPos: THREE.Vector3) => {
+      targetCamPos.current.copy(camPos);
+      targetLookAt.current.copy(lookAtPos);
+      isTransitioning.current = true;
+    },
+    []
+  );
+
+  // 1. Initial Entry / Landing Overview
+  useEffect(() => {
+    if (!isEntered) {
+      targetCamPos.current.set(130, 42, 35);
+      targetLookAt.current.set(135, 0, 5);
+      isTransitioning.current = true;
+    }
+  }, [isEntered]);
+
+  // 2. Focus on Selected Entity (CAD Teardown View)
+  useEffect(() => {
+    if (!isEntered) return;
+
+    if (selectedEntityId && selectedEntityId !== prevSelectedId.current) {
+      prevSelectedId.current = selectedEntityId;
+      if (selectedEntity) {
+        const [x, y, z] = selectedEntity.position;
+        const scale = selectedEntity.visualScale || 1.0;
+        const camDist = 14.0 * Math.max(0.9, scale * 0.9);
+
+        // Frame from clean angled perspective with elevated view to see exploded layers
+        const newCam = new THREE.Vector3(
+          x - camDist * 0.4,
+          y + camDist * 0.75,
+          z + camDist * 0.75
+        );
+        const newLook = new THREE.Vector3(x, y + 2.0 * scale, z);
+
+        triggerTransition(newCam, newLook);
+      }
+    } else if (!selectedEntityId && prevSelectedId.current !== null) {
+      // Deselected: return to timeline glide position without forcing angle
+      prevSelectedId.current = null;
+      const currentX = -130 + timelineProgress * 285;
+      if (controlsRef.current) {
+        const currentTarget = controlsRef.current.target;
+        const currentCam = camera.position;
+        const deltaX = currentX - currentTarget.x;
+
+        const newCam = new THREE.Vector3(
+          currentCam.x + deltaX,
+          Math.max(currentCam.y, 18),
+          currentCam.z
+        );
+        const newLook = new THREE.Vector3(currentX, 0, 0);
+        triggerTransition(newCam, newLook);
+      }
+    }
+  }, [selectedEntityId, selectedEntity, isEntered, timelineProgress, triggerTransition, camera]);
+
+  // 3. Timeline scrubbing (glides smoothly along X while preserving user's custom zoom/angle)
+  useEffect(() => {
+    if (!isEntered || selectedEntityId) return;
+
+    if (Math.abs(timelineProgress - prevTimelineProgress.current) > 0.001) {
+      const prevX = -130 + prevTimelineProgress.current * 285;
+      const nextX = -130 + timelineProgress * 285;
+      const deltaX = nextX - prevX;
+      prevTimelineProgress.current = timelineProgress;
+
+      // Translate camera and target by deltaX
+      if (controlsRef.current) {
+        const currentTarget = controlsRef.current.target;
+        targetLookAt.current.set(currentTarget.x + deltaX, currentTarget.y, currentTarget.z);
+        targetCamPos.current.set(
+          camera.position.x + deltaX,
+          camera.position.y,
+          camera.position.z
+        );
+        isTransitioning.current = true;
+      }
+
+      // Update active epoch
+      const currentYear = xToTimelineYear(nextX);
+      const activeEpoch = EPOCHS.find(
+        (ep) => currentYear >= ep.start_year && currentYear <= ep.end_year
+      );
+      if (activeEpoch) {
+        setActiveEpoch(activeEpoch.id);
+      }
+    }
+  }, [timelineProgress, isEntered, selectedEntityId, setActiveEpoch, camera]);
+
+  // 4. Keyboard timeline glide
   useEffect(() => {
     if (!isEntered) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept if an input is focused
       if (
         document.activeElement?.tagName === "INPUT" ||
         document.activeElement?.tagName === "TEXTAREA"
@@ -51,9 +145,9 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
       }
 
       if (e.key === "ArrowRight" || e.key === "KeyD") {
-        setTimelineProgress(timelineProgress + 0.02);
+        setTimelineProgress(Math.min(1.0, timelineProgress + 0.025));
       } else if (e.key === "ArrowLeft" || e.key === "KeyA") {
-        setTimelineProgress(timelineProgress - 0.02);
+        setTimelineProgress(Math.max(0.0, timelineProgress - 0.025));
       }
     };
 
@@ -63,50 +157,7 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
     };
   }, [isEntered, timelineProgress, setTimelineProgress]);
 
-  // Compute camera target based on state
-  useEffect(() => {
-    if (!isEntered) {
-      // Landing Overview framed over latest frontier models
-      targetCamPos.current.set(130, 42, 35);
-      targetLookAt.current.set(135, 0, 5);
-      return;
-    }
-
-    if (
-      selectedEntity &&
-      (cameraMode === "INSPECT" ||
-        cameraMode === "EXPLODED" ||
-        cameraMode === "FOCUS")
-    ) {
-      // Precision CAD Inspection Camera framed for 5-layer exploded separation
-      const [x, y, z] = selectedEntity.position;
-      const scale = selectedEntity.visualScale || 1.0;
-      const camDist = 12.0 * Math.max(0.9, scale * 0.9);
-      targetCamPos.current.set(
-        x - camDist * 0.45,
-        y + camDist * 0.7,
-        z + camDist * 0.85
-      );
-      targetLookAt.current.set(x + 1.2 * scale, y + 2.5 * scale, z);
-    } else {
-      // Glide Along Timeline
-      // Map timelineProgress (0..1) to X (-130 to +155)
-      const currentX = -130 + timelineProgress * 285;
-      targetCamPos.current.set(currentX - 5, 23, 30);
-      targetLookAt.current.set(currentX + 8, 0, 5);
-
-      // Determine active epoch based on year
-      const currentYear = xToTimelineYear(currentX);
-      const activeEpoch = EPOCHS.find(
-        (ep) => currentYear >= ep.start_year && currentYear <= ep.end_year
-      );
-      if (activeEpoch) {
-        setActiveEpoch(activeEpoch.id);
-      }
-    }
-  }, [isEntered, cameraMode, selectedEntity, timelineProgress, setActiveEpoch]);
-
-  // Handle explicit Camera UI Actions (Zoom, Rotate, Top-down, Reset)
+  // 5. Camera Control Widget Actions (Zoom, Rotate, Top-down, Reset)
   useEffect(() => {
     if (!cameraAction || cameraAction.timestamp === lastActionTimestamp.current) {
       return;
@@ -117,54 +168,55 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
     const controls = controlsRef.current;
     if (!controls) return;
 
-    const lookTarget = controls.target;
+    const lookTarget = controls.target.clone();
     const camOffset = new THREE.Vector3().subVectors(camera.position, lookTarget);
 
     if (type === "zoom_in") {
-      // Zoom closer by 25%
-      camOffset.multiplyScalar(0.75);
+      camOffset.multiplyScalar(0.7);
       if (camOffset.length() < 3) camOffset.setLength(3);
-      targetCamPos.current.copy(lookTarget).add(camOffset);
+      triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
     } else if (type === "zoom_out") {
-      // Zoom out by 35%
-      camOffset.multiplyScalar(1.35);
-      if (camOffset.length() > 80) camOffset.setLength(80);
-      targetCamPos.current.copy(lookTarget).add(camOffset);
+      camOffset.multiplyScalar(1.4);
+      if (camOffset.length() > 90) camOffset.setLength(90);
+      triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
     } else if (type === "rotate_left") {
-      // Rotate 30 degrees counter-clockwise around target
       camOffset.applyAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 6);
-      targetCamPos.current.copy(lookTarget).add(camOffset);
+      triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
     } else if (type === "rotate_right") {
-      // Rotate 30 degrees clockwise around target
       camOffset.applyAxisAngle(new THREE.Vector3(0, 1, 0), -Math.PI / 6);
-      targetCamPos.current.copy(lookTarget).add(camOffset);
+      triggerTransition(lookTarget.clone().add(camOffset), lookTarget);
     } else if (type === "top_down") {
-      // Overhead top-down view
-      targetCamPos.current.set(lookTarget.x, 48, lookTarget.z + 0.1);
+      const topPos = new THREE.Vector3(lookTarget.x, 50, lookTarget.z + 0.01);
+      triggerTransition(topPos, lookTarget);
     } else if (type === "reset") {
-      // Reset to default 40-degree isometric view
       if (selectedEntity) {
         const [x, y, z] = selectedEntity.position;
         const scale = selectedEntity.visualScale || 1.0;
-        const camDist = 12.0 * Math.max(0.9, scale * 0.9);
-        targetCamPos.current.set(
-          x - camDist * 0.45,
-          y + camDist * 0.7,
-          z + camDist * 0.85
+        const camDist = 14.0 * Math.max(0.9, scale * 0.9);
+        const newCam = new THREE.Vector3(
+          x - camDist * 0.4,
+          y + camDist * 0.75,
+          z + camDist * 0.75
         );
-        targetLookAt.current.set(x + 1.2 * scale, y + 2.5 * scale, z);
+        const newLook = new THREE.Vector3(x, y + 2.0 * scale, z);
+        triggerTransition(newCam, newLook);
       } else {
         const currentX = -130 + timelineProgress * 285;
-        targetCamPos.current.set(currentX - 5, 23, 30);
-        targetLookAt.current.set(currentX + 8, 0, 5);
+        const defaultCam = new THREE.Vector3(currentX - 5, 25, 32);
+        const defaultLook = new THREE.Vector3(currentX + 8, 0, 5);
+        triggerTransition(defaultCam, defaultLook);
       }
     }
-  }, [cameraAction, camera, selectedEntity, timelineProgress]);
+  }, [cameraAction, camera, selectedEntity, timelineProgress, triggerTransition]);
 
+  // 6. Smooth Frame Interpolation ONLY when transitioning programmatically
   useFrame((_, delta) => {
-    const damping = isReducedMotion ? 40 : 6;
+    if (!isTransitioning.current) return;
 
-    // Smoothly interpolate camera position
+    const damping = isReducedMotion ? 40 : 8;
+    const controls = controlsRef.current;
+
+    // Smooth damp camera position
     camera.position.x = THREE.MathUtils.damp(
       camera.position.x,
       targetCamPos.current.x,
@@ -184,31 +236,36 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
       delta
     );
 
-    // Smoothly interpolate lookAt
-    currentLookAt.current.x = THREE.MathUtils.damp(
-      currentLookAt.current.x,
-      targetLookAt.current.x,
-      damping,
-      delta
-    );
-    currentLookAt.current.y = THREE.MathUtils.damp(
-      currentLookAt.current.y,
-      targetLookAt.current.y,
-      damping,
-      delta
-    );
-    currentLookAt.current.z = THREE.MathUtils.damp(
-      currentLookAt.current.z,
-      targetLookAt.current.z,
-      damping,
-      delta
-    );
+    // Smooth damp controls target lookAt
+    if (controls) {
+      controls.target.x = THREE.MathUtils.damp(
+        controls.target.x,
+        targetLookAt.current.x,
+        damping,
+        delta
+      );
+      controls.target.y = THREE.MathUtils.damp(
+        controls.target.y,
+        targetLookAt.current.y,
+        damping,
+        delta
+      );
+      controls.target.z = THREE.MathUtils.damp(
+        controls.target.z,
+        targetLookAt.current.z,
+        damping,
+        delta
+      );
+      controls.update();
 
-    if (controlsRef.current) {
-      controlsRef.current.target.copy(currentLookAt.current);
-      controlsRef.current.update();
-    } else {
-      camera.lookAt(currentLookAt.current);
+      // Check if transition has arrived close enough to hand over 100% control to OrbitControls
+      const posDist = camera.position.distanceTo(targetCamPos.current);
+      const targetDist = controls.target.distanceTo(targetLookAt.current);
+      if (posDist < 0.08 && targetDist < 0.08) {
+        camera.position.copy(targetCamPos.current);
+        controls.target.copy(targetLookAt.current);
+        isTransitioning.current = false;
+      }
     }
   });
 
@@ -218,16 +275,12 @@ export function CameraController({ placedEntities }: CameraControllerProps) {
       enabled={isEntered}
       enableDamping
       dampingFactor={0.08}
-      maxPolarAngle={Math.PI / 2 - 0.05} // Prevent going below motherboard
-      minDistance={2}
-      maxDistance={85}
+      maxPolarAngle={Math.PI / 2 - 0.02} // Prevent going below motherboard
+      minDistance={1.5}
+      maxDistance={95}
       onStart={() => {
-        isUserInteracting.current = true;
-      }}
-      onEnd={() => {
-        isUserInteracting.current = false;
-        // Sync targetCamPos with current camera position after user orbit
-        targetCamPos.current.copy(camera.position);
+        // User interacted! Immediately cease any automatic animation so user has 100% control
+        isTransitioning.current = false;
       }}
     />
   );

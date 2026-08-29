@@ -10,6 +10,7 @@ interface HardwareModuleProps {
   isHovered: boolean;
   isSelected: boolean;
   isDimmed: boolean;
+  isGhosted?: boolean;
 }
 
 export function HardwareModule({
@@ -18,6 +19,7 @@ export function HardwareModule({
   isHovered,
   isSelected,
   isDimmed,
+  isGhosted = false,
 }: HardwareModuleProps) {
   const finCount = 6;
   const width = 3.2 * visualScale;
@@ -26,6 +28,23 @@ export function HardwareModule({
   const glowColor = useMemo(() => {
     return "#10B981"; // Hardware emerald / teal
   }, []);
+
+  if (isGhosted) {
+    return (
+      <group>
+        <mesh position={[0, 0.15 * visualScale, 0]}>
+          <boxGeometry args={[width, 0.3 * visualScale, depth]} />
+          <meshStandardMaterial
+            color="#050B0E"
+            transparent
+            opacity={0.15}
+            roughness={0.9}
+            metalness={0.1}
+          />
+        </mesh>
+      </group>
+    );
+  }
 
   return (
     <group>
