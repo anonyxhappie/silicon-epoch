@@ -6,7 +6,10 @@
     "type": "influenced",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-turing-1950", "src-rosenblatt-1958"],
+    "sources": [
+      "src-turing-1950",
+      "src-rosenblatt-1958"
+    ],
     "description": "Turing's child-machine concept and computational learning hypotheses influenced Rosenblatt's design of physical learning networks."
   },
   {
@@ -16,7 +19,9 @@
     "type": "predecessor_of",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-rumelhart-1986"],
+    "sources": [
+      "src-rumelhart-1986"
+    ],
     "description": "Backpropagation generalized the single-layer perceptron delta rule to multi-layer non-linear hidden representations."
   },
   {
@@ -26,7 +31,9 @@
     "type": "used_in",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-lecun-1998"],
+    "sources": [
+      "src-lecun-1998"
+    ],
     "description": "LeNet-5 utilized backpropagation with stochastic gradient descent across 2D spatial convolution kernels."
   },
   {
@@ -36,7 +43,9 @@
     "type": "influenced",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-hochreiter-1997"],
+    "sources": [
+      "src-hochreiter-1997"
+    ],
     "description": "LSTM was specifically engineered to solve the vanishing gradient failure of backpropagation through time."
   },
   {
@@ -46,7 +55,10 @@
     "type": "accelerated_by",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-alexnet-2012", "src-cuda-2006"],
+    "sources": [
+      "src-alexnet-2012",
+      "src-cuda-2006"
+    ],
     "description": "AlexNet was hand-optimized in custom CUDA C code to run 2D convolutions in parallel across two GTX 580 GPUs."
   },
   {
@@ -56,7 +68,9 @@
     "type": "derived_from",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-alexnet-2012"],
+    "sources": [
+      "src-alexnet-2012"
+    ],
     "description": "AlexNet scaled the fundamental convolutional hierarchy pioneered in LeNet to 8 deep layers and ImageNet scale."
   },
   {
@@ -66,7 +80,9 @@
     "type": "influenced",
     "directional": true,
     "confidence": "medium",
-    "sources": ["src-word2vec-2013"],
+    "sources": [
+      "src-word2vec-2013"
+    ],
     "description": "The deep learning revival ignited by AlexNet inspired continuous distributed representation research in NLP."
   },
   {
@@ -76,7 +92,9 @@
     "type": "influenced",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-goodfellow-2014"],
+    "sources": [
+      "src-goodfellow-2014"
+    ],
     "description": "Deep discriminative networks provided the core adversary architecture for training generative generator networks."
   },
   {
@@ -86,7 +104,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-resnet-2015"],
+    "sources": [
+      "src-resnet-2015"
+    ],
     "description": "ResNet solved the optimization degradation barrier that limited earlier CNNs to under 20 layers, pushing depth to 152+ layers."
   },
   {
@@ -96,7 +116,9 @@
     "type": "used_in",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-alphago-2016"],
+    "sources": [
+      "src-alphago-2016"
+    ],
     "description": "Deep convolutional residual architectures powered AlphaGo's policy and value networks for Go board evaluation."
   },
   {
@@ -106,7 +128,9 @@
     "type": "accelerated_by",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-tpu-v1-2016"],
+    "sources": [
+      "src-tpu-v1-2016"
+    ],
     "description": "AlphaGo used clusters of Google TPU v1 chips in real-time during the match against Lee Sedol."
   },
   {
@@ -116,7 +140,9 @@
     "type": "predecessor_of",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-vaswani-2017"],
+    "sources": [
+      "src-vaswani-2017"
+    ],
     "description": "The Transformer was designed to surpass LSTM recurrent bottlenecks by computing direct pairwise self-attention in O(1) sequential steps."
   },
   {
@@ -126,7 +152,9 @@
     "type": "derived_from",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-bert-2018"],
+    "sources": [
+      "src-bert-2018"
+    ],
     "description": "BERT utilizes a deep bidirectional stack of Transformer encoder blocks."
   },
   {
@@ -136,7 +164,9 @@
     "type": "derived_from",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-gpt2-2019"],
+    "sources": [
+      "src-gpt2-2019"
+    ],
     "description": "GPT-2 scales the autoregressive causal Transformer decoder architecture."
   },
   {
@@ -146,7 +176,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-gpt3-2020"],
+    "sources": [
+      "src-gpt3-2020"
+    ],
     "description": "GPT-3 scaled the causal transformer from 1.5B parameters to 175B parameters, unlocking in-context few-shot learning."
   },
   {
@@ -156,7 +188,9 @@
     "type": "influenced",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-alphafold2-2020"],
+    "sources": [
+      "src-alphafold2-2020"
+    ],
     "description": "AlphaFold 2 adapted self-attention into the Evoformer architecture to exchange information across biological sequences and residue pairs."
   },
   {
@@ -166,7 +200,9 @@
     "type": "used_in",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-clip-2021"],
+    "sources": [
+      "src-clip-2021"
+    ],
     "description": "CLIP utilizes Vision Transformers (ViT) and text Transformer encoders for multimodal joint embedding."
   },
   {
@@ -176,7 +212,9 @@
     "type": "used_in",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-stablediffusion-2022"],
+    "sources": [
+      "src-stablediffusion-2022"
+    ],
     "description": "Stable Diffusion uses pretrained frozen CLIP text encoders to guide latent space diffusion via cross-attention."
   },
   {
@@ -186,7 +224,9 @@
     "type": "predecessor_of",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-instructgpt-2022"],
+    "sources": [
+      "src-instructgpt-2022"
+    ],
     "description": "InstructGPT fine-tuned GPT-3 base checkpoints with Reinforcement Learning from Human Feedback."
   },
   {
@@ -196,7 +236,10 @@
     "type": "accelerated_by",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-gpt4-2023", "src-h100-2022"],
+    "sources": [
+      "src-gpt4-2023",
+      "src-h100-2022"
+    ],
     "description": "Massive clusters of NVIDIA Hopper and Ampere GPUs provided the compute infrastructure for training and serving GPT-4."
   },
   {
@@ -206,7 +249,9 @@
     "type": "influenced",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-gpt4-2023"],
+    "sources": [
+      "src-gpt4-2023"
+    ],
     "description": "GPT-4 incorporated advanced RLHF and rule-based reward models developed during InstructGPT experiments."
   },
   {
@@ -216,7 +261,9 @@
     "type": "derived_from",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-llama1-2023"],
+    "sources": [
+      "src-llama1-2023"
+    ],
     "description": "LLaMA is an autoregressive decoder Transformer incorporating SwiGLU, RMSNorm, and Rotary Positional Embeddings."
   },
   {
@@ -226,7 +273,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-llama3-2024"],
+    "sources": [
+      "src-llama3-2024"
+    ],
     "description": "Llama 3.1 405B represents the frontier culmination of the Llama open architecture series."
   },
   {
@@ -236,7 +285,9 @@
     "type": "related_to",
     "directional": false,
     "confidence": "high",
-    "sources": ["src-claude35-2024"],
+    "sources": [
+      "src-claude35-2024"
+    ],
     "description": "Contemporary frontier multimodal models competing across coding, vision, and tool-use intelligence."
   },
   {
@@ -246,7 +297,9 @@
     "type": "predecessor_of",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-openai-o1-2024"],
+    "sources": [
+      "src-openai-o1-2024"
+    ],
     "description": "OpenAI o1 builds on pre-trained foundation models with large-scale RL for test-time reasoning compute."
   },
   {
@@ -256,7 +309,9 @@
     "type": "derived_from",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-deepseek-v3-2024"],
+    "sources": [
+      "src-deepseek-v3-2024"
+    ],
     "description": "DeepSeek-V3 expands the transformer with Multi-Head Latent Attention (MLA) and 256-expert Mixture-of-Experts routing."
   },
   {
@@ -266,7 +321,9 @@
     "type": "trained_on",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-deepseek-r1-2025"],
+    "sources": [
+      "src-deepseek-r1-2025"
+    ],
     "description": "DeepSeek-R1 was trained directly on the DeepSeek-V3 base architecture using pure reinforcement learning (GRPO)."
   },
   {
@@ -276,7 +333,10 @@
     "type": "related_to",
     "directional": false,
     "confidence": "high",
-    "sources": ["src-deepseek-r1-2025", "src-openai-o1-2024"],
+    "sources": [
+      "src-deepseek-r1-2025",
+      "src-openai-o1-2024"
+    ],
     "description": "Frontier reasoning paradigms utilizing reinforcement-learning-driven test-time compute scaling."
   },
   {
@@ -286,7 +346,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-openai-o3-2025"],
+    "sources": [
+      "src-openai-o3-2025"
+    ],
     "description": "OpenAI o3 represents the next generation of test-time compute scaling, breaking previous records on ARC-AGI and SWE-bench."
   },
   {
@@ -296,7 +358,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-claude37-2025"],
+    "sources": [
+      "src-claude37-2025"
+    ],
     "description": "Claude 3.7 Sonnet introduces hybrid thinking architectures to Claude 3.5 Sonnet's agentic and computer-use foundation."
   },
   {
@@ -306,7 +370,9 @@
     "type": "derived_from",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-gemini2-2025"],
+    "sources": [
+      "src-gemini2-2025"
+    ],
     "description": "Gemini 2.0 scales native multimodal transformers to 2,000,000 token context and streaming realtime interaction."
   },
   {
@@ -316,7 +382,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-llama33-2024"],
+    "sources": [
+      "src-llama33-2024"
+    ],
     "description": "Llama 3.3 compresses the capability of Llama 3.1 405B into an efficient 70B dense model."
   },
   {
@@ -326,7 +394,10 @@
     "type": "related_to",
     "directional": false,
     "confidence": "high",
-    "sources": ["src-qwq-2024", "src-deepseek-r1-2025"],
+    "sources": [
+      "src-qwq-2024",
+      "src-deepseek-r1-2025"
+    ],
     "description": "Contemporary open-weights models demonstrating reinforcement learning reasoning in open research communities."
   },
   {
@@ -336,7 +407,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-blackwell-2024"],
+    "sources": [
+      "src-blackwell-2024"
+    ],
     "description": "Blackwell succeeds Hopper with dual-die packaging, NVLink 5 rack spine, and 2nd generation Transformer Engine."
   },
   {
@@ -346,7 +419,9 @@
     "type": "successor_to",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-rubin-2026"],
+    "sources": [
+      "src-rubin-2026"
+    ],
     "description": "Rubin transitions NVIDIA accelerated computing to 3nm process, HBM4 memory, and optical NVLink networking."
   },
   {
@@ -356,7 +431,10 @@
     "type": "accelerated_by",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-blackwell-2024", "src-openai-o3-2025"],
+    "sources": [
+      "src-blackwell-2024",
+      "src-openai-o3-2025"
+    ],
     "description": "Massive Blackwell GPU clusters provide high-throughput FP4 inference compute for deep test-time search."
   },
   {
@@ -366,7 +444,10 @@
     "type": "accelerated_by",
     "directional": true,
     "confidence": "high",
-    "sources": ["src-blackwell-2024", "src-claude37-2025"],
+    "sources": [
+      "src-blackwell-2024",
+      "src-claude37-2025"
+    ],
     "description": "Advanced Blackwell and Hopper compute infrastructure powers large-scale training and low-latency inference."
   },
   {
@@ -376,7 +457,166 @@
     "type": "related_to",
     "directional": false,
     "confidence": "high",
-    "sources": ["src-openai-o3-2025", "src-claude37-2025"],
+    "sources": [
+      "src-openai-o3-2025",
+      "src-claude37-2025"
+    ],
     "description": "Frontier hybrid reasoning and agentic systems defining the 2025-2026 AI state of the art."
+  },
+  {
+    "id": "rel-claude-3-7-sonnet-claude-sonnet-5",
+    "source": "claude-3-7-sonnet",
+    "target": "claude-sonnet-5",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-claude-sonnet-5-2026"
+    ],
+    "description": "claude-sonnet-5 represents a direct evolution and architectural progression from claude-3-7-sonnet."
+  },
+  {
+    "id": "rel-claude-sonnet-5-claude-opus-5",
+    "source": "claude-sonnet-5",
+    "target": "claude-opus-5",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-claude-opus-5-2026"
+    ],
+    "description": "claude-opus-5 represents a direct evolution and architectural progression from claude-sonnet-5."
+  },
+  {
+    "id": "rel-claude-sonnet-5-claude-fable-5",
+    "source": "claude-sonnet-5",
+    "target": "claude-fable-5",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-claude-fable-5-2026"
+    ],
+    "description": "claude-fable-5 represents a direct evolution and architectural progression from claude-sonnet-5."
+  },
+  {
+    "id": "rel-openai-o3-gpt-5-6-sol",
+    "source": "openai-o3",
+    "target": "gpt-5-6-sol",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-gpt-5-6-sol-2026"
+    ],
+    "description": "gpt-5-6-sol represents a direct evolution and architectural progression from openai-o3."
+  },
+  {
+    "id": "rel-gpt-5-6-sol-gpt-5-6-terra",
+    "source": "gpt-5-6-sol",
+    "target": "gpt-5-6-terra",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-gpt-5-6-terra-2026"
+    ],
+    "description": "gpt-5-6-terra represents a direct evolution and architectural progression from gpt-5-6-sol."
+  },
+  {
+    "id": "rel-gpt-5-6-sol-gpt-5-6-luna",
+    "source": "gpt-5-6-sol",
+    "target": "gpt-5-6-luna",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-gpt-5-6-luna-2026"
+    ],
+    "description": "gpt-5-6-luna represents a direct evolution and architectural progression from gpt-5-6-sol."
+  },
+  {
+    "id": "rel-gemini-2-pro-gemini-3-6-flash",
+    "source": "gemini-2-pro",
+    "target": "gemini-3-6-flash",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-gemini-3-6-flash-2026"
+    ],
+    "description": "gemini-3-6-flash represents a direct evolution and architectural progression from gemini-2-pro."
+  },
+  {
+    "id": "rel-gemini-3-6-flash-gemini-3-7-flash",
+    "source": "gemini-3-6-flash",
+    "target": "gemini-3-7-flash",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-gemini-3-7-flash-2026"
+    ],
+    "description": "gemini-3-7-flash represents a direct evolution and architectural progression from gemini-3-6-flash."
+  },
+  {
+    "id": "rel-deepseek-r1-deepseek-v4-flash-vision-exp",
+    "source": "deepseek-r1",
+    "target": "deepseek-v4-flash-vision-exp",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-deepseek-v4-flash-vision-exp-2026"
+    ],
+    "description": "deepseek-v4-flash-vision-exp represents a direct evolution and architectural progression from deepseek-r1."
+  },
+  {
+    "id": "rel-qwq-32b-qwen3-8-max",
+    "source": "qwq-32b",
+    "target": "qwen3-8-max",
+    "type": "successor_to",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-qwen3-8-max-2026"
+    ],
+    "description": "qwen3-8-max represents a direct evolution and architectural progression from qwq-32b."
+  },
+  {
+    "id": "rel-qwen3-8-max-qwen3-8-flash",
+    "source": "qwen3-8-max",
+    "target": "qwen3-8-flash",
+    "type": "derived_from",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-qwen3-8-flash-2026"
+    ],
+    "description": "qwen3-8-flash represents a direct evolution and architectural progression from qwen3-8-max."
+  },
+  {
+    "id": "rel-nvidia-blackwell-b200-nemotron-3-ultra-550b",
+    "source": "nvidia-blackwell-b200",
+    "target": "nemotron-3-ultra-550b",
+    "type": "accelerated_by",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-nemotron-3-ultra-550b-2026"
+    ],
+    "description": "nemotron-3-ultra-550b represents a direct evolution and architectural progression from nvidia-blackwell-b200."
+  },
+  {
+    "id": "rel-nvidia-blackwell-b200-cosmos-3-super-reasoner",
+    "source": "nvidia-blackwell-b200",
+    "target": "cosmos-3-super-reasoner",
+    "type": "accelerated_by",
+    "directional": true,
+    "confidence": "high",
+    "sources": [
+      "src-cosmos-3-super-reasoner-2026"
+    ],
+    "description": "cosmos-3-super-reasoner represents a direct evolution and architectural progression from nvidia-blackwell-b200."
   }
 ]

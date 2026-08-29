@@ -3,7 +3,10 @@
     "id": "turing-computing-machinery",
     "type": "paper",
     "name": "Computing Machinery and Intelligence",
-    "aliases": ["The Turing Test", "Turing 1950"],
+    "aliases": [
+      "The Turing Test",
+      "Turing 1950"
+    ],
     "creator": "org-manchester",
     "creator_name": "Alan Turing",
     "release_date": "1950-10-01",
@@ -22,16 +25,21 @@
     ],
     "visual": {
       "entity_shape": "paper_wafer",
-      "importance": 0.95,
-      "scale_factor": 1.2
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-turing-1950"]
+    "sources": [
+      "src-turing-1950"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "perceptron-1958",
     "type": "hardware",
     "name": "Mark I Perceptron",
-    "aliases": ["Frank Rosenblatt Perceptron"],
+    "aliases": [
+      "Frank Rosenblatt Perceptron"
+    ],
     "creator": "org-cornell",
     "creator_name": "Frank Rosenblatt / Cornell Aero Lab",
     "release_date": "1958-11-01",
@@ -43,8 +51,8 @@
       "notes": "Custom analog hardware implementation with 400 photocells connected to potentiometers driven by electric motors."
     },
     "parameters": {
-      "total_billion": 0.000000512,
-      "active_billion": 0.000000512,
+      "total_billion": 5.12e-7,
+      "active_billion": 5.12e-7,
       "notes": "512 variable potentiometers adjusted by motorized servo rheostats."
     },
     "summary": "The first physical neural network machine capable of learning linear classification boundaries from visual stimuli.",
@@ -58,16 +66,21 @@
     ],
     "visual": {
       "entity_shape": "hardware_module",
-      "importance": 0.85,
-      "scale_factor": 1.1
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-rosenblatt-1958"]
+    "sources": [
+      "src-rosenblatt-1958"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "backprop-1986",
     "type": "algorithm",
     "name": "Backpropagation for Multi-Layer Networks",
-    "aliases": ["Rumelhart, Hinton & Williams 1986"],
+    "aliases": [
+      "Rumelhart, Hinton & Williams 1986"
+    ],
     "creator": "org-ucsd",
     "creator_name": "Rumelhart, Hinton & Williams",
     "release_date": "1986-10-09",
@@ -86,16 +99,21 @@
     ],
     "visual": {
       "entity_shape": "algorithm_package",
-      "importance": 0.95,
-      "scale_factor": 1.3
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-rumelhart-1986"]
+    "sources": [
+      "src-rumelhart-1986"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "lstm-1997",
     "type": "architecture",
     "name": "Long Short-Term Memory (LSTM)",
-    "aliases": ["Hochreiter & Schmidhuber 1997"],
+    "aliases": [
+      "Hochreiter & Schmidhuber 1997"
+    ],
     "creator": "org-idsia",
     "creator_name": "Sepp Hochreiter & Jürgen Schmidhuber",
     "release_date": "1997-11-15",
@@ -117,13 +135,18 @@
       "importance": 0.9,
       "scale_factor": 1.15
     },
-    "sources": ["src-hochreiter-1997"]
+    "sources": [
+      "src-hochreiter-1997"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "lenet-5",
     "type": "model",
     "name": "LeNet-5",
-    "aliases": ["LeCun ConvNet 1998"],
+    "aliases": [
+      "LeCun ConvNet 1998"
+    ],
     "creator": "org-att",
     "creator_name": "Yann LeCun / AT&T Bell Labs",
     "release_date": "1998-11-01",
@@ -140,8 +163,10 @@
       "active_billion": 0.00006,
       "notes": "60,000 trainable parameters."
     },
-    "modalities": ["image"],
-    "availability": "research_only",
+    "modalities": [
+      "image"
+    ],
+    "availability": "research_preview",
     "summary": "Landmark convolutional neural network deployed by US banks to read over 10% of all checks written in the United States in the late 1990s.",
     "key_innovations": [
       "Shift, scale, and distortion invariance via shared convolution kernels",
@@ -150,16 +175,21 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.88,
+      "importance": 0.9,
       "scale_factor": 1.1
     },
-    "sources": ["src-lecun-1998"]
+    "sources": [
+      "src-lecun-1998"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "nvidia-cuda",
     "type": "hardware",
     "name": "NVIDIA CUDA Architecture",
-    "aliases": ["CUDA Compute Unified Device Architecture"],
+    "aliases": [
+      "CUDA Compute Unified Device Architecture"
+    ],
     "creator": "org-nvidia",
     "creator_name": "NVIDIA Corporation",
     "release_date": "2006-11-01",
@@ -181,13 +211,18 @@
       "importance": 0.95,
       "scale_factor": 1.35
     },
-    "sources": ["src-cuda-2006"]
+    "sources": [
+      "src-cuda-2006"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "alexnet",
     "type": "model",
     "name": "AlexNet",
-    "aliases": ["Krizhevsky, Sutskever & Hinton 2012"],
+    "aliases": [
+      "Krizhevsky, Sutskever & Hinton 2012"
+    ],
     "creator": "org-utoronto",
     "creator_name": "Alex Krizhevsky & Ilya Sutskever",
     "release_date": "2012-12-03",
@@ -214,7 +249,9 @@
         "source": "src-alexnet-2012"
       }
     ],
-    "modalities": ["image"],
+    "modalities": [
+      "image"
+    ],
     "availability": "open_weights",
     "summary": "The catalyst for the modern deep learning revolution. Smashed prior computer vision records on ImageNet 2012 by a staggering 10.8 percentage point margin.",
     "key_innovations": [
@@ -224,16 +261,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.96,
-      "scale_factor": 1.4
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-alexnet-2012"]
+    "sources": [
+      "src-alexnet-2012"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "word2vec",
     "type": "algorithm",
     "name": "Word2Vec",
-    "aliases": ["Mikolov 2013", "Skip-gram / CBOW"],
+    "aliases": [
+      "Mikolov 2013",
+      "Skip-gram / CBOW"
+    ],
     "creator": "org-google",
     "creator_name": "Tomas Mikolov et al. / Google",
     "release_date": "2013-01-16",
@@ -252,16 +295,21 @@
     ],
     "visual": {
       "entity_shape": "algorithm_package",
-      "importance": 0.88,
+      "importance": 0.9,
       "scale_factor": 1.15
     },
-    "sources": ["src-word2vec-2013"]
+    "sources": [
+      "src-word2vec-2013"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "gan-2014",
     "type": "architecture",
     "name": "Generative Adversarial Networks (GAN)",
-    "aliases": ["Goodfellow GAN 2014"],
+    "aliases": [
+      "Goodfellow GAN 2014"
+    ],
     "creator": "org-umontreal",
     "creator_name": "Ian Goodfellow et al. / Univ. of Montreal",
     "release_date": "2014-06-10",
@@ -283,13 +331,18 @@
       "importance": 0.9,
       "scale_factor": 1.2
     },
-    "sources": ["src-goodfellow-2014"]
+    "sources": [
+      "src-goodfellow-2014"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "resnet-2015",
     "type": "architecture",
     "name": "Deep Residual Networks (ResNet)",
-    "aliases": ["He et al. ResNet-152"],
+    "aliases": [
+      "He et al. ResNet-152"
+    ],
     "creator": "org-msr",
     "creator_name": "Kaiming He et al. / Microsoft Research",
     "release_date": "2015-12-10",
@@ -302,8 +355,8 @@
       "notes": "Identity shortcut mapping F(x) + x allowing unhindered gradient propagation."
     },
     "parameters": {
-      "total_billion": 0.060,
-      "active_billion": 0.060,
+      "total_billion": 0.06,
+      "active_billion": 0.06,
       "notes": "60.2 million parameters in ResNet-152."
     },
     "benchmarks": [
@@ -316,7 +369,9 @@
         "source": "src-resnet-2015"
       }
     ],
-    "modalities": ["image"],
+    "modalities": [
+      "image"
+    ],
     "availability": "open_weights",
     "summary": "Solved the degradation problem in extremely deep networks using identity skip connections, surpassing human classification performance on ImageNet.",
     "key_innovations": [
@@ -329,13 +384,19 @@
       "importance": 0.94,
       "scale_factor": 1.3
     },
-    "sources": ["src-resnet-2015"]
+    "sources": [
+      "src-resnet-2015"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "alphago-2016",
     "type": "model",
     "name": "AlphaGo",
-    "aliases": ["AlphaGo Lee", "DeepMind AlphaGo"],
+    "aliases": [
+      "AlphaGo Lee",
+      "DeepMind AlphaGo"
+    ],
     "creator": "org-deepmind",
     "creator_name": "Google DeepMind",
     "release_date": "2016-01-27",
@@ -357,13 +418,18 @@
       "importance": 0.95,
       "scale_factor": 1.35
     },
-    "sources": ["src-alphago-2016"]
+    "sources": [
+      "src-alphago-2016"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "google-tpu-v1",
     "type": "hardware",
     "name": "Google TPU v1",
-    "aliases": ["Tensor Processing Unit v1"],
+    "aliases": [
+      "Tensor Processing Unit v1"
+    ],
     "creator": "org-google",
     "creator_name": "Google",
     "release_date": "2016-05-18",
@@ -385,13 +451,19 @@
       "importance": 0.9,
       "scale_factor": 1.25
     },
-    "sources": ["src-tpu-v1-2016"]
+    "sources": [
+      "src-tpu-v1-2016"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "transformer-attention",
     "type": "architecture",
     "name": "Transformer (Attention Is All You Need)",
-    "aliases": ["Vaswani et al. 2017", "Original Transformer"],
+    "aliases": [
+      "Vaswani et al. 2017",
+      "Original Transformer"
+    ],
     "creator": "org-google",
     "creator_name": "Ashish Vaswani et al. / Google Brain",
     "release_date": "2017-06-12",
@@ -416,16 +488,22 @@
     ],
     "visual": {
       "entity_shape": "abstract_die",
-      "importance": 1.0,
+      "importance": 1,
       "scale_factor": 1.6
     },
-    "sources": ["src-vaswani-2017"]
+    "sources": [
+      "src-vaswani-2017"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "bert",
     "type": "model",
     "name": "BERT",
-    "aliases": ["BERT-Large", "Devlin et al. 2018"],
+    "aliases": [
+      "BERT-Large",
+      "Devlin et al. 2018"
+    ],
     "creator": "org-google",
     "creator_name": "Jacob Devlin et al. / Google AI",
     "release_date": "2018-10-11",
@@ -439,8 +517,8 @@
       "notes": "24 layers, 1024 hidden dimension, 16 attention heads."
     },
     "parameters": {
-      "total_billion": 0.340,
-      "active_billion": 0.340,
+      "total_billion": 0.34,
+      "active_billion": 0.34,
       "notes": "340 million parameters (BERT-Large)."
     },
     "benchmarks": [
@@ -461,7 +539,9 @@
         "source": "src-bert-2018"
       }
     ],
-    "modalities": ["text"],
+    "modalities": [
+      "text"
+    ],
     "availability": "open_weights",
     "license": "Apache-2.0",
     "summary": "Established the paradigm of self-supervised pre-training on unlabeled text followed by lightweight fine-tuning across NLP benchmarks.",
@@ -475,13 +555,19 @@
       "importance": 0.94,
       "scale_factor": 1.3
     },
-    "sources": ["src-bert-2018"]
+    "sources": [
+      "src-bert-2018"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "gpt-2",
     "type": "model",
     "name": "GPT-2",
-    "aliases": ["Radford et al. 2019", "GPT-2 1.5B"],
+    "aliases": [
+      "Radford et al. 2019",
+      "GPT-2 1.5B"
+    ],
     "creator": "org-openai",
     "creator_name": "Alec Radford et al. / OpenAI",
     "release_date": "2019-02-14",
@@ -503,7 +589,9 @@
       "value": 1024,
       "unit": "tokens"
     },
-    "modalities": ["text"],
+    "modalities": [
+      "text"
+    ],
     "availability": "open_weights",
     "license": "MIT",
     "summary": "Proved that language models trained on massive internet text without explicit supervision act as zero-shot multitask learners.",
@@ -517,13 +605,20 @@
       "importance": 0.92,
       "scale_factor": 1.25
     },
-    "sources": ["src-gpt2-2019"]
+    "sources": [
+      "src-gpt2-2019"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "gpt-3",
     "type": "model",
     "name": "GPT-3",
-    "aliases": ["Brown et al. 2020", "GPT-3 175B", "Davinci"],
+    "aliases": [
+      "Brown et al. 2020",
+      "GPT-3 175B",
+      "Davinci"
+    ],
     "creator": "org-openai",
     "creator_name": "Tom Brown et al. / OpenAI",
     "release_date": "2020-05-28",
@@ -537,8 +632,8 @@
       "notes": "96 layers, 12,288 hidden dimension, 96 attention heads, alternating dense and locally banded sparse attention."
     },
     "parameters": {
-      "total_billion": 175.0,
-      "active_billion": 175.0,
+      "total_billion": 175,
+      "active_billion": 175,
       "notes": "175 billion dense parameters."
     },
     "context_window": {
@@ -567,14 +662,16 @@
       {
         "currency": "USD",
         "unit": "1M_tokens",
-        "input": 20.0,
-        "output": 20.0,
+        "input": 20,
+        "output": 20,
         "effective_date": "2020-06-11",
         "source": "src-gpt3-2020"
       }
     ],
-    "modalities": ["text"],
-    "availability": "api",
+    "modalities": [
+      "text"
+    ],
+    "availability": "closed_api",
     "summary": "Demonstrated that scaling autoregressive language models to 175B parameters produces strong in-context few-shot learning capabilities across diverse cognitive domains.",
     "key_innovations": [
       "In-context few-shot prompting without gradient updates",
@@ -583,16 +680,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.97,
-      "scale_factor": 1.45
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-gpt3-2020"]
+    "sources": [
+      "src-gpt3-2020"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "alphafold-2",
     "type": "model",
     "name": "AlphaFold 2",
-    "aliases": ["Jumper et al. 2021", "CASP14 Winner"],
+    "aliases": [
+      "Jumper et al. 2021",
+      "CASP14 Winner"
+    ],
     "creator": "org-deepmind",
     "creator_name": "John Jumper et al. / Google DeepMind",
     "release_date": "2020-11-30",
@@ -628,16 +731,21 @@
     ],
     "visual": {
       "entity_shape": "abstract_die",
-      "importance": 0.98,
-      "scale_factor": 1.4
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-alphafold2-2020"]
+    "sources": [
+      "src-alphafold2-2020"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "clip-2021",
     "type": "model",
     "name": "CLIP",
-    "aliases": ["Contrastive Language-Image Pretraining"],
+    "aliases": [
+      "Contrastive Language-Image Pretraining"
+    ],
     "creator": "org-openai",
     "creator_name": "Alec Radford et al. / OpenAI",
     "release_date": "2021-02-26",
@@ -653,7 +761,10 @@
       "active_billion": 0.428,
       "notes": "ViT-L/14 configuration."
     },
-    "modalities": ["text", "image"],
+    "modalities": [
+      "text",
+      "image"
+    ],
     "availability": "open_weights",
     "license": "MIT",
     "summary": "Trained dual visual and text encoders on 400M internet image-caption pairs using contrastive loss, enabling robust zero-shot visual classification.",
@@ -667,13 +778,19 @@
       "importance": 0.93,
       "scale_factor": 1.25
     },
-    "sources": ["src-clip-2021"]
+    "sources": [
+      "src-clip-2021"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "instructgpt",
     "type": "model",
     "name": "InstructGPT",
-    "aliases": ["Ouyang et al. 2022", "RLHF Pioneer"],
+    "aliases": [
+      "Ouyang et al. 2022",
+      "RLHF Pioneer"
+    ],
     "creator": "org-openai",
     "creator_name": "Long Ouyang et al. / OpenAI",
     "release_date": "2022-03-04",
@@ -686,12 +803,14 @@
       "notes": "3-stage pipeline: Supervised Fine-Tuning (SFT), Reward Model training, PPO Reinforcement Learning."
     },
     "parameters": {
-      "total_billion": 175.0,
-      "active_billion": 175.0,
+      "total_billion": 175,
+      "active_billion": 175,
       "notes": "Also evaluated at 1.3B and 6B parameter scales."
     },
-    "modalities": ["text"],
-    "availability": "api",
+    "modalities": [
+      "text"
+    ],
+    "availability": "closed_api",
     "summary": "Pioneered the application of Reinforcement Learning from Human Feedback (RLHF) to align language models with human user instructions, forming the direct engine of ChatGPT.",
     "key_innovations": [
       "3-stage RLHF alignment recipe (SFT → Reward Model → PPO)",
@@ -703,13 +822,19 @@
       "importance": 0.96,
       "scale_factor": 1.35
     },
-    "sources": ["src-instructgpt-2022"]
+    "sources": [
+      "src-instructgpt-2022"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "stable-diffusion",
     "type": "model",
     "name": "Stable Diffusion (v1.4 / v1.5)",
-    "aliases": ["Rombach et al. 2022", "CompVis / Runway / Stability"],
+    "aliases": [
+      "Rombach et al. 2022",
+      "CompVis / Runway / Stability"
+    ],
     "creator": "org-stability",
     "creator_name": "Robin Rombach et al. / Stability AI & LMU",
     "release_date": "2022-08-10",
@@ -722,11 +847,14 @@
       "notes": "860M parameter UNet operating in 4x downsampled latent space of a pretrained VAE."
     },
     "parameters": {
-      "total_billion": 1.0,
-      "active_billion": 1.0,
+      "total_billion": 1,
+      "active_billion": 1,
       "notes": "Approx 1.0 billion total across UNet, Text Encoder, and VAE."
     },
-    "modalities": ["text", "image"],
+    "modalities": [
+      "text",
+      "image"
+    ],
     "availability": "open_weights",
     "license": "CreativeML OpenRAIL-M",
     "summary": "Democratized generative image synthesis by operating in a compressed latent space, allowing photorealistic 512x512 image generation on consumer 8GB GPUs.",
@@ -740,13 +868,18 @@
       "importance": 0.94,
       "scale_factor": 1.3
     },
-    "sources": ["src-stablediffusion-2022"]
+    "sources": [
+      "src-stablediffusion-2022"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "nvidia-h100",
     "type": "hardware",
     "name": "NVIDIA H100 Tensor Core GPU",
-    "aliases": ["Hopper H100 SXM5 / PCIe"],
+    "aliases": [
+      "Hopper H100 SXM5 / PCIe"
+    ],
     "creator": "org-nvidia",
     "creator_name": "NVIDIA Corporation",
     "release_date": "2022-03-22",
@@ -765,16 +898,22 @@
     ],
     "visual": {
       "entity_shape": "hardware_module",
-      "importance": 0.97,
-      "scale_factor": 1.45
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-h100-2022"]
+    "sources": [
+      "src-h100-2022"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "llama-1",
     "type": "model",
     "name": "LLaMA (1)",
-    "aliases": ["Touvron et al. 2023", "Meta LLaMA 7B-65B"],
+    "aliases": [
+      "Touvron et al. 2023",
+      "Meta LLaMA 7B-65B"
+    ],
     "creator": "org-meta",
     "creator_name": "Hugo Touvron et al. / Meta AI",
     "release_date": "2023-02-27",
@@ -788,16 +927,18 @@
       "notes": "RMSNorm, SwiGLU activations, Rotary Positional Embeddings (RoPE)."
     },
     "parameters": {
-      "total_billion": 65.0,
-      "active_billion": 65.0,
+      "total_billion": 65,
+      "active_billion": 65,
       "notes": "Available in 7B, 13B, 33B, and 65B configurations."
     },
     "context_window": {
       "value": 2048,
       "unit": "tokens"
     },
-    "modalities": ["text"],
-    "availability": "research_only",
+    "modalities": [
+      "text"
+    ],
+    "availability": "research_preview",
     "license": "Non-commercial Research License",
     "summary": "Proved that smaller models trained beyond Chinchilla optimal compute points on public data can match proprietary giants, sparking the open-source LLM movement.",
     "key_innovations": [
@@ -807,16 +948,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.95,
-      "scale_factor": 1.35
+      "importance": 1,
+      "scale_factor": 1.55
     },
-    "sources": ["src-llama1-2023"]
+    "sources": [
+      "src-llama1-2023"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "gpt-4",
     "type": "model",
     "name": "GPT-4",
-    "aliases": ["OpenAI GPT-4", "GPT-4 (Original 0314)"],
+    "aliases": [
+      "OpenAI GPT-4",
+      "GPT-4 (Original 0314)"
+    ],
     "creator": "org-openai",
     "creator_name": "OpenAI",
     "release_date": "2023-03-14",
@@ -850,7 +997,7 @@
       {
         "benchmark_id": "human-eval",
         "benchmark_name": "HumanEval (Python Code)",
-        "score": 67.0,
+        "score": 67,
         "unit": "percent",
         "setting": "0-shot pass@1",
         "source": "src-gpt4-2023"
@@ -858,7 +1005,7 @@
       {
         "benchmark_id": "uniform-bar",
         "benchmark_name": "Uniform Bar Exam",
-        "score": 90.0,
+        "score": 90,
         "unit": "percentile",
         "setting": "Simulated official exam",
         "source": "src-gpt4-2023"
@@ -868,14 +1015,17 @@
       {
         "currency": "USD",
         "unit": "1M_tokens",
-        "input": 30.0,
-        "output": 60.0,
+        "input": 30,
+        "output": 60,
         "effective_date": "2023-03-14",
         "source": "src-gpt4-2023"
       }
     ],
-    "modalities": ["text", "image"],
-    "availability": "api",
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
     "summary": "The landmark frontier model that defined the generative AI era, demonstrating human-level performance across standardized professional tests and vision-language tasks.",
     "key_innovations": [
       "Multimodal input capability accepting interleaved text and visual diagrams",
@@ -884,16 +1034,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 1.0,
+      "importance": 1,
       "scale_factor": 1.6
     },
-    "sources": ["src-gpt4-2023"]
+    "sources": [
+      "src-gpt4-2023"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "claude-3-5-sonnet",
     "type": "model",
     "name": "Claude 3.5 Sonnet",
-    "aliases": ["Anthropic Claude 3.5 Sonnet", "Sonnet 3.5"],
+    "aliases": [
+      "Anthropic Claude 3.5 Sonnet",
+      "Sonnet 3.5"
+    ],
     "creator": "org-anthropic",
     "creator_name": "Anthropic",
     "release_date": "2024-06-20",
@@ -926,7 +1082,7 @@
       {
         "benchmark_id": "swe-bench",
         "benchmark_name": "SWE-bench Verified",
-        "score": 49.0,
+        "score": 49,
         "unit": "percent",
         "setting": "Agentic tool use pass@1",
         "source": "src-claude35-2024"
@@ -934,7 +1090,7 @@
       {
         "benchmark_id": "human-eval",
         "benchmark_name": "HumanEval",
-        "score": 92.0,
+        "score": 92,
         "unit": "percent",
         "setting": "0-shot pass@1",
         "source": "src-claude35-2024"
@@ -944,14 +1100,17 @@
       {
         "currency": "USD",
         "unit": "1M_tokens",
-        "input": 3.0,
-        "output": 15.0,
+        "input": 3,
+        "output": 15,
         "effective_date": "2024-06-20",
         "source": "src-claude35-2024"
       }
     ],
-    "modalities": ["text", "image"],
-    "availability": "api",
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
     "summary": "Frontier intelligence model renowned for state-of-the-art coding, complex visual reasoning, and autonomous multi-step computer use capabilities.",
     "key_innovations": [
       "Industry-leading SWE-bench software engineering pass rates",
@@ -963,13 +1122,19 @@
       "importance": 0.98,
       "scale_factor": 1.5
     },
-    "sources": ["src-claude35-2024"]
+    "sources": [
+      "src-claude35-2024"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "llama-3-405b",
     "type": "model",
     "name": "Llama 3.1 405B",
-    "aliases": ["Meta Llama 3.1 405B", "Llama 3 Herd"],
+    "aliases": [
+      "Meta Llama 3.1 405B",
+      "Llama 3 Herd"
+    ],
     "creator": "org-meta",
     "creator_name": "Meta AI",
     "release_date": "2024-07-23",
@@ -983,8 +1148,8 @@
       "notes": "126 layers, 16,384 hidden dimension, 128 attention heads with 8 Grouped-Query Attention (GQA) key-value heads."
     },
     "parameters": {
-      "total_billion": 405.0,
-      "active_billion": 405.0,
+      "total_billion": 405,
+      "active_billion": 405,
       "notes": "405 billion dense active parameters."
     },
     "context_window": {
@@ -1011,13 +1176,16 @@
       {
         "benchmark_id": "human-eval",
         "benchmark_name": "HumanEval",
-        "score": 89.0,
+        "score": 89,
         "unit": "percent",
         "setting": "0-shot pass@1",
         "source": "src-llama3-2024"
       }
     ],
-    "modalities": ["text", "code"],
+    "modalities": [
+      "text",
+      "code"
+    ],
     "availability": "open_weights",
     "license": "Llama 3.1 Community License",
     "summary": "The largest and most capable openly licensed foundation model ever trained, competitive with top closed models on 15.6T tokens across 16,000 H100 GPUs.",
@@ -1028,16 +1196,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.98,
+      "importance": 1,
       "scale_factor": 1.55
     },
-    "sources": ["src-llama3-2024"]
+    "sources": [
+      "src-llama3-2024"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "openai-o1",
     "type": "model",
     "name": "OpenAI o1",
-    "aliases": ["Strawberry", "OpenAI o1-preview / o1"],
+    "aliases": [
+      "Strawberry",
+      "OpenAI o1-preview / o1"
+    ],
     "creator": "org-openai",
     "creator_name": "OpenAI",
     "release_date": "2024-09-12",
@@ -1080,14 +1254,17 @@
       {
         "currency": "USD",
         "unit": "1M_tokens",
-        "input": 15.0,
-        "output": 60.0,
+        "input": 15,
+        "output": 60,
         "effective_date": "2024-09-12",
         "source": "src-openai-o1-2024"
       }
     ],
-    "modalities": ["text", "image"],
-    "availability": "api",
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
     "summary": "Pioneered the test-time compute paradigm, spending dynamic compute thinking through complex problems before answering, achieving PhD-level performance in physics, chemistry, and mathematics.",
     "key_innovations": [
       "Test-time compute scaling laws: performance improves monotonically with reasoning time",
@@ -1096,16 +1273,21 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.99,
+      "importance": 1,
       "scale_factor": 1.55
     },
-    "sources": ["src-openai-o1-2024"]
+    "sources": [
+      "src-openai-o1-2024"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "deepseek-v3",
     "type": "model",
     "name": "DeepSeek-V3",
-    "aliases": ["DeepSeek 671B MoE"],
+    "aliases": [
+      "DeepSeek 671B MoE"
+    ],
     "creator": "org-deepseek",
     "creator_name": "DeepSeek AI",
     "release_date": "2024-12-27",
@@ -1119,8 +1301,8 @@
       "notes": "671B total parameters, 37B activated per token (8 routed + 1 shared), Multi-Head Latent Attention (MLA) for KV cache compression."
     },
     "parameters": {
-      "total_billion": 671.0,
-      "active_billion": 37.0,
+      "total_billion": 671,
+      "active_billion": 37,
       "notes": "671 billion total parameters with 37 billion active per token."
     },
     "context_window": {
@@ -1155,7 +1337,10 @@
         "source": "src-deepseek-v3-2024"
       }
     ],
-    "modalities": ["text", "code"],
+    "modalities": [
+      "text",
+      "code"
+    ],
     "availability": "open_weights",
     "license": "MIT",
     "summary": "Achieved frontier-tier performance while drastically lowering training and serving costs via Multi-Head Latent Attention (MLA) and auxiliary-loss-free load balancing.",
@@ -1170,13 +1355,18 @@
       "importance": 0.97,
       "scale_factor": 1.5
     },
-    "sources": ["src-deepseek-v3-2024"]
+    "sources": [
+      "src-deepseek-v3-2024"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "deepseek-r1",
     "type": "model",
     "name": "DeepSeek-R1",
-    "aliases": ["DeepSeek-R1 671B Reasoning"],
+    "aliases": [
+      "DeepSeek-R1 671B Reasoning"
+    ],
     "creator": "org-deepseek",
     "creator_name": "DeepSeek AI",
     "release_date": "2025-01-20",
@@ -1190,8 +1380,8 @@
       "notes": "Large-scale reinforcement learning using GRPO directly on base model without supervised cold-start."
     },
     "parameters": {
-      "total_billion": 671.0,
-      "active_billion": 37.0,
+      "total_billion": 671,
+      "active_billion": 37,
       "notes": "671 billion total parameters with 37 billion active per token."
     },
     "context_window": {
@@ -1226,7 +1416,10 @@
         "source": "src-deepseek-r1-2025"
       }
     ],
-    "modalities": ["text", "code"],
+    "modalities": [
+      "text",
+      "code"
+    ],
     "availability": "open_weights",
     "license": "MIT",
     "summary": "Demonstrated that reasoning capabilities and reflection patterns emerge purely through large-scale reinforcement learning, matching closed reasoning models under fully open MIT licensing.",
@@ -1237,16 +1430,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.99,
+      "importance": 1,
       "scale_factor": 1.55
     },
-    "sources": ["src-deepseek-r1-2025"]
+    "sources": [
+      "src-deepseek-r1-2025"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "llama-3-3-70b",
     "type": "model",
     "name": "Llama 3.3 70B",
-    "aliases": ["Meta Llama 3.3", "Llama 3.3 70B Instruct"],
+    "aliases": [
+      "Meta Llama 3.3",
+      "Llama 3.3 70B Instruct"
+    ],
     "creator": "org-meta",
     "creator_name": "Meta AI",
     "release_date": "2024-12-06",
@@ -1260,8 +1459,8 @@
       "notes": "70 billion dense parameters delivering prior 405B capability through synthetic data distillation and enhanced post-training."
     },
     "parameters": {
-      "total_billion": 70.0,
-      "active_billion": 70.0,
+      "total_billion": 70,
+      "active_billion": 70,
       "notes": "70 billion dense active parameters."
     },
     "context_window": {
@@ -1286,7 +1485,10 @@
         "source": "src-llama33-2024"
       }
     ],
-    "modalities": ["text", "code"],
+    "modalities": [
+      "text",
+      "code"
+    ],
     "availability": "open_weights",
     "license": "Llama 3.3 Community License",
     "summary": "Delivers the industry-standard intelligence of Meta's flagship 405B model inside a lightweight 70B footprint, accessible on single-node GPU systems.",
@@ -1300,13 +1502,19 @@
       "importance": 0.96,
       "scale_factor": 1.45
     },
-    "sources": ["src-llama33-2024"]
+    "sources": [
+      "src-llama33-2024"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "qwq-32b",
     "type": "model",
     "name": "QwQ-32B",
-    "aliases": ["Qwen QwQ-32B-Preview", "Alibaba QwQ"],
+    "aliases": [
+      "Qwen QwQ-32B-Preview",
+      "Alibaba QwQ"
+    ],
     "creator": "org-alibaba",
     "creator_name": "Alibaba Cloud / Qwen Team",
     "release_date": "2024-11-27",
@@ -1346,7 +1554,10 @@
         "source": "src-qwq-2024"
       }
     ],
-    "modalities": ["text", "code"],
+    "modalities": [
+      "text",
+      "code"
+    ],
     "availability": "open_weights",
     "license": "Apache-2.0",
     "summary": "Pioneered open-weights test-time compute reasoning, demonstrating that a 32B model can match early proprietary reasoning systems on math benchmarks.",
@@ -1360,13 +1571,19 @@
       "importance": 0.94,
       "scale_factor": 1.35
     },
-    "sources": ["src-qwq-2024"]
+    "sources": [
+      "src-qwq-2024"
+    ],
+    "tier": "tier_a"
   },
   {
     "id": "nvidia-blackwell-b200",
     "type": "hardware",
     "name": "NVIDIA Blackwell GB200 NVL72",
-    "aliases": ["Blackwell B200", "GB200 NVL72 Rack"],
+    "aliases": [
+      "Blackwell B200",
+      "GB200 NVL72 Rack"
+    ],
     "creator": "org-nvidia",
     "creator_name": "NVIDIA Corporation",
     "release_date": "2025-01-10",
@@ -1385,16 +1602,22 @@
     ],
     "visual": {
       "entity_shape": "hardware_module",
-      "importance": 0.99,
+      "importance": 1,
       "scale_factor": 1.6
     },
-    "sources": ["src-blackwell-2024"]
+    "sources": [
+      "src-blackwell-2024"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "openai-o3",
     "type": "model",
     "name": "OpenAI o3",
-    "aliases": ["o3 Frontier Reasoning", "OpenAI o3-mini / o3"],
+    "aliases": [
+      "o3 Frontier Reasoning",
+      "OpenAI o3-mini / o3"
+    ],
     "creator": "org-openai",
     "creator_name": "OpenAI",
     "release_date": "2025-01-31",
@@ -1445,14 +1668,18 @@
       {
         "currency": "USD",
         "unit": "1M_tokens",
-        "input": 1.10,
-        "output": 4.40,
+        "input": 1.1,
+        "output": 4.4,
         "effective_date": "2025-01-31",
         "source": "src-openai-o3-2025"
       }
     ],
-    "modalities": ["text", "code", "image"],
-    "availability": "api",
+    "modalities": [
+      "text",
+      "code",
+      "image"
+    ],
+    "availability": "closed_api",
     "summary": "State-of-the-art frontier reasoning model breaking the 87% barrier on ARC-AGI novel reasoning tasks and scoring 96.7% on the American Invitational Mathematics Examination.",
     "key_innovations": [
       "Record ARC-AGI reasoning score (87.5%) bridging novel generalization gap",
@@ -1461,16 +1688,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 1.0,
+      "importance": 1,
       "scale_factor": 1.6
     },
-    "sources": ["src-openai-o3-2025"]
+    "sources": [
+      "src-openai-o3-2025"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "gemini-2-pro",
     "type": "model",
     "name": "Gemini 2.0 Pro",
-    "aliases": ["Google Gemini 2.0 Pro / Flash", "Gemini 2.0 Flash Thinking"],
+    "aliases": [
+      "Google Gemini 2.0 Pro / Flash",
+      "Gemini 2.0 Flash Thinking"
+    ],
     "creator": "org-deepmind",
     "creator_name": "Google DeepMind",
     "release_date": "2025-02-05",
@@ -1509,8 +1742,14 @@
         "source": "src-gemini2-2025"
       }
     ],
-    "modalities": ["text", "image", "audio", "video", "code"],
-    "availability": "api",
+    "modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "code"
+    ],
+    "availability": "closed_api",
     "summary": "Google's flagship agentic multimodal model offering 2,000,000 token context window, native sub-second live audio-video streaming, and autonomous multi-tool grounding.",
     "key_innovations": [
       "Native bidirectional audio and live video streaming with low latency",
@@ -1519,16 +1758,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 0.98,
+      "importance": 1,
       "scale_factor": 1.55
     },
-    "sources": ["src-gemini2-2025"]
+    "sources": [
+      "src-gemini2-2025"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "claude-3-7-sonnet",
     "type": "model",
     "name": "Claude 3.7 Sonnet",
-    "aliases": ["Anthropic Claude 3.7", "Claude 3.7 Hybrid Reasoning"],
+    "aliases": [
+      "Anthropic Claude 3.7",
+      "Claude 3.7 Hybrid Reasoning"
+    ],
     "creator": "org-anthropic",
     "creator_name": "Anthropic",
     "release_date": "2025-02-24",
@@ -1571,14 +1816,18 @@
       {
         "currency": "USD",
         "unit": "1M_tokens",
-        "input": 3.0,
-        "output": 15.0,
+        "input": 3,
+        "output": 15,
         "effective_date": "2025-02-24",
         "source": "src-claude37-2025"
       }
     ],
-    "modalities": ["text", "image", "code"],
-    "availability": "api",
+    "modalities": [
+      "text",
+      "image",
+      "code"
+    ],
+    "availability": "closed_api",
     "summary": "The first hybrid frontier model combining standard low-latency generation with continuous extended thinking capabilities, dominating autonomous software engineering benchmarks.",
     "key_innovations": [
       "Dynamic thinking budget control adjusting reasoning depth per request",
@@ -1587,16 +1836,22 @@
     ],
     "visual": {
       "entity_shape": "model_chip",
-      "importance": 1.0,
+      "importance": 1,
       "scale_factor": 1.6
     },
-    "sources": ["src-claude37-2025"]
+    "sources": [
+      "src-claude37-2025"
+    ],
+    "tier": "tier_s"
   },
   {
     "id": "nvidia-rubin",
     "type": "hardware",
     "name": "NVIDIA Vera Rubin Architecture",
-    "aliases": ["NVIDIA Rubin R100", "Rubin Ultra"],
+    "aliases": [
+      "NVIDIA Rubin R100",
+      "Rubin Ultra"
+    ],
     "creator": "org-nvidia",
     "creator_name": "NVIDIA Corporation",
     "release_date": "2026-03-18",
@@ -1615,9 +1870,2483 @@
     ],
     "visual": {
       "entity_shape": "hardware_module",
-      "importance": 0.99,
+      "importance": 1,
       "scale_factor": 1.65
     },
-    "sources": ["src-rubin-2026"]
+    "sources": [
+      "src-rubin-2026"
+    ],
+    "tier": "tier_s"
+  },
+  {
+    "id": "claude-opus-5",
+    "type": "model",
+    "name": "Claude Opus 5",
+    "aliases": [
+      "Claude Opus 5",
+      "Anthropic Claude Opus 5"
+    ],
+    "creator": "org-anthropic",
+    "creator_name": "Anthropic",
+    "release_date": "2026-07-24",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Autonomous Intelligence Frontier",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Autonomous Intelligence Frontier Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 500000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench Verified",
+        "score": 82.4,
+        "unit": "percent",
+        "setting": "Multi-turn autonomous coding pass@1",
+        "source": "src-claude-opus-5-2026"
+      },
+      {
+        "benchmark_id": "tau-bench",
+        "benchmark_name": "TAU-bench Telecom",
+        "score": 91.5,
+        "unit": "percent",
+        "setting": "Autonomous tool orchestration",
+        "source": "src-claude-opus-5-2026"
+      },
+      {
+        "benchmark_id": "gpqa-diamond",
+        "benchmark_name": "GPQA Diamond (PhD Science)",
+        "score": 79.2,
+        "unit": "percent",
+        "setting": "Chain-of-thought pass@1",
+        "source": "src-claude-opus-5-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Anthropic's flagship frontier model setting new world records across autonomous software engineering (82.4% SWE-bench) and complex scientific reasoning.",
+    "key_innovations": [
+      "Autonomous self-verifying agent loops with formal proof synthesis",
+      "500k token context window with instantaneous recursive tree retrieval",
+      "Native zero-latency desktop operating system computer use"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-claude-opus-5-2026"
+    ]
+  },
+  {
+    "id": "gemini-3-7-flash",
+    "type": "model",
+    "name": "Gemini 3.7 Flash",
+    "aliases": [
+      "Gemini 3.7 Flash",
+      "Google Gemini 3.7 Flash"
+    ],
+    "creator": "org-google",
+    "creator_name": "Google",
+    "release_date": "2026-08-13",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Multimodal Agentic LLM",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Multimodal Agentic LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 4000000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "video-mme",
+        "benchmark_name": "Video-MME",
+        "score": 89.6,
+        "unit": "percent",
+        "setting": "Full movie multimodal reasoning",
+        "source": "src-gemini-3-7-flash-2026"
+      },
+      {
+        "benchmark_id": "math-vista",
+        "benchmark_name": "MathVista",
+        "score": 84.1,
+        "unit": "percent",
+        "setting": "Multimodal mathematical proof",
+        "source": "src-gemini-3-7-flash-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Google's 4-million-token multimodal frontier engine, offering sub-50ms real-time audio/video interaction and native tool grounding.",
+    "key_innovations": [
+      "Industry-first 4 Million token active working context window",
+      "Sub-50ms live bidirectional multi-camera video and audio grounding",
+      "Integrated compiler and code-execution sandbox tool chaining"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-gemini-3-7-flash-2026"
+    ]
+  },
+  {
+    "id": "grok-4-6",
+    "type": "model",
+    "name": "Grok 4.6",
+    "aliases": [
+      "Grok 4.6",
+      "xAI Grok 4.6"
+    ],
+    "creator": "org-xai",
+    "creator_name": "xAI",
+    "release_date": "2026-08-06",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Reasoning LLM",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Frontier Reasoning LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 256000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "aime-2026",
+        "benchmark_name": "AIME 2026 Olympiad",
+        "score": 98.2,
+        "unit": "percent",
+        "setting": "Test-time search consensus",
+        "source": "src-grok-4-6-2026"
+      },
+      {
+        "benchmark_id": "codeforces",
+        "benchmark_name": "Codeforces Rating",
+        "score": 2350,
+        "unit": "elo",
+        "setting": "International Grandmaster percentile",
+        "source": "src-grok-4-6-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "xAI's flagship reasoning system achieving 98.2% on mathematics olympiads and 2350 Codeforces competitive programming rating.",
+    "key_innovations": [
+      "Massive Colossus-2 cluster reinforcement learning scale",
+      "Real-time live telemetry ingestion from worldwide social and web events",
+      "Dynamic test-time Monte Carlo beam search with reflection verification"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-grok-4-6-2026"
+    ]
+  },
+  {
+    "id": "gpt-5-6-sol",
+    "type": "model",
+    "name": "GPT-5.6 Sol",
+    "aliases": [
+      "GPT-5.6 Sol",
+      "OpenAI GPT-5.6 Sol"
+    ],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2026-07-09",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Ultra-Scale Frontier LLM",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Ultra-Scale Frontier LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 1000000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "arc-agi-2",
+        "benchmark_name": "ARC-AGI-2",
+        "score": 92.8,
+        "unit": "percent",
+        "setting": "Novel reasoning generalization",
+        "source": "src-gpt-5-6-sol-2026"
+      },
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench Verified",
+        "score": 84,
+        "unit": "percent",
+        "setting": "End-to-end repository repair",
+        "source": "src-gpt-5-6-sol-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "code",
+      "audio"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "OpenAI's most capable foundation system, delivering human-expert level performance on the ARC-AGI benchmark (92.8%) and full repository engineering.",
+    "key_innovations": [
+      "Unified omni-modal reasoning substrate with native audio, vision, and symbolic kernels",
+      "Continuous test-time compute budget allocation scaling to hours per complex task",
+      "Next-generation alignment preventing subtle sycophancy and specification gaming"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-gpt-5-6-sol-2026"
+    ]
+  },
+  {
+    "id": "gpt-5-6-terra",
+    "type": "model",
+    "name": "GPT-5.6 Terra",
+    "aliases": [
+      "GPT-5.6 Terra",
+      "OpenAI GPT-5.6 Terra"
+    ],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2026-07-09",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Balanced Frontier LLM",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Balanced Frontier LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 256000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench Verified",
+        "score": 76.5,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-gpt-5-6-terra-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Balanced enterprise workhorse model combining deep reasoning with high-throughput API latency.",
+    "key_innovations": [
+      "High-throughput frontier intelligence at 4x lower latency than Sol"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-gpt-5-6-terra-2026"
+    ]
+  },
+  {
+    "id": "gpt-5-6-luna",
+    "type": "model",
+    "name": "GPT-5.6 Luna",
+    "aliases": [
+      "GPT-5.6 Luna",
+      "OpenAI GPT-5.6 Luna"
+    ],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2026-07-09",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Compact Frontier LLM",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Compact Frontier LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu-pro",
+        "benchmark_name": "MMLU-Pro",
+        "score": 78.4,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-gpt-5-6-luna-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Compact high-efficiency frontier LLM designed for high-concurrency enterprise pipelines.",
+    "key_innovations": [
+      "Ultra-low latency inference with distilled frontier reasoning"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-gpt-5-6-luna-2026"
+    ]
+  },
+  {
+    "id": "kimi-k3",
+    "type": "model",
+    "name": "Kimi K3",
+    "aliases": [
+      "Kimi K3",
+      "Moonshot AI Kimi K3"
+    ],
+    "creator": "org-moonshot",
+    "creator_name": "Moonshot AI",
+    "release_date": "2026-07-16",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Long-Context",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Frontier Long-Context Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 10000000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "needle-10m",
+        "benchmark_name": "10M Token Needle Retrieval",
+        "score": 99.8,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-kimi-k3-2026"
+      },
+      {
+        "benchmark_id": "math-500",
+        "benchmark_name": "MATH-500",
+        "score": 98,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-kimi-k3-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Moonshot AI's breakthrough 10-million token long-context flagship model with near-perfect retrieval and mathematical problem solving.",
+    "key_innovations": [
+      "10-Million token linear state-space associative memory",
+      "Dynamic chunked attention with zero latency degradation at extreme scale",
+      "Instantaneous code indexing across multi-gigabyte codebases"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-kimi-k3-2026"
+    ]
+  },
+  {
+    "id": "glm-5-3",
+    "type": "model",
+    "name": "GLM-5.3",
+    "aliases": [
+      "GLM-5.3",
+      "Z.AI GLM-5.3"
+    ],
+    "creator": "org-z-ai",
+    "creator_name": "Z.AI",
+    "release_date": "2026-08-14",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Bilingual LLM",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Frontier Bilingual LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 512000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "cmmlu",
+        "benchmark_name": "CMMLU Chinese Understanding",
+        "score": 94.2,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-glm-5-3-2026"
+      },
+      {
+        "benchmark_id": "humaneval",
+        "benchmark_name": "HumanEval",
+        "score": 95,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-glm-5-3-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Z.AI's state-of-the-art bilingual foundation model leading Chinese and English reasoning benchmarks.",
+    "key_innovations": [
+      "Deep bilingual cross-lingual reasoning architecture",
+      "Self-improving agentic verification harness",
+      "512k token context with linear memory compression"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-glm-5-3-2026"
+    ]
+  },
+  {
+    "id": "deepseek-v4-flash-vision-exp",
+    "type": "model",
+    "name": "DeepSeek V4 Flash Vision Exp",
+    "aliases": [
+      "DeepSeek V4 Flash Vision Exp",
+      "DeepSeek DeepSeek V4 Flash Vision Exp"
+    ],
+    "creator": "org-deepseek",
+    "creator_name": "DeepSeek",
+    "release_date": "2026-08-21",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Multimodal Frontier",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Multimodal Frontier Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 850,
+      "active_billion": 42,
+      "notes": "850B parameters."
+    },
+    "context_window": {
+      "value": 256000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmmu",
+        "benchmark_name": "MMMU Multi-discipline",
+        "score": 74.8,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-deepseek-v4-flash-vision-exp-2026"
+      },
+      {
+        "benchmark_id": "math-500",
+        "benchmark_name": "MATH-500",
+        "score": 98.4,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-deepseek-v4-flash-vision-exp-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "code"
+    ],
+    "availability": "research_preview",
+    "license": "MIT",
+    "summary": "DeepSeek's experimental 850B MoE multimodal model applying reinforcement-learned reasoning directly to high-resolution visual inputs.",
+    "key_innovations": [
+      "Native Vision-MLA (Multi-Head Latent Attention for 2D visual patches)",
+      "Pure RL visual reasoning without supervised visual cold-start",
+      "Ultra-low inference cost on commodity GPU clusters"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-deepseek-v4-flash-vision-exp-2026"
+    ]
+  },
+  {
+    "id": "qwen3-8-max",
+    "type": "model",
+    "name": "Qwen3.8 Max",
+    "aliases": [
+      "Qwen3.8 Max",
+      "Alibaba / Qwen Qwen3.8 Max"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-08-02",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Flagship LLM",
+    "tier": "tier_s",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Frontier Flagship LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_S architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 256000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu-pro",
+        "benchmark_name": "MMLU-Pro",
+        "score": 81.2,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-qwen3-8-max-2026"
+      },
+      {
+        "benchmark_id": "aime-2024",
+        "benchmark_name": "AIME Olympiad",
+        "score": 88.5,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-qwen3-8-max-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Alibaba's premier closed-frontier flagship model dominating multilingual understanding, math, and code generation.",
+    "key_innovations": [
+      "Massive synthetic data curation pipeline spanning 30T tokens",
+      "Hierarchical MoE routing with zero expert collapse",
+      "Advanced multi-turn tool and agent reasoning"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 1,
+      "scale_factor": 1.65,
+      "tier": "tier_s"
+    },
+    "sources": [
+      "src-qwen3-8-max-2026"
+    ]
+  },
+  {
+    "id": "qwen3-8-27b",
+    "type": "model",
+    "name": "Qwen3.8 27B",
+    "aliases": [
+      "Qwen3.8 27B",
+      "Alibaba / Qwen Qwen3.8 27B"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-08-14",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open Vision-Language",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Open Vision-Language Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 27.4,
+      "active_billion": 27.4,
+      "notes": "27.4B parameters."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "docvqa",
+        "benchmark_name": "DocVQA",
+        "score": 93.8,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-qwen3-8-27b-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "code"
+    ],
+    "availability": "open_weights",
+    "license": "Apache-2.0",
+    "summary": "Open-weights 27B vision-language model offering near-frontier document and diagram understanding on local hardware.",
+    "key_innovations": [
+      "Dense 27B VLM matching prior 70B vision models on single consumer GPU"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-qwen3-8-27b-2026"
+    ]
+  },
+  {
+    "id": "qwen3-5-9b",
+    "type": "model",
+    "name": "Qwen3.5 9B",
+    "aliases": [
+      "Qwen3.5 9B",
+      "Alibaba / Qwen Qwen3.5 9B"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-06-01",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open-weight Efficient LLM",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Open-weight Efficient LLM Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 9.2,
+      "active_billion": 9.2,
+      "notes": "9.2B parameters."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "humaneval",
+        "benchmark_name": "HumanEval",
+        "score": 86.4,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-qwen3-5-9b-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "open_weights",
+    "license": "Apache-2.0",
+    "summary": "Highly popular open-weights compact model running locally on laptops and edge devices.",
+    "key_innovations": [
+      "Unprecedented 9B parameter code generation efficiency"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-qwen3-5-9b-2026"
+    ]
+  },
+  {
+    "id": "nemotron-3-ultra-550b",
+    "type": "model",
+    "name": "Nemotron 3 Ultra 550B",
+    "aliases": [
+      "Nemotron 3 Ultra 550B",
+      "NVIDIA Nemotron 3 Ultra 550B"
+    ],
+    "creator": "org-nvidia",
+    "creator_name": "NVIDIA",
+    "release_date": "2026-06-01",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open Frontier MoE Model",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Open Frontier MoE Model Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 550,
+      "active_billion": 38,
+      "notes": "550B parameters."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU",
+        "score": 90.4,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-nemotron-3-ultra-550b-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "open_weights",
+    "license": "NVIDIA Open Model License",
+    "summary": "NVIDIA's flagship open-weights 550B MoE model natively optimized for Blackwell FP4 Tensor Cores.",
+    "key_innovations": [
+      "FP4-native pre-training on Blackwell NVL72 clusters"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-nemotron-3-ultra-550b-2026"
+    ]
+  },
+  {
+    "id": "kimi-k2-7-code",
+    "type": "model",
+    "name": "Kimi K2.7 Code",
+    "aliases": [
+      "Kimi K2.7 Code",
+      "Moonshot AI Kimi K2.7 Code"
+    ],
+    "creator": "org-moonshot",
+    "creator_name": "Moonshot AI",
+    "release_date": "2026-06-12",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Long-Context Software Engineer",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Long-Context Software Engineer Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 1000000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench",
+        "score": 68.4,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-kimi-k2-7-code-2026"
+      }
+    ],
+    "modalities": [
+      "code",
+      "text"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Specialized software engineering model capable of analyzing million-line code repositories.",
+    "key_innovations": [
+      "1M context window code repo debugging"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-kimi-k2-7-code-2026"
+    ]
+  },
+  {
+    "id": "glm-5-2",
+    "type": "model",
+    "name": "GLM-5.2",
+    "aliases": [
+      "GLM-5.2",
+      "Z.AI GLM-5.2"
+    ],
+    "creator": "org-z-ai",
+    "creator_name": "Z.AI",
+    "release_date": "2026-06-13",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Bilingual Frontier LLM",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Bilingual Frontier LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 256000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "cmmlu",
+        "benchmark_name": "CMMLU",
+        "score": 91.8,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-glm-5-2-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Enterprise bilingual foundation model powering financial and enterprise workflows.",
+    "key_innovations": [
+      "Bilingual alignment with high reasoning stability"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-glm-5-2-2026"
+    ]
+  },
+  {
+    "id": "ling-3-0-flash",
+    "type": "model",
+    "name": "Ling 3.0 Flash",
+    "aliases": [
+      "Ling 3.0 Flash",
+      "InclusionAI Ling 3.0 Flash"
+    ],
+    "creator": "org-inclusion-ai",
+    "creator_name": "InclusionAI",
+    "release_date": "2026-08-02",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "High-Speed LLM",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "High-Speed LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "gsm8k",
+        "benchmark_name": "GSM8K",
+        "score": 95.6,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-ling-3-0-flash-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Ultra-fast inference model designed for real-time customer agent workflows.",
+    "key_innovations": [
+      "Sub-15ms first token latency with speculative draft streaming"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-ling-3-0-flash-2026"
+    ]
+  },
+  {
+    "id": "cosmos-3-super-reasoner",
+    "type": "model",
+    "name": "Cosmos 3 Super Reasoner",
+    "aliases": [
+      "Cosmos 3 Super Reasoner",
+      "NVIDIA Cosmos 3 Super Reasoner"
+    ],
+    "creator": "org-nvidia",
+    "creator_name": "NVIDIA",
+    "release_date": "2026-06-01",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Physical & Spatial Reasoning",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Physical & Spatial Reasoning Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 120,
+      "active_billion": 120,
+      "notes": "120B parameters."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "physics-world",
+        "benchmark_name": "PhysicsWorld Simulation",
+        "score": 88.2,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-cosmos-3-super-reasoner-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "3d",
+      "video",
+      "code"
+    ],
+    "availability": "open_weights",
+    "license": "NVIDIA Open Model License",
+    "summary": "NVIDIA's physical AI foundation model for robotics, simulation, and spatial visual reasoning.",
+    "key_innovations": [
+      "World-model physics simulation and 3D robotic trajectory synthesis"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-cosmos-3-super-reasoner-2026"
+    ]
+  },
+  {
+    "id": "fugu-ultra",
+    "type": "model",
+    "name": "Fugu Ultra",
+    "aliases": [
+      "Fugu Ultra",
+      "Sakana AI Fugu Ultra"
+    ],
+    "creator": "org-sakana",
+    "creator_name": "Sakana AI",
+    "release_date": "2026-06-22",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Evolutionary Merged Model",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Evolutionary Merged Model Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 72,
+      "active_billion": 72,
+      "notes": "72B parameters."
+    },
+    "context_window": {
+      "value": 64000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "japanese-mt-bench",
+        "benchmark_name": "Japanese MT-Bench",
+        "score": 9.35,
+        "unit": "score",
+        "setting": "Standard evaluation",
+        "source": "src-fugu-ultra-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "open_weights",
+    "license": "Apache-2.0",
+    "summary": "Breakthrough evolutionary merged model created by algorithmic search across hundreds of open weights.",
+    "key_innovations": [
+      "Automated evolutionary model merging without re-training"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-fugu-ultra-2026"
+    ]
+  },
+  {
+    "id": "claude-sonnet-5",
+    "type": "model",
+    "name": "Claude Sonnet 5",
+    "aliases": [
+      "Claude Sonnet 5",
+      "Anthropic Claude Sonnet 5"
+    ],
+    "creator": "org-anthropic",
+    "creator_name": "Anthropic",
+    "release_date": "2026-06-30",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Agentic Reasoning",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Frontier Agentic Reasoning Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 200000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "swe-bench",
+        "benchmark_name": "SWE-bench Verified",
+        "score": 78.2,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-claude-sonnet-5-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "image",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Anthropic's mid-tier flagship offering state-of-the-art coding and agentic speed.",
+    "key_innovations": [
+      "Next-generation hybrid thinking with instant tool execution"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-claude-sonnet-5-2026"
+    ]
+  },
+  {
+    "id": "grok-4-5",
+    "type": "model",
+    "name": "Grok 4.5",
+    "aliases": [
+      "Grok 4.5",
+      "xAI Grok 4.5"
+    ],
+    "creator": "org-xai",
+    "creator_name": "xAI",
+    "release_date": "2026-07-08",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Reasoning LLM",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Reasoning LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "aime",
+        "benchmark_name": "AIME 2024",
+        "score": 92.4,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-grok-4-5-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "xAI's massive cluster reasoning model demonstrating rapid post-training scaling.",
+    "key_innovations": [
+      "First deployment on the 100,000 H100 Colossus cluster"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-grok-4-5-2026"
+    ]
+  },
+  {
+    "id": "qwen3-8-flash",
+    "type": "model",
+    "name": "Qwen3.8 Flash",
+    "aliases": [
+      "Qwen3.8 Flash",
+      "Alibaba / Qwen Qwen3.8 Flash"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-08-26",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "High-Speed LLM",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "High-Speed LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU",
+        "score": 87.2,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-qwen3-8-flash-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Alibaba's ultra-fast API model for interactive high-throughput agent workflows.",
+    "key_innovations": [
+      "High token generation rate (180 tok/sec) via speculative decoding"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-qwen3-8-flash-2026"
+    ]
+  },
+  {
+    "id": "glm-5-3-flash",
+    "type": "model",
+    "name": "GLM-5.3 Flash",
+    "aliases": [
+      "GLM-5.3 Flash",
+      "Z.AI GLM-5.3 Flash"
+    ],
+    "creator": "org-z-ai",
+    "creator_name": "Z.AI",
+    "release_date": "2026-08-26",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "High-Speed LLM",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "High-Speed LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 128000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "gsm8k",
+        "benchmark_name": "GSM8K",
+        "score": 94.8,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-glm-5-3-flash-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "High-speed bilingual model delivering sub-second response times.",
+    "key_innovations": [
+      "Zero-latency speculative verification"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-glm-5-3-flash-2026"
+    ]
+  },
+  {
+    "id": "glm-5-2-turbo",
+    "type": "model",
+    "name": "GLM-5.2 Turbo",
+    "aliases": [
+      "GLM-5.2 Turbo",
+      "Z.AI GLM-5.2 Turbo"
+    ],
+    "creator": "org-z-ai",
+    "creator_name": "Z.AI",
+    "release_date": "2026-08-17",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Dense LLM",
+    "tier": "tier_a",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Dense LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_A architecture optimized for 2026 high-throughput inference."
+    },
+    "context_window": {
+      "value": 256000,
+      "unit": "tokens"
+    },
+    "benchmarks": [
+      {
+        "benchmark_id": "mmlu",
+        "benchmark_name": "MMLU",
+        "score": 86.8,
+        "unit": "percent",
+        "setting": "Standard evaluation",
+        "source": "src-glm-5-2-turbo-2026"
+      }
+    ],
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Efficient enterprise-scale LLM tailored for cost-effective customer support.",
+    "key_innovations": [
+      "Optimized memory bandwidth utilization"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.92,
+      "scale_factor": 1.35,
+      "tier": "tier_a"
+    },
+    "sources": [
+      "src-glm-5-2-turbo-2026"
+    ]
+  },
+  {
+    "id": "qwen-image-3-0-pro",
+    "type": "model",
+    "name": "Qwen Image 3.0 Pro",
+    "aliases": [
+      "Qwen Image 3.0 Pro",
+      "Alibaba / Qwen Qwen Image 3.0 Pro"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-08-05",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Photorealistic Image Generation",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Photorealistic Image Generation Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Professional-grade visual diffusion model with exceptional prompt adherence and text inpainting.",
+    "key_innovations": [
+      "High-fidelity typography and complex spatial lighting rendering"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-qwen-image-3-0-pro-2026"
+    ]
+  },
+  {
+    "id": "qwen-image-3-0",
+    "type": "model",
+    "name": "Qwen Image 3.0",
+    "aliases": [
+      "Qwen Image 3.0",
+      "Alibaba / Qwen Qwen Image 3.0"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-08-05",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Image Generation",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Image Generation Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 12,
+      "active_billion": 12,
+      "notes": "12B parameters."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "open_weights",
+    "license": "Apache-2.0",
+    "summary": "Open-weights state-of-the-art image synthesis model with bilingual Chinese/English conditioning.",
+    "key_innovations": [
+      "Open weights text-to-image generator competing with midjourney v6"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-qwen-image-3-0-2026"
+    ]
+  },
+  {
+    "id": "grok-imagine-image-2-0",
+    "type": "model",
+    "name": "Grok Imagine Image 2.0",
+    "aliases": [
+      "Grok Imagine Image 2.0",
+      "xAI Grok Imagine Image 2.0"
+    ],
+    "creator": "org-xai",
+    "creator_name": "xAI",
+    "release_date": "2026-08-08",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Visual Generation",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Visual Generation Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "xAI's next-generation image generator integrated into X with instant rendering.",
+    "key_innovations": [
+      "Zero-censorship creative visual rendering with photorealistic textures"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-grok-imagine-image-2-0-2026"
+    ]
+  },
+  {
+    "id": "seedance-2-5",
+    "type": "model",
+    "name": "Seedance 2.5",
+    "aliases": [
+      "Seedance 2.5",
+      "ByteDance Seedance 2.5"
+    ],
+    "creator": "org-bytedance",
+    "creator_name": "ByteDance",
+    "release_date": "2026-08-08",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Video Synthesis",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Latent Video Diffusion Transformer",
+      "subtype": "Video Synthesis Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image",
+      "video"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "ByteDance's cinematic video generator producing broadcast-quality dynamic video.",
+    "key_innovations": [
+      "4K 60fps consistent character motion and physics-grounded dynamics"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-seedance-2-5-2026"
+    ]
+  },
+  {
+    "id": "seedream-5-0-pro",
+    "type": "model",
+    "name": "Seedream 5.0 Pro",
+    "aliases": [
+      "Seedream 5.0 Pro",
+      "ByteDance Seedream 5.0 Pro"
+    ],
+    "creator": "org-bytedance",
+    "creator_name": "ByteDance",
+    "release_date": "2026-06-28",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Diffusion Visual Model",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Latent Video Diffusion Transformer",
+      "subtype": "Diffusion Visual Model Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Commercial visual synthesis model powering ByteDance e-commerce and creative suites.",
+    "key_innovations": [
+      "Advanced portrait styling and fashion product generation"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-seedream-5-0-pro-2026"
+    ]
+  },
+  {
+    "id": "kling-v3-0-turbo",
+    "type": "model",
+    "name": "KLING v3.0 Turbo",
+    "aliases": [
+      "KLING v3.0 Turbo",
+      "AtlasCloud KLING v3.0 Turbo"
+    ],
+    "creator": "org-atlascloud",
+    "creator_name": "AtlasCloud",
+    "release_date": "2026-06-20",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "High-Frame Video Generation",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Latent Video Diffusion Transformer",
+      "subtype": "High-Frame Video Generation Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image",
+      "video"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "High-speed video generation engine built for real-time video editor plugins.",
+    "key_innovations": [
+      "Sub-30-second 1080p video generation"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-kling-v3-0-turbo-2026"
+    ]
+  },
+  {
+    "id": "kling-v3-0",
+    "type": "model",
+    "name": "KLING v3.0",
+    "aliases": [
+      "KLING v3.0",
+      "AtlasCloud KLING v3.0"
+    ],
+    "creator": "org-atlascloud",
+    "creator_name": "AtlasCloud",
+    "release_date": "2026-06-20",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Cinematic Video Generation",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Latent Video Diffusion Transformer",
+      "subtype": "Cinematic Video Generation Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image",
+      "video"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Cinematic video generation platform with multi-camera director controls.",
+    "key_innovations": [
+      "Temporal coherence over 2-minute contiguous cinematic takes"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-kling-v3-0-2026"
+    ]
+  },
+  {
+    "id": "grok-stt-1-0",
+    "type": "model",
+    "name": "Grok STT 1.0",
+    "aliases": [
+      "Grok STT 1.0",
+      "xAI Grok STT 1.0"
+    ],
+    "creator": "org-xai",
+    "creator_name": "xAI",
+    "release_date": "2026-07-23",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Speech Recognition",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Speech Recognition Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "audio",
+      "text"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "xAI's acoustic speech-to-text engine powering voice spaces and multimodal audio.",
+    "key_innovations": [
+      "Zero word error rate on noisy conversational speech"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-grok-stt-1-0-2026"
+    ]
+  },
+  {
+    "id": "qwen-audio-3-0-tts-flash",
+    "type": "model",
+    "name": "Qwen-Audio-3.0-TTS Flash",
+    "aliases": [
+      "Qwen-Audio-3.0-TTS Flash",
+      "Alibaba / Qwen Qwen-Audio-3.0-TTS Flash"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-07-20",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Realtime Speech Synthesis",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Realtime Speech Synthesis Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "audio"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Real-time speech synthesis engine for expressive voice agents.",
+    "key_innovations": [
+      "Ultra-low latency streaming text-to-speech (<80ms)"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-qwen-audio-3-0-tts-flash-2026"
+    ]
+  },
+  {
+    "id": "qwen-audio-3-0-tts-plus",
+    "type": "model",
+    "name": "Qwen-Audio-3.0-TTS Plus",
+    "aliases": [
+      "Qwen-Audio-3.0-TTS Plus",
+      "Alibaba / Qwen Qwen-Audio-3.0-TTS Plus"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-07-20",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Expressive Neural Audio",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Expressive Neural Audio Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "audio"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Studio-quality neural voice synthesis supporting emotional intonation.",
+    "key_innovations": [
+      "Emotional inflection and vocal clone matching from 3-second sample"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-qwen-audio-3-0-tts-plus-2026"
+    ]
+  },
+  {
+    "id": "gpt-realtime-2-1",
+    "type": "model",
+    "name": "GPT Realtime 2.1",
+    "aliases": [
+      "GPT Realtime 2.1",
+      "OpenAI GPT Realtime 2.1"
+    ],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2026-07-06",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Full Duplex Voice & Video",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Latent Video Diffusion Transformer",
+      "subtype": "Full Duplex Voice & Video Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "audio",
+      "video",
+      "text"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "OpenAI's flagship full-duplex conversational voice and video agent.",
+    "key_innovations": [
+      "Native end-to-end audio/video streaming without transcription hop"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-gpt-realtime-2-1-2026"
+    ]
+  },
+  {
+    "id": "gpt-realtime-2-1-mini",
+    "type": "model",
+    "name": "GPT Realtime 2.1 Mini",
+    "aliases": [
+      "GPT Realtime 2.1 Mini",
+      "OpenAI GPT Realtime 2.1 Mini"
+    ],
+    "creator": "org-openai",
+    "creator_name": "OpenAI",
+    "release_date": "2026-07-06",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Sub-100ms Voice Agent",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Sub-100ms Voice Agent Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "audio",
+      "text"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Cost-efficient real-time speech agent engine for mobile apps.",
+    "key_innovations": [
+      "Low cost sub-100ms conversational audio"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-gpt-realtime-2-1-mini-2026"
+    ]
+  },
+  {
+    "id": "grok-imagine-video-1-5",
+    "type": "model",
+    "name": "Grok Imagine Video 1.5",
+    "aliases": [
+      "Grok Imagine Video 1.5",
+      "xAI Grok Imagine Video 1.5"
+    ],
+    "creator": "org-xai",
+    "creator_name": "xAI",
+    "release_date": "2026-06-17",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Generative Video",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Latent Video Diffusion Transformer",
+      "subtype": "Generative Video Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image",
+      "video"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Short-form video synthesis platform integrated into xAI suite.",
+    "key_innovations": [
+      "Direct text-to-video clip synthesis with stylized lighting"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-grok-imagine-video-1-5-2026"
+    ]
+  },
+  {
+    "id": "seedance-2-0-mini",
+    "type": "model",
+    "name": "Seedance 2.0 Mini",
+    "aliases": [
+      "Seedance 2.0 Mini",
+      "ByteDance Seedance 2.0 Mini"
+    ],
+    "creator": "org-bytedance",
+    "creator_name": "ByteDance",
+    "release_date": "2026-06-15",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Low Latency Video Synthesis",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Latent Video Diffusion Transformer",
+      "subtype": "Low Latency Video Synthesis Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "video"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Efficient mobile video diffusion engine for TikTok creative effects.",
+    "key_innovations": [
+      "Lightweight mobile video synthesis engine"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-seedance-2-0-mini-2026"
+    ]
+  },
+  {
+    "id": "gemini-3-1-flash-lite-image",
+    "type": "model",
+    "name": "Gemini 3.1 Flash Lite Image",
+    "aliases": [
+      "Gemini 3.1 Flash Lite Image",
+      "Google Gemini 3.1 Flash Lite Image"
+    ],
+    "creator": "org-google",
+    "creator_name": "Google",
+    "release_date": "2026-06-23",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Fast Visual Generation",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Fast Visual Generation Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Google's lightweight visual generation engine for search and mobile workspace.",
+    "key_innovations": [
+      "Instant image generation at sub-second speeds"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-gemini-3-1-flash-lite-image-2026"
+    ]
+  },
+  {
+    "id": "reve-create",
+    "type": "model",
+    "name": "Reve Create",
+    "aliases": [
+      "Reve Create",
+      "Reve Reve Create"
+    ],
+    "creator": "org-reve",
+    "creator_name": "Reve",
+    "release_date": "2026-06-03",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Neural Art Synthesis",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Neural Art Synthesis Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "High-end art and illustration synthesis tool for creative studios.",
+    "key_innovations": [
+      "Curated fine-art style transfer and aesthetic control"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-reve-create-2026"
+    ]
+  },
+  {
+    "id": "muse-image-1-0",
+    "type": "model",
+    "name": "Muse Image 1.0",
+    "aliases": [
+      "Muse Image 1.0",
+      "Meta Muse Image 1.0"
+    ],
+    "creator": "org-meta",
+    "creator_name": "Meta",
+    "release_date": "2026-07-07",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Open Image Synthesis",
+    "tier": "tier_b",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Open Image Synthesis Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_B architecture optimized for 2026 high-throughput inference."
+    },
+    "parameters": {
+      "total_billion": 8,
+      "active_billion": 8,
+      "notes": "8B parameters."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "open_weights",
+    "license": "Meta Open Media License",
+    "summary": "Meta's open-weights text-to-image foundation model for open research.",
+    "key_innovations": [
+      "Open-weights diffusion model running on consumer 8GB GPUs"
+    ],
+    "visual": {
+      "entity_shape": "abstract_die",
+      "importance": 0.85,
+      "scale_factor": 1.1,
+      "tier": "tier_b"
+    },
+    "sources": [
+      "src-muse-image-1-0-2026"
+    ]
+  },
+  {
+    "id": "seed-2-1-turbo",
+    "type": "model",
+    "name": "Seed 2.1 Turbo",
+    "aliases": [
+      "Seed 2.1 Turbo",
+      "ByteDance Seed 2.1 Turbo"
+    ],
+    "creator": "org-bytedance",
+    "creator_name": "ByteDance",
+    "release_date": "2026-08-10",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Efficient LLM",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Efficient LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Lightweight API model for ByteDance internal workflows.",
+    "key_innovations": [
+      "High-speed text completion"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-seed-2-1-turbo-2026"
+    ]
+  },
+  {
+    "id": "gemini-3-6-flash",
+    "type": "model",
+    "name": "Gemini 3.6 Flash",
+    "aliases": [
+      "Gemini 3.6 Flash",
+      "Google Gemini 3.6 Flash"
+    ],
+    "creator": "org-google",
+    "creator_name": "Google",
+    "release_date": "2026-07-21",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Streaming Multimodal LLM",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Streaming Multimodal LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Incremental update to Gemini 3.5 series with improved audio grounding.",
+    "key_innovations": [
+      "2M context window streaming update"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-gemini-3-6-flash-2026"
+    ]
+  },
+  {
+    "id": "gemini-3-5-flash-lite",
+    "type": "model",
+    "name": "Gemini 3.5 Flash Lite",
+    "aliases": [
+      "Gemini 3.5 Flash Lite",
+      "Google Gemini 3.5 Flash Lite"
+    ],
+    "creator": "org-google",
+    "creator_name": "Google",
+    "release_date": "2026-07-21",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Sub-second Edge LLM",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Sub-second Edge LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Cost-optimized variant for lightweight classification tasks.",
+    "key_innovations": [
+      "High concurrency low-cost routing"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-gemini-3-5-flash-lite-2026"
+    ]
+  },
+  {
+    "id": "kimi-k3-fast",
+    "type": "model",
+    "name": "Kimi K3 Fast",
+    "aliases": [
+      "Kimi K3 Fast",
+      "Moonshot AI Kimi K3 Fast"
+    ],
+    "creator": "org-moonshot",
+    "creator_name": "Moonshot AI",
+    "release_date": "2026-07-16",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Long-Context LLM",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Long-Context LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Fast sub-variant of Kimi K3 tailored for high-volume chat.",
+    "key_innovations": [
+      "High-throughput 2M context variant"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-kimi-k3-fast-2026"
+    ]
+  },
+  {
+    "id": "kimi-k2-7-code-highspeed",
+    "type": "model",
+    "name": "Kimi K2.7 Code Highspeed",
+    "aliases": [
+      "Kimi K2.7 Code Highspeed",
+      "Moonshot AI Kimi K2.7 Code Highspeed"
+    ],
+    "creator": "org-moonshot",
+    "creator_name": "Moonshot AI",
+    "release_date": "2026-06-12",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Fast Autonomous Coding",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Fast Autonomous Coding Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "code",
+      "text"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "High-speed code completion engine for IDE integration.",
+    "key_innovations": [
+      "Low-latency code autocompletion"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-kimi-k2-7-code-highspeed-2026"
+    ]
+  },
+  {
+    "id": "claude-fable-5",
+    "type": "model",
+    "name": "Claude Fable 5",
+    "aliases": [
+      "Claude Fable 5",
+      "Anthropic Claude Fable 5"
+    ],
+    "creator": "org-anthropic",
+    "creator_name": "Anthropic",
+    "release_date": "2026-06-09",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Creative Long-Form Engine",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Creative Long-Form Engine Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Specialized model tuned for literary writing and immersive creative storytelling.",
+    "key_innovations": [
+      "Stylistic narrative and long-form consistency"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-claude-fable-5-2026"
+    ]
+  },
+  {
+    "id": "hy3",
+    "type": "model",
+    "name": "Hy3",
+    "aliases": [
+      "Hy3",
+      "Tencent Hy3"
+    ],
+    "creator": "org-tencent",
+    "creator_name": "Tencent",
+    "release_date": "2026-07-06",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Frontier Multimodal LLM",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Frontier Multimodal LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "Tencent's foundation model powering smart assistant features across WeChat.",
+    "key_innovations": [
+      "WeChat ecosystem tool integration"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-hy3-2026"
+    ]
+  },
+  {
+    "id": "muse-spark-1-2",
+    "type": "model",
+    "name": "Muse Spark 1.2",
+    "aliases": [
+      "Muse Spark 1.2",
+      "Meta Muse Spark 1.2"
+    ],
+    "creator": "org-meta",
+    "creator_name": "Meta",
+    "release_date": "2026-08-06",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Multimodal Assistant",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Multimodal Assistant Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image",
+      "audio"
+    ],
+    "availability": "open_weights",
+    "license": "Llama Community License",
+    "summary": "Meta's on-device multimodal model for smart glasses and mobile hardware.",
+    "key_innovations": [
+      "Edge multimodal voice-vision integration"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-muse-spark-1-2-2026"
+    ]
+  },
+  {
+    "id": "muse-spark-1-1",
+    "type": "model",
+    "name": "Muse Spark 1.1",
+    "aliases": [
+      "Muse Spark 1.1",
+      "Meta Muse Spark 1.1"
+    ],
+    "creator": "org-meta",
+    "creator_name": "Meta",
+    "release_date": "2026-07-09",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "Multimodal Assistant",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "Multimodal Assistant Engine",
+      "publicly_disclosed": true,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "image"
+    ],
+    "availability": "open_weights",
+    "license": "Llama Community License",
+    "summary": "Earlier experimental release of Meta's lightweight multimodal assistant series.",
+    "key_innovations": [
+      "Low-power edge multimodal pre-training"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-muse-spark-1-1-2026"
+    ]
+  },
+  {
+    "id": "qwen3-7-flash",
+    "type": "model",
+    "name": "Qwen3.7 Flash",
+    "aliases": [
+      "Qwen3.7 Flash",
+      "Alibaba / Qwen Qwen3.7 Flash"
+    ],
+    "creator": "org-alibaba",
+    "creator_name": "Alibaba / Qwen",
+    "release_date": "2026-07-27",
+    "epoch_id": "epoch-agentic-frontier",
+    "category": "High-Speed LLM",
+    "tier": "tier_c",
+    "architecture": {
+      "type": "Frontier Multimodal Mixture-of-Experts",
+      "subtype": "High-Speed LLM Engine",
+      "publicly_disclosed": false,
+      "notes": "TIER_C architecture optimized for 2026 high-throughput inference."
+    },
+    "modalities": [
+      "text",
+      "code"
+    ],
+    "availability": "closed_api",
+    "license": null,
+    "summary": "High-throughput model predecessor in the Qwen 3.x Flash series.",
+    "key_innovations": [
+      "High-efficiency batch processing"
+    ],
+    "visual": {
+      "entity_shape": "model_chip",
+      "importance": 0.75,
+      "scale_factor": 0.85,
+      "tier": "tier_c"
+    },
+    "sources": [
+      "src-qwen3-7-flash-2026"
+    ]
   }
 ]
